@@ -1,0 +1,18 @@
+{
+  "languages": [
+    {
+      "lang": "en",
+      "title": "I18N EN",
+      "status": "published",
+      "updatedAt": "2026-05-21T03:25:31.940Z",
+      "url": "/api/i18n/en.json"
+    },
+    {
+      "lang": "es",
+      "title": "I18N ES",
+      "status": "published",
+      "updatedAt": "2026-05-21T03:25:31.942Z",
+      "url": "/api/i18n/es.json"
+    }
+  ]
+}

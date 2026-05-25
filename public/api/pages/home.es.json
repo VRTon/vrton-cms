@@ -1,0 +1,322 @@
+{
+  "slug": "home",
+  "lang": "es",
+  "meta": {
+    "title": "VRTon",
+    "description": "VRTon es una iniciativa voluntaria que une comunidades VR para alcanzar objetivos solidarios mediante eventos de realidad virtual.",
+    "status": "published",
+    "updatedAt": "2026-05-21T13:57:23.934Z",
+    "kind": "page",
+    "seo": {}
+  },
+  "markdown": "# VRTon 2026\n\nUsando tecnologia para cambiar vidas\n\n## Eventos Anteriores\n\n- Meta Alcanzada\n\n## Preguntas Frecuentes\n\nVRTon es una iniciativa voluntaria que une comunidades del metaverso de realidad virtual para lograr objetivos solidarios. Nos enfocamos en educacion, inspiracion, empatia y filantropia, usando la tecnologia para ayudar a otros y mejorar vidas.",
+  "blocks": [
+    {
+      "type": "hero",
+      "showVrchatBadge": true,
+      "showSocial": true,
+      "_cid": "block-1779673418779-gzxw7p",
+      "title": "VRTon 2026",
+      "buttons": [
+        {
+          "label": "Asistir",
+          "href": "https://discord.gg/AR72D2nfpp",
+          "variant": "primary",
+          "external": true
+        },
+        {
+          "label": "Voluntariado",
+          "href": "https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header",
+          "variant": "accent",
+          "external": true
+        },
+        {
+          "label": "Patrocinar",
+          "href": "https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header",
+          "variant": "accent",
+          "external": true
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "_cid": "block-1779673418779-hwh09e",
+      "collaboratorsCatalog": [
+        {
+          "id": "el-pecado",
+          "name": "El Pecado",
+          "src": "/Comunidades/ElPecado.webp",
+          "href": ""
+        },
+        {
+          "id": "furality",
+          "name": "Furality",
+          "src": "/Comunidades/Furality.webp",
+          "href": ""
+        },
+        {
+          "id": "burly-noir",
+          "name": "Burly Noir",
+          "src": "/Comunidades/BurlyNoir.webp",
+          "href": ""
+        },
+        {
+          "id": "cult-of-secrets",
+          "name": "Cult Of Secrets",
+          "src": "/Comunidades/CultOfSecrets.webp",
+          "href": ""
+        },
+        {
+          "id": "calamity",
+          "name": "Calamity",
+          "src": "/Comunidades/CalamityLogo.webp",
+          "href": ""
+        },
+        {
+          "id": "copa-cabana",
+          "name": "Copa Cabana",
+          "src": "/Comunidades/CopaCabana.webp",
+          "href": ""
+        },
+        {
+          "id": "xtasis",
+          "name": "Xtasis",
+          "src": "/Comunidades/Xtasis.webp",
+          "href": ""
+        },
+        {
+          "id": "pivr",
+          "name": "PIVR",
+          "src": "/Comunidades/PIVR.webp",
+          "href": ""
+        },
+        {
+          "id": "gohan-trackers",
+          "name": "Gohan Trackers",
+          "src": "/Comunidades/GohanTrackers.webp",
+          "href": ""
+        },
+        {
+          "id": "valenvrc",
+          "name": "ValenVRC",
+          "src": "/Comunidades/valenvrc.webp",
+          "href": ""
+        },
+        {
+          "id": "vrchateando",
+          "name": "VRChateando",
+          "src": "/Comunidades/VRChateando.webp",
+          "href": ""
+        },
+        {
+          "id": "cafe-mononita",
+          "name": "Cafe Mononita",
+          "src": "/Comunidades/CafeMononita.webp",
+          "href": ""
+        },
+        {
+          "id": "50-ajolo-pesos",
+          "name": "50 Ajolo Pesos",
+          "src": "/Comunidades/50ajolopesos.webp",
+          "href": ""
+        },
+        {
+          "id": "el-alba",
+          "name": "El Alba",
+          "src": "/Comunidades/ElAlba.webp",
+          "href": ""
+        },
+        {
+          "id": "team-latam",
+          "name": "Team Latam",
+          "src": "/Comunidades/TeamLatam.webp",
+          "href": ""
+        },
+        {
+          "id": "5d-academy",
+          "name": "5D Academy",
+          "src": "/Comunidades/5DAcademy.webp",
+          "href": ""
+        },
+        {
+          "id": "madtrackers",
+          "name": "madTrackers",
+          "src": "/uploads/images/collaborators/collab-catalog-1779690577283-fe1v04.webp",
+          "href": ""
+        }
+      ],
+      "rows": [
+        {
+          "year": "2025",
+          "amount": "U$D 3.255",
+          "events": [
+            {
+              "src": "/Eventos/2025/event-2025-1.webp",
+              "alt": "VRTon 2025 Event"
+            },
+            {
+              "src": "/Eventos/2025/event-2025-2.webp",
+              "alt": "VRTon 2025 Event"
+            },
+            {
+              "src": "/Eventos/2025/event-2025-3.webp",
+              "alt": "VRTon 2025 Event"
+            }
+          ],
+          "collaborators": [
+            {
+              "src": "/Comunidades/ElPecado.webp",
+              "alt": "El Pecado"
+            },
+            {
+              "src": "/Comunidades/Furality.webp",
+              "alt": "Furality"
+            },
+            {
+              "src": "/Comunidades/BurlyNoir.webp",
+              "alt": "Burly Noir"
+            },
+            {
+              "src": "/Comunidades/CultOfSecrets.webp",
+              "alt": "Cult Of Secrets"
+            },
+            {
+              "src": "/Comunidades/CalamityLogo.webp",
+              "alt": "Calamity"
+            },
+            {
+              "src": "/Comunidades/CopaCabana.webp",
+              "alt": "Copa Cabana"
+            },
+            {
+              "src": "/Comunidades/Xtasis.webp",
+              "alt": "Xtasis"
+            },
+            {
+              "src": "/Comunidades/PIVR.webp",
+              "alt": "PIVR"
+            },
+            {
+              "src": "/Comunidades/GohanTrackers.webp",
+              "alt": "Gohan Trackers"
+            },
+            {
+              "src": "/Comunidades/valenvrc.webp",
+              "alt": "ValenVRC"
+            },
+            {
+              "src": "/Comunidades/VRChateando.webp",
+              "alt": "VRChateando"
+            },
+            {
+              "src": "/Comunidades/CafeMononita.webp",
+              "alt": "Cafe Mononita"
+            }
+          ],
+          "collaboratorIds": [
+            "el-pecado",
+            "furality",
+            "burly-noir",
+            "cult-of-secrets",
+            "calamity",
+            "copa-cabana",
+            "xtasis",
+            "pivr",
+            "gohan-trackers",
+            "valenvrc",
+            "vrchateando",
+            "cafe-mononita"
+          ]
+        },
+        {
+          "year": "2024",
+          "amount": "U$D 1458",
+          "events": [
+            {
+              "src": "/Eventos/2024/event-2024-1.webp",
+              "alt": "VRTon 2024 Event"
+            },
+            {
+              "src": "/Eventos/2024/event-2024-2.webp",
+              "alt": "VRTon 2024 Event"
+            },
+            {
+              "src": "/Eventos/2024/event-2024-3.webp",
+              "alt": "VRTon 2024 Event"
+            }
+          ],
+          "collaborators": [
+            {
+              "src": "/Comunidades/ElPecado.webp",
+              "alt": "El Pecado"
+            },
+            {
+              "src": "/Comunidades/Xtasis.webp",
+              "alt": "Xtasis"
+            },
+            {
+              "src": "/Comunidades/50ajolopesos.webp",
+              "alt": "50 Ajolo Pesos"
+            },
+            {
+              "src": "/Comunidades/CalamityLogo.webp",
+              "alt": "Calamity"
+            },
+            {
+              "src": "/Comunidades/CultOfSecrets.webp",
+              "alt": "Cult Of Secrets"
+            },
+            {
+              "src": "/Comunidades/ElAlba.webp",
+              "alt": "El Alba"
+            },
+            {
+              "src": "/Comunidades/TeamLatam.webp",
+              "alt": "Team Latam"
+            },
+            {
+              "src": "/Comunidades/5DAcademy.webp",
+              "alt": "5D Academy"
+            }
+          ]
+        },
+        {
+          "year": "2023",
+          "amount": "U$D 474",
+          "events": [
+            {
+              "src": "/Eventos/2023/event-2023-1.webp",
+              "alt": "VRTon 2023 Event"
+            },
+            {
+              "src": "/Eventos/2023/event-2023-2.webp",
+              "alt": "VRTon 2023 Event"
+            },
+            {
+              "src": "/Eventos/2023/event-2023-3.webp",
+              "alt": "VRTon 2023 Event"
+            }
+          ],
+          "collaborators": [
+            {
+              "src": "/Comunidades/Xtasis.webp",
+              "alt": "Xtasis"
+            },
+            {
+              "src": "/Comunidades/ElPecado.webp",
+              "alt": "El Pecado"
+            },
+            {
+              "src": "/Comunidades/CultOfSecrets.webp",
+              "alt": "Cult Of Secrets"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "_cid": "block-1779673418779-ezcads"
+    }
+  ]
+}

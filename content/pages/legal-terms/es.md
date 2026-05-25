@@ -1,0 +1,40 @@
+---
+title: "Terminos y Condiciones VRTon 2026"
+slug: "legal-terms"
+lang: "es"
+status: "published"
+updatedAt: "2026-05-21T13:57:23.934Z"
+kind: "page"
+description: "Normas y Politicas del Evento"
+---
+
+# Terminos y Condiciones VRTon 2026
+
+Normas y Politicas del Evento
+
+## Terminos y Condiciones de VRTon 2026
+
+Estos Terminos y Condiciones aplican al uso de todos los espacios y actividades relacionadas con VRTon, incluyendo el evento principal, el servidor de Discord, el grupo de VRChat, la pagina web oficial y las redes sociales. Se aplican antes, durante y despues del evento.
+
+```json blocks
+[
+  {
+    "type": "section",
+    "rows": [
+      {
+        "columns": [
+          {
+            "width": 12,
+            "items": [
+              {
+                "type": "text",
+                "markdown": "### 1. Alcance\n\nEstos Términos y Condiciones aplican al uso de todos los espacios y actividades relacionadas con VRTon, incluyendo el evento principal, el servidor de Discord, el grupo de VRChat, la página web oficial y las redes sociales. Se aplican antes, durante y después del evento.\n\n---\n\n### 2. Cumplimiento de Normas Externas\n\nTodos los participantes deben respetar los Términos de Servicio y Normas de Comunidad de las plataformas utilizadas:\n\n- **VRChat** - [Términos de Servicio](https://vrchat.com/home/terms)\n- **VRChat** - [Normas de la Comunidad](https://vrchat.com/home/guidelines)\n- **Discord** - [Términos de Servicio](https://discord.com/terms)\n- **Discord** - [Normas de la Comunidad](https://discord.com/guidelines)\n\n---\n\n### 3. Acceso y Elegibilidad\n\n- El acceso al evento está restringido a personas mayores de 18 años, salvo en casos expresamente pre-aprobados por el equipo directivo y con autorización de un tutor legal.\n- La entrada al evento es gratuita.\n- No existen restricciones geográficas para participar.\n- El acceso al evento en VRChat no requiere un headset de realidad virtual, aunque la plataforma puede imponer sus propias restricciones técnicas o de acceso.\n\n---\n\n### 4. Propiedad Intelectual y Voluntariado\n\n- Todo el material oficial de VRTon (logotipos, diseños, textos, mundos, assets, presentaciones, gráficos, etc.) es propiedad exclusiva de VRTon y no puede ser utilizado sin autorización expresa.\n- Los puestos de voluntariado virtual en VRTon son de participación libre y no tienen compensación económica. Quienes deseen sumarse a estas actividades pueden hacerlo según su disponibilidad y voluntad. Otros roles de trabajo remunerado, si existieran, se regirán por contratos y condiciones específicas acordadas por la organización.\n- Todos los recursos creados para VRTon pueden ser utilizados sin restricción en eventos actuales y futuros, incluso si el creador original deja el equipo.\n\n---\n\n### 5. Aplicación de las Normas y Sanciones\n\n- La determinación de qué contenido cae en la categoría de apto o no apto para los eventos es discreción únicamente del equipo de moderación de VRTon.\n- El equipo de moderación puede actuar de inmediato ante incumplimientos.\n- VRTon no está obligada a dar explicaciones sobre sanciones aplicadas.\n\n---\n\n### 6. Limitación de Responsabilidad\n\n- VRTon no se hace responsable por problemas técnicos, caídas de servidores, interrupciones de VRChat o Discord, ni por fallos de software o hardware de los participantes.\n- VRTon no se hace responsable por la conducta de los usuarios dentro o fuera de los espacios oficiales.\n- Todo el contenido y los servicios se entregan \"tal cual\" (\"as is\"), sin garantía de funcionamiento o soporte futuro.\n- La participación implica aceptación de estas condiciones y de las decisiones de moderación.\n- Todas las donaciones de VRTon 2026 se realizan por los medios oficiales de donación proveídos por la organización benéfica seleccionada. VRTon no se hace responsable de ninguna transacción realizada por medios no oficiales.\n"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```

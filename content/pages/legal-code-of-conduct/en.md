@@ -1,0 +1,40 @@
+---
+title: "VRTon 2026 Code of Conduct"
+slug: "legal-code-of-conduct"
+lang: "en"
+status: "published"
+updatedAt: "2026-05-21T13:57:23.932Z"
+kind: "page"
+description: "Event Rules and Standards"
+---
+
+# VRTon 2026 Code of Conduct
+
+Event Rules and Standards
+
+## VRTon Code of Conduct
+
+The VRTon Code of Conduct seeks to ensure a safe, inclusive and respectful environment in all our instances (VRChat, Discord, web and social media).
+
+```json blocks
+[
+  {
+    "type": "section",
+    "rows": [
+      {
+        "columns": [
+          {
+            "width": 12,
+            "items": [
+              {
+                "type": "text",
+                "markdown": "## VRTon Code of Conduct\n\nThe VRTon Code of Conduct seeks to ensure a safe, inclusive and respectful environment in all our instances (VRChat, Discord, web and social media).\n\nAlthough rules and examples of prohibited behavior are detailed below, the final determination of what content or conduct is considered appropriate or inappropriate rests solely with the VRTon moderation and administration team.\n\nThe following rules apply both to actions and behavior and to content shared in any form: avatars, profile pictures, banners, emojis, stickers, items, sounds, animations, or any other digital resource.\n\nLikewise, all participants must comply with VRTon's Terms and Conditions, in addition to the Terms of Service and Standards of the platforms used.\n\n---\n\n### 1. Content Restrictions\n\n#### 1.1 Sexual or explicit content\n\n- Nude avatars, avatars with visible genitals, or excessively revealing clothing.\n- ERP, gestures, conversations, or sexual or suggestive behavior.\n- Profile pictures, banners, stickers, or emojis with NSFW content.\n\n#### 1.2 Disturbing content\n\n- Gore, graphic violence, or extreme horror.\n- Glorification of suicide or self-harm.\n\n#### 1.3 Disruptive or troll content\n\n- Avatars with excessive sounds, intrusive particles, or shaders that make the experience difficult for others.\n- Attitudes intended to annoy, interrupt, or sabotage activities.\n\n#### 1.4 Harmful speech\n\n- Expressions of hate, racism, xenophobia, homophobia, transphobia, sexism, or any form of discrimination.\n- Conversations of a political or religious nature.\n- Comments intended to dismiss or attack VRTon, the selected charitable organization, associated communities, or participants.\n\n### 2. Prohibited Actions\n\nIn addition to content restrictions, the following behaviors are prohibited in all VRTon spaces:\n\n#### 2.1 Spam and unauthorized advertising\n\n- Sending links to buy/sell pages, contests, fundraising campaigns, or similar content without staff approval.\n- Sharing invitations to other Discord servers, social media, or external communities without authorization.\n- Opening portals to other VRChat instances with the purpose of diverting users.\n- Spamming invitations to groups, events, or instances unrelated to VRTon.\n\n#### 2.2 Identity impersonation\n\n- Pretending to be other users or organizations.\n- Claiming to be part of VRTon staff or virtual volunteering without authorization.\n\n#### 2.3 Information disclosure\n\n- Sharing personal information (your own or someone else's) without consent.\n- Spreading false information, rumors, or disinformation with intent to harm.\n\n#### 2.4 Illegal activities\n\n- Scams, deception, or fraud attempts.\n- Distribution or promotion of illegally obtained content (asset ripping, avatars, worlds, or other resources).\n- Any other unlawful activity that violates local or international laws.\n\n#### 2.5 Harassment or violent behavior\n\n- Harassment, threats, stalking, or persecution of any person.\n- Verbal or gestural intimidation, or intimidation through avatars/animations.\n\n#### 2.6 Activity disruption\n\n- Deliberately disturbing presentations, shows, talks, or community activities.\n- Shouting, voice spam, repetitive sounds, or intrusive audio.\n- Use of offensive or annoying avatars, or avatars with effects intended to disrupt.\n- Use of modified clients or any other resource intended to exploit event systems for personal benefit or to disrupt others' experience.\n"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```

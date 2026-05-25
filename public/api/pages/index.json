@@ -1,0 +1,142 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "lang": "en",
+      "title": "VRTon",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.932Z",
+      "url": "/api/pages/home.en.json"
+    },
+    {
+      "slug": "home",
+      "lang": "es",
+      "title": "VRTon",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.934Z",
+      "url": "/api/pages/home.es.json"
+    },
+    {
+      "slug": "legal-code-of-conduct",
+      "lang": "en",
+      "title": "VRTon 2026 Code of Conduct",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.932Z",
+      "url": "/api/pages/legal-code-of-conduct.en.json"
+    },
+    {
+      "slug": "legal-code-of-conduct",
+      "lang": "es",
+      "title": "Codigo de Conducta VRTon 2026",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.934Z",
+      "url": "/api/pages/legal-code-of-conduct.es.json"
+    },
+    {
+      "slug": "legal-terms",
+      "lang": "en",
+      "title": "VRTon 2026 Terms and Conditions",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.932Z",
+      "url": "/api/pages/legal-terms.en.json"
+    },
+    {
+      "slug": "legal-terms",
+      "lang": "es",
+      "title": "Terminos y Condiciones VRTon 2026",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.934Z",
+      "url": "/api/pages/legal-terms.es.json"
+    },
+    {
+      "slug": "legal-volunteering",
+      "lang": "en",
+      "title": "VRTon 2026 Volunteering and Collaboration Terms",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.933Z",
+      "url": "/api/pages/legal-volunteering.en.json"
+    },
+    {
+      "slug": "legal-volunteering",
+      "lang": "es",
+      "title": "Terminos de Voluntariado y Colaboracion VRTon 2026",
+      "status": "published",
+      "updatedAt": "2026-05-21T13:57:23.934Z",
+      "url": "/api/pages/legal-volunteering.es.json"
+    }
+  ],
+  "slugs": {
+    "home": [
+      {
+        "slug": "home",
+        "lang": "en",
+        "title": "VRTon",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.932Z",
+        "url": "/api/pages/home.en.json"
+      },
+      {
+        "slug": "home",
+        "lang": "es",
+        "title": "VRTon",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.934Z",
+        "url": "/api/pages/home.es.json"
+      }
+    ],
+    "legal-code-of-conduct": [
+      {
+        "slug": "legal-code-of-conduct",
+        "lang": "en",
+        "title": "VRTon 2026 Code of Conduct",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.932Z",
+        "url": "/api/pages/legal-code-of-conduct.en.json"
+      },
+      {
+        "slug": "legal-code-of-conduct",
+        "lang": "es",
+        "title": "Codigo de Conducta VRTon 2026",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.934Z",
+        "url": "/api/pages/legal-code-of-conduct.es.json"
+      }
+    ],
+    "legal-terms": [
+      {
+        "slug": "legal-terms",
+        "lang": "en",
+        "title": "VRTon 2026 Terms and Conditions",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.932Z",
+        "url": "/api/pages/legal-terms.en.json"
+      },
+      {
+        "slug": "legal-terms",
+        "lang": "es",
+        "title": "Terminos y Condiciones VRTon 2026",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.934Z",
+        "url": "/api/pages/legal-terms.es.json"
+      }
+    ],
+    "legal-volunteering": [
+      {
+        "slug": "legal-volunteering",
+        "lang": "en",
+        "title": "VRTon 2026 Volunteering and Collaboration Terms",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.933Z",
+        "url": "/api/pages/legal-volunteering.en.json"
+      },
+      {
+        "slug": "legal-volunteering",
+        "lang": "es",
+        "title": "Terminos de Voluntariado y Colaboracion VRTon 2026",
+        "status": "published",
+        "updatedAt": "2026-05-21T13:57:23.934Z",
+        "url": "/api/pages/legal-volunteering.es.json"
+      }
+    ]
+  }
+}

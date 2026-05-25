@@ -1,0 +1,49 @@
+{
+  "slug": "home",
+  "lang": "en",
+  "meta": {
+    "title": "VRTon",
+    "description": "VRTon is a voluntary initiative bringing together VR communities to achieve charitable goals through virtual reality events.",
+    "status": "published",
+    "updatedAt": "2026-05-21T13:57:23.932Z",
+    "kind": "page",
+    "seo": {}
+  },
+  "markdown": "# VRTon 2026\n\nUsing Technology to Change Lives\n\n## Previous Events\n\n- Goal Reached\n\n## Frequently Asked Questions\n\nVRTon is a voluntary initiative that brings together communities from the virtual reality metaverse to achieve solidarity goals. We focus on education, inspiration, empathy, and philanthropy while using technology to help others and improve lives.",
+  "blocks": [
+    {
+      "type": "hero",
+      "showVrchatBadge": true,
+      "showSocial": true,
+      "_cid": "block-1779691039913-2suk3q",
+      "buttons": [
+        {
+          "label": "Attend",
+          "href": "https://discord.gg/AR72D2nfpp",
+          "variant": "primary",
+          "external": true
+        },
+        {
+          "label": "Volunteer",
+          "href": "https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header",
+          "variant": "accent",
+          "external": true
+        },
+        {
+          "label": "Sponsor",
+          "href": "https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header",
+          "variant": "accent",
+          "external": true
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "_cid": "block-1779691039913-0z4hzc"
+    },
+    {
+      "type": "faq",
+      "_cid": "block-1779691039913-iao6jy"
+    }
+  ]
+}

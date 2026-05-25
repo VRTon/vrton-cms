@@ -1,0 +1,1122 @@
+
+/home/madkoding/proyectos/Web2026/dist/assets/FlyingHeartsBackground-Be_lFzyz.js
+  1:519  error  React Hook "H.useRef" is called in function "ne" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"     react-hooks/rules-of-hooks
+  1:541  error  React Hook "H.useEffect" is called in function "ne" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"  react-hooks/rules-of-hooks
+
+/home/madkoding/proyectos/Web2026/dist/assets/index-Dzxxwkjv.js
+   10:449    error    Do not access Object.prototype method 'hasOwnProperty' from target object     no-prototype-builtins
+   10:519    error    Assignment to function parameter 'e'                                          no-param-reassign
+   19:27     error    'he' is a function                                                            no-func-assign
+   19:422    error    Assignment to function parameter 's'                                          no-param-reassign
+   19:908    error    Empty block statement                                                         no-empty
+   19:1098   error    Assignment to function parameter 't'                                          no-param-reassign
+   19:1318   error    't' is never reassigned. Use 'const' instead                                  prefer-const
+   19:1332   error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   19:1574   error    Assignment to function parameter 's'                                          no-param-reassign
+   19:1654   error    Assignment to function parameter 's'                                          no-param-reassign
+   19:1755   error    Assignment to function parameter 'n'                                          no-param-reassign
+   19:1777   error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   19:1813   error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   19:1827   error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+   19:2661   error    'T' is never reassigned. Use 'const' instead                                  prefer-const
+   19:3542   error    Assignment to function parameter 't'                                          no-param-reassign
+   19:3588   error    'n' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   19:3866   error    Assignment to function parameter 'e'                                          no-param-reassign
+   19:3892   error    Assignment to function parameter 't'                                          no-param-reassign
+   19:3918   error    Assignment to function parameter 'n'                                          no-param-reassign
+   19:5498   error    't' is never reassigned. Use 'const' instead                                  prefer-const
+   19:5816   error    't' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   19:5839   error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   19:5848   error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   19:5865   error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+   19:6350   error    Assignment to function parameter 's'                                          no-param-reassign
+   19:6485   error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   19:6527   error    'r' is never reassigned. Use 'const' instead                                  prefer-const
+   19:6909   error    Assignment to function parameter 'e'                                          no-param-reassign
+   19:6935   error    Assignment to function parameter 't'                                          no-param-reassign
+   19:7271   error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   19:8352   error    Assignment to function parameter 'e'                                          no-param-reassign
+   19:8388   error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   19:8402   error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   19:9583   error    Assignment to function parameter 'n'                                          no-param-reassign
+   19:9879   error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   19:9914   error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+   28:27     error    'fe' is a function                                                            no-func-assign
+   28:580    error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   28:594    error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   28:625    error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   28:638    error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+   28:649    error    'r' is never reassigned. Use 'const' instead                                  prefer-const
+   28:1392   error    Assignment to function parameter 'd'                                          no-param-reassign
+   28:2375   error    'u' is never reassigned. Use 'const' instead                                  prefer-const
+   28:2535   error    'p' is never reassigned. Use 'const' instead                                  prefer-const
+   28:4628   error    'e' is never reassigned. Use 'const' instead                                  prefer-const
+   28:4638   error    't' is never reassigned. Use 'const' instead                                  prefer-const
+   28:4651   error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   28:4660   error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   28:4935   error    Assignment to function parameter 'e'                                          no-param-reassign
+   28:4961   error    Assignment to function parameter 't'                                          no-param-reassign
+   28:4989   error    Assignment to function parameter 'n'                                          no-param-reassign
+   28:5052   error    Assignment to function parameter 's'                                          no-param-reassign
+   28:5176   error    Assignment to function parameter 's'                                          no-param-reassign
+   28:5221   error    'r' is never reassigned. Use 'const' instead                                  prefer-const
+   28:5642   error    'p' is never reassigned. Use 'const' instead                                  prefer-const
+   28:5653   error    'f' is never reassigned. Use 'const' instead                                  prefer-const
+   28:5662   error    'v' is never reassigned. Use 'const' instead                                  prefer-const
+   28:7254   error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:7322   error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:7390   error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:7457   error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:7889   error    Assignment to function parameter 'a'                                          no-param-reassign
+   28:8037   error    'e' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:8040   error    't' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:8085   error    'e' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:8276   error    'o' is assigned a value but never used. Allowed unused vars must match /^_/u  no-unused-vars
+   28:8605   error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   28:8652   error    'e' is never reassigned. Use 'const' instead                                  prefer-const
+   28:8671   error    't' is never reassigned. Use 'const' instead                                  prefer-const
+   28:8710   error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   28:8732   error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   28:8743   error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+   28:8759   error    'r' is never reassigned. Use 'const' instead                                  prefer-const
+   28:8988   error    'd' is never reassigned. Use 'const' instead                                  prefer-const
+   28:9005   error    'h' is never reassigned. Use 'const' instead                                  prefer-const
+   28:9019   error    'p' is never reassigned. Use 'const' instead                                  prefer-const
+   28:9034   error    'f' is never reassigned. Use 'const' instead                                  prefer-const
+   28:9049   error    'v' is never reassigned. Use 'const' instead                                  prefer-const
+   28:9070   error    'b' is never reassigned. Use 'const' instead                                  prefer-const
+   28:9513   error    Assignment to function parameter 'e'                                          no-param-reassign
+   37:27     error    'Xe' is a function                                                            no-func-assign
+   37:793    error    Empty block statement                                                         no-empty
+   37:871    error    'e' is never reassigned. Use 'const' instead                                  prefer-const
+   37:884    error    't' is never reassigned. Use 'const' instead                                  prefer-const
+   37:895    error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   37:906    error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   37:915    error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1589   error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1602   error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1621   error    'a' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1633   error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1643   error    'r' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1654   error    'l' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1684   error    'd' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1703   error    'h' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1712   error    'p' is never reassigned. Use 'const' instead                                  prefer-const
+   37:1739   error    'f' is never reassigned. Use 'const' instead                                  prefer-const
+   37:2040   error    Empty block statement                                                         no-empty
+   37:3784   error    Assignment to function parameter 't'                                          no-param-reassign
+   37:6584   error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   37:15644  error    Assignment to function parameter 'u'                                          no-param-reassign
+   37:26901  error    Assignment to function parameter 't'                                          no-param-reassign
+   37:27111  error    Unnecessary escape character: \[                                              no-useless-escape
+   37:27183  error    Assignment to function parameter 'e'                                          no-param-reassign
+   37:27397  error    Assignment to function parameter 's'                                          no-param-reassign
+   37:27921  error    't' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+   37:28363  error    Unnecessary escape character: \[                                              no-useless-escape
+   56:89     error    Assignment to function parameter 'e'                                          no-param-reassign
+   59:4      error    Assignment to function parameter 'e'                                          no-param-reassign
+   67:4      error    Assignment to function parameter 'e'                                          no-param-reassign
+   80:2384   error    Assignment to function parameter 't'                                          no-param-reassign
+   80:3778   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   81:850    error    Unnecessary escape character: \[                                              no-useless-escape
+   82:217    error    Unnecessary escape character: \[                                              no-useless-escape
+   82:359    error    Unnecessary escape character: \[                                              no-useless-escape
+   82:518    error    Unnecessary escape character: \(                                              no-useless-escape
+   82:520    error    Unnecessary escape character: \)                                              no-useless-escape
+   82:1309   error    Unexpected control character(s) in regular expression: \x00, \x1f             no-control-regex
+   82:1940   error    Unnecessary escape character: \[                                              no-useless-escape
+   82:1966   error    Unnecessary escape character: \[                                              no-useless-escape
+   82:2073   error    Unexpected control character(s) in regular expression: \x00, \x1f             no-control-regex
+   82:2998   error    Unnecessary escape character: \-                                              no-useless-escape
+   82:3336   error    Unnecessary escape character: \/                                              no-useless-escape
+   82:3343   error    Unnecessary escape character: \|                                              no-useless-escape
+   82:3372   error    Unnecessary escape character: \[                                              no-useless-escape
+   82:3450   error    Unnecessary escape character: \/                                              no-useless-escape
+   82:3457   error    Unnecessary escape character: \|                                              no-useless-escape
+   82:3485   error    Unnecessary escape character: \/                                              no-useless-escape
+   82:3492   error    Unnecessary escape character: \|                                              no-useless-escape
+   84:5      error    Assignment to function parameter 'e'                                          no-param-reassign
+   87:29     error    Assignment to function parameter 'e'                                          no-param-reassign
+   87:82     error    Assignment to function parameter 'e'                                          no-param-reassign
+   87:282    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   87:320    error    Assignment to function parameter 'e'                                          no-param-reassign
+   88:11     error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   89:9      error    Assignment to function parameter 'e'                                          no-param-reassign
+   91:13     error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   92:9      error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:1      error    This line has a length of 571. Maximum allowed is 120                         max-len
+   95:13     error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   95:45     error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:102    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   95:135    error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:192    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   95:220    error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:277    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   95:313    error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:370    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   95:400    error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:457    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   95:487    error    Assignment to function parameter 'e'                                          no-param-reassign
+   95:544    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   96:9      error    Assignment to function parameter 'e'                                          no-param-reassign
+   99:13     error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   99:44     error    Assignment to function parameter 'e'                                          no-param-reassign
+   99:101    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+   99:135    error    Assignment to function parameter 'e'                                          no-param-reassign
+  102:137    error    Assignment to function parameter 'e'                                          no-param-reassign
+  103:13     error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  104:9      error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:980    error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1018   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1078   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1110   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1167   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1196   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1357   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1387   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1444   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1496   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1657   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1697   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1754   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1788   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1845   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1873   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:1930   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:1959   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:2016   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:2050   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:2160   error    Assignment to function parameter 'e'                                          no-param-reassign
+  109:2530   error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  109:2566   error    Assignment to function parameter 'e'                                          no-param-reassign
+  112:82     error    Assignment to function parameter 'e'                                          no-param-reassign
+  120:12     error    't' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  120:42     error    'n' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  130:16     error    't' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  130:19     error    'n' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  137:18     error    Assignment to function parameter 't'                                          no-param-reassign
+  149:241    error    Assignment to function parameter 'e'                                          no-param-reassign
+  149:403    error    Assignment to function parameter 'e'                                          no-param-reassign
+  158:24     error    Assignment to function parameter 't'                                          no-param-reassign
+  159:5008   error    Assignment to function parameter 'n'                                          no-param-reassign
+  164:1      error    This line has a length of 653. Maximum allowed is 120                         max-len
+  441:546    error    Assignment to function parameter 's'                                          no-param-reassign
+  441:557    error    Assignment to function parameter 's'                                          no-param-reassign
+  441:1044   error    'n' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  441:1526   error    Unnecessary escape character: \-                                              no-useless-escape
+  441:1528   error    Unnecessary escape character: \[                                              no-useless-escape
+  441:1532   error    Unnecessary escape character: \/                                              no-useless-escape
+  441:1534   error    Unnecessary escape character: \{                                              no-useless-escape
+  441:1536   error    Unnecessary escape character: \}                                              no-useless-escape
+  441:1538   error    Unnecessary escape character: \(                                              no-useless-escape
+  441:1540   error    Unnecessary escape character: \)                                              no-useless-escape
+  441:1542   error    Unnecessary escape character: \*                                              no-useless-escape
+  441:1544   error    Unnecessary escape character: \+                                              no-useless-escape
+  441:1546   error    Unnecessary escape character: \?                                              no-useless-escape
+  441:1548   error    Unnecessary escape character: \.                                              no-useless-escape
+  441:1552   error    Unnecessary escape character: \^                                              no-useless-escape
+  441:1554   error    Unnecessary escape character: \$                                              no-useless-escape
+  441:1556   error    Unnecessary escape character: \|                                              no-useless-escape
+  441:1705   error    Unnecessary escape character: \/                                              no-useless-escape
+  441:2152   error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:2165   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:3135   warning  Unexpected console statement                                                  no-console
+  441:3149   warning  Unexpected console statement                                                  no-console
+  441:4296   error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:6189   error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:6199   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:6209   error    Assignment to function parameter 'n'                                          no-param-reassign
+  441:6611   error    Assignment to function parameter 'i'                                          no-param-reassign
+  441:6618   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:7015   error    'o' is never reassigned. Use 'const' instead                                  prefer-const
+  441:7167   error    Assignment to function parameter 'i'                                          no-param-reassign
+  441:7174   error    Assignment to function parameter 'n'                                          no-param-reassign
+  441:7181   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:7260   error    Assignment to function parameter 'n'                                          no-param-reassign
+  441:7645   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:8160   error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:9509   error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:9673   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:9761   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:9782   error    Assignment to function parameter 't'                                          no-param-reassign
+  441:9833   error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:14520  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:15256  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:15559  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:16042  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:16229  error    't' is never reassigned. Use 'const' instead                                  prefer-const
+  441:16332  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:18101  error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  441:19662  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:19889  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:20247  error    Empty block statement                                                         no-empty
+  441:21067  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:21938  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:21958  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:24609  error    's' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  441:29303  error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+  441:29377  error    'i' is never reassigned. Use 'const' instead                                  prefer-const
+  441:32369  error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  441:32786  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:32967  error    'n' is never reassigned. Use 'const' instead                                  prefer-const
+  441:33200  error    Assignment to function parameter 'l'                                          no-param-reassign
+  441:33636  error    Expected a conditional expression and instead saw an assignment               no-cond-assign
+  441:34255  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:35983  error    'e' is defined but never used. Allowed unused args must match /^_/u           no-unused-vars
+  441:36959  error    Unnecessary 'else' after 'return'                                             no-else-return
+  441:40345  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:40401  error    Assignment to function parameter 't'                                          no-param-reassign
+  441:49035  error    Assignment to function parameter 'n'                                          no-param-reassign
+  441:49042  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:49082  error    Assignment to function parameter 'n'                                          no-param-reassign
+  441:49089  error    Assignment to function parameter 't'                                          no-param-reassign
+  441:49108  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:49135  error    Assignment to function parameter 't'                                          no-param-reassign
+  441:49163  error    Assignment to function parameter 'n'                                          no-param-reassign
+  441:50892  error    Assignment to function parameter 'l'                                          no-param-reassign
+  441:53543  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:53766  error    Assignment to function parameter 'e'                                          no-param-reassign
+  441:54060  error    Assignment to function parameter 'e'                                          no-param-reassign
+
+/home/madkoding/proyectos/Web2026/dist/assets/vendor-dnd-CNG7ZPlX.js
+   9:477    error  Assignment to function parameter 'e'                                       no-param-reassign
+   9:1828   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+   9:2728   error  Assignment to function parameter 'e'                                       no-param-reassign
+   9:2915   error  Assignment to function parameter 'l'                                       no-param-reassign
+   9:2925   error  Assignment to function parameter 'e'                                       no-param-reassign
+   9:2969   error  Assignment to function parameter 'n'                                       no-param-reassign
+   9:2991   error  Assignment to function parameter 'n'                                       no-param-reassign
+   9:3095   error  Assignment to function parameter 'l'                                       no-param-reassign
+   9:3222   error  Assignment to function parameter 'r'                                       no-param-reassign
+   9:3399   error  Assignment to function parameter 'e'                                       no-param-reassign
+   9:3529   error  Assignment to function parameter 't'                                       no-param-reassign
+   9:5513   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+   9:5864   error  Assignment to function parameter 'e'                                       no-param-reassign
+  17:1968   error  Assignment to function parameter 'z'                                       no-param-reassign
+  17:3900   error  Assignment to function parameter 'C'                                       no-param-reassign
+  17:4089   error  Assignment to function parameter 'N'                                       no-param-reassign
+  17:4102   error  Assignment to function parameter 'N'                                       no-param-reassign
+  17:4151   error  Assignment to function parameter 'N'                                       no-param-reassign
+  17:4294   error  Assignment to function parameter 'C'                                       no-param-reassign
+  25:485    error  Assignment to function parameter 'e'                                       no-param-reassign
+  25:504    error  Assignment to function parameter 'e'                                       no-param-reassign
+  25:678    error  Unexpected combined character in character class                           no-misleading-character-class
+  25:1354   error  Assignment to function parameter 'e'                                       no-param-reassign
+  25:3402   error  Unnecessary escape character: \-                                           no-useless-escape
+  25:5383   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  25:5553   error  Assignment to function parameter 'n'                                       no-param-reassign
+  25:5743   error  Assignment to function parameter 't'                                       no-param-reassign
+  25:5764   error  Assignment to function parameter 'r'                                       no-param-reassign
+  25:5839   error  Assignment to function parameter 'n'                                       no-param-reassign
+  25:6560   error  Assignment to function parameter 'e'                                       no-param-reassign
+  29:117    error  Assignment to function parameter 't'                                       no-param-reassign
+  40:63     error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  40:63     error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:181    error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:218    error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:261    error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:833    error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:858    error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:893    error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:1055   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:1098   error  Empty block statement                                                      no-empty
+  41:1365   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:1379   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:2177   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:2409   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:3141   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:3207   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:3867   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:4214   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:4261   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:4458   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:4487   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:4625   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:4725   error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:5111   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:5131   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:5194   error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:5213   error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:5223   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:5354   error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:5373   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:5527   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:5835   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:5963   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:5985   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:6838   error  'MSApp' is not defined                                                     no-undef
+  41:6894   error  'MSApp' is not defined                                                     no-undef
+  41:7193   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:8291   error  Assignment to function parameter 't'                                       no-param-reassign
+  41:8492   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:8574   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:8609   error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:9669   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:9739   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:9867   error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  41:9867   error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:10785  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:10876  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:10899  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:11083  error  Expected to return a value in method 'get'                                 getter-return
+  41:11244  error  'r' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11247  error  'l' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11250  error  'u' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11253  error  'i' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11256  error  'o' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11259  error  's' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11477  error  'e' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11480  error  't' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11483  error  'n' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11486  error  'r' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11489  error  'l' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11492  error  'u' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11495  error  'i' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11498  error  'o' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11501  error  's' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11565  error  'e' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11568  error  't' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11571  error  'n' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11574  error  'r' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11577  error  'l' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11580  error  'u' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11583  error  'i' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11586  error  'o' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11589  error  's' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  41:11815  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:11865  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:12004  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:13110  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:13213  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:13279  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:13851  error  Empty block statement                                                      no-empty
+  41:13948  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:15044  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:15080  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:15101  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:15154  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:15910  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:16251  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:16269  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:16475  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:16521  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:16684  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:16821  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:17669  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:17783  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:17847  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:20743  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:20754  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:20781  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:20803  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:20821  error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:20848  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:20880  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:21018  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:21047  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:22809  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:22849  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:22860  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:22880  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:23164  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:23186  error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:23556  error  Invalid typeof comparison value                                            valid-typeof
+  41:23754  error  Invalid typeof comparison value                                            valid-typeof
+  41:25983  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  41:25983  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:26198  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:27931  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:28165  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:28308  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:29042  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:29082  error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:30680  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:30743  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:30876  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:31938  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:31966  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:32072  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:32156  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:32692  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:32698  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  41:32698  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:32868  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:33556  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:34390  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  41:36822  error  Assignment to function parameter 't'                                       no-param-reassign
+  41:37309  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:37974  error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:38822  error  Assignment to function parameter 'r'                                       no-param-reassign
+  41:38866  error  Assignment to function parameter 'r'                                       no-param-reassign
+  41:39042  error  Expected a 'break' statement before 'case'                                 no-fallthrough
+  41:39254  error  Expected a 'break' statement before 'case'                                 no-fallthrough
+  41:40573  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  41:42410  error  Expected a 'break' statement before 'case'                                 no-fallthrough
+  41:43647  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:43723  error  Assignment to function parameter 'e'                                       no-param-reassign
+  41:44098  error  Assignment to function parameter 'n'                                       no-param-reassign
+  41:44193  error  Unexpected control character(s) in regular expression: \x00                no-control-regex
+  44:30     error  Assignment to function parameter 't'                                       no-param-reassign
+  44:1074   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:1282   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:1463   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:1804   error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  44:1904   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:1933   error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  44:1953   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:1977   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:2043   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:2765   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:2912   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:3117   error  Assignment to function parameter 't'                                       no-param-reassign
+  44:3336   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:3341   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:3540   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:4316   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:4362   error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:4988   error  Assignment to function parameter 't'                                       no-param-reassign
+  44:5134   error  Assignment to function parameter 't'                                       no-param-reassign
+  44:5300   error  Assignment to function parameter 't'                                       no-param-reassign
+  44:5432   error  Assignment to function parameter 't'                                       no-param-reassign
+  44:6129   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:6200   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:6559   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:6580   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:6652   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:6847   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:7166   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:7261   error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:7499   error  Assignment to function parameter 't'                                       no-param-reassign
+  44:7722   error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:8116   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:8169   error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:8247   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:8299   error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:8396   error  Assignment to function parameter 'd'                                       no-param-reassign
+  44:8427   error  Assignment to function parameter 'd'                                       no-param-reassign
+  44:8655   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:8697   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:8944   error  Assignment to function parameter 'h'                                       no-param-reassign
+  44:9004   error  Assignment to function parameter 'h'                                       no-param-reassign
+  44:9255   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:9297   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:9409   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:9454   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:9578   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:9703   error  Assignment to function parameter 'd'                                       no-param-reassign
+  44:9807   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:9929   error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:10582  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:10705  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:10781  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:10932  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:11066  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:11280  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:11476  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:11703  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:11932  error  Assignment to function parameter 'd'                                       no-param-reassign
+  44:12012  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:12255  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:12459  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:12698  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:12939  error  Assignment to function parameter 'd'                                       no-param-reassign
+  44:13159  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:13201  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:13348  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:13402  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:13481  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:13539  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:13549  error  Assignment to function parameter 'h'                                       no-param-reassign
+  44:13633  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:13851  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:13893  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:13947  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:13963  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:13999  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:14220  error  Assignment to function parameter 'd'                                       no-param-reassign
+  44:14281  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:14308  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:14327  error  Assignment to function parameter 'a'                                       no-param-reassign
+  44:14363  error  Assignment to function parameter 'c'                                       no-param-reassign
+  44:14814  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:14876  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:15049  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:15561  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:15664  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:15935  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:16599  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:16633  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:16708  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:17304  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:18243  error  Expected a 'break' statement before 'case'                                 no-fallthrough
+  44:18821  error  Unexpected constant condition                                              no-constant-condition
+  44:18914  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:19120  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:19170  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:19189  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:19510  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:19546  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:19551  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  44:19551  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:19620  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:19652  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:19680  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:19695  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:21097  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:21116  error  Assignment to function parameter 'u'                                       no-param-reassign
+  44:21177  error  Assignment to function parameter 'u'                                       no-param-reassign
+  44:21238  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:21288  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:23065  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:24085  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:24119  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:24152  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:24230  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:24471  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:24675  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:24720  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:24848  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:24943  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:25003  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:25036  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:25125  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:25185  error  Assignment to function parameter 'r'                                       no-param-reassign
+  44:25450  error  Assignment to function parameter 'r'                                       no-param-reassign
+  44:25927  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:25989  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:26080  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:26204  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:26378  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:26487  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:26582  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:26961  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:27062  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:27624  error  Empty block statement                                                      no-empty
+  44:27635  error  Empty block statement                                                      no-empty
+  44:27637  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:28000  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:28586  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:28845  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:28874  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:28968  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:29032  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:29159  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:29265  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:29674  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:29696  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:31377  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:31391  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:31509  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:31530  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:31543  error  Assignment to function parameter 'n'                                       no-param-reassign
+  44:31692  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  44:31692  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:31776  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:31882  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:31989  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:32106  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:32209  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:32311  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:32419  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:32771  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  44:32804  error  Assignment to function parameter 't'                                       no-param-reassign
+  44:32958  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:33107  error  Assignment to function parameter 'e'                                       no-param-reassign
+  44:33935  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:283    error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:455    error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:1152   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:1331   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:1605   error  Assignment to function parameter 't'                                       no-param-reassign
+  50:1828   error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:1872   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:1898   error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:2299   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:2446   error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:2461   error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:2557   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:2749   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:3154   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:3827   error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:3853   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:4171   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:4843   error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  50:5356   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:5432   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:6166   error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  50:6933   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:7173   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:7338   error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:8346   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:8382   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:8521   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:8693   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:9598   error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:9746   error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:9894   error  Assignment to function parameter 't'                                       no-param-reassign
+  50:10061  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:10223  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:10336  error  Assignment to function parameter 'u'                                       no-param-reassign
+  50:10352  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:10364  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:10427  error  Assignment to function parameter 'u'                                       no-param-reassign
+  50:10686  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:10755  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:10762  error  Assignment to function parameter 'u'                                       no-param-reassign
+  50:10781  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:10870  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:10916  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:10936  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:11186  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:11214  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:11242  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:11250  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:11383  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:11485  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:11535  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:11702  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:12344  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:12511  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:12634  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:12678  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:12793  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:12827  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:12885  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:12899  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:13033  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:13090  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:13159  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:13189  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:13657  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:13670  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:13743  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:13758  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:14303  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:15159  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:15244  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:15318  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:15394  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:15531  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:15560  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:15583  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:15666  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:15694  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:15880  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:16010  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:16111  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:16139  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:16167  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:16201  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:16246  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:16312  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:16648  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:16985  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:17059  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:18340  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:18550  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:18596  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:18661  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:19236  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:19573  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:19977  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:20046  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:20098  error  Unnecessary escape character: \/                                           no-useless-escape
+  50:20110  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:20171  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:20211  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:20324  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:21128  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:21509  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:22425  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:22491  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:22551  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:24129  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:24312  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:24343  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:24810  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:24918  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:24974  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:25098  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:25151  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:25491  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:25586  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:25681  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:26121  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:26225  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:26347  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:26468  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:27040  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:28069  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:28076  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:28179  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:28761  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:29147  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:29166  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:29226  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:29430  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:29450  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30118  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30168  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30312  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30431  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30549  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:30592  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:30618  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:30719  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30763  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30802  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30879  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:30961  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:31005  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:31044  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:31111  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:31148  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:31290  error  Empty block statement                                                      no-empty
+  50:31332  error  Expected a 'break' statement before 'case'                                 no-fallthrough
+  50:31416  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:31423  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:31572  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:31579  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:33222  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:33256  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:35763  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:36318  error  Do not access Object.prototype method 'hasOwnProperty' from target object  no-prototype-builtins
+  50:37515  error  't' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  50:37518  error  'n' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  50:37554  error  't' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  50:37557  error  'n' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  50:40836  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:40855  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:40873  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:41347  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:41965  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:41985  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:42137  error  Unexpected constant condition                                              no-constant-condition
+  50:42183  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:42209  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:42280  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:42434  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:42490  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:42726  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:43009  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:43593  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:43619  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:44275  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:44285  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:44339  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:44413  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:45695  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:45804  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:45824  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:46399  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:46836  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:47307  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:47595  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:47716  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:47795  error  Unexpected constant condition                                              no-constant-condition
+  50:48162  error  Unexpected constant condition                                              no-constant-condition
+  50:48542  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:49150  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:49965  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:49991  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:50010  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:50105  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:51916  error  Empty block statement                                                      no-empty
+  50:52016  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52030  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52047  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:52064  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52410  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:52424  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:52441  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52458  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:52516  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52604  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52825  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52882  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:52902  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:53623  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:54081  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:54161  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:54226  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:54309  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:54335  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:54375  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:54416  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:54457  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:55185  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:55264  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:55381  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:55450  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:55492  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:55535  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:56487  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:57467  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:57874  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:57891  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:58594  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:58730  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:59300  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:59515  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:59672  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:59700  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:59775  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:59846  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:60109  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:60189  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:60291  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:60362  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:60483  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:60554  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:61388  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:61426  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:61446  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:61457  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:61464  error  Assignment to function parameter 'u'                                       no-param-reassign
+  50:61898  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:62328  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:62386  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:62401  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:62411  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:62422  error  Assignment to function parameter 'u'                                       no-param-reassign
+  50:62594  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:62664  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:62706  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:62767  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:62855  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:63009  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:63164  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:63848  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:64360  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:64564  error  Expected a conditional expression and instead saw an assignment            no-cond-assign
+  50:64564  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:64638  error  Assignment to function parameter 'r'                                       no-param-reassign
+  50:64989  error  Assignment to function parameter 'l'                                       no-param-reassign
+  50:65874  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:65926  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:65946  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:65968  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:66055  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:66074  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:66245  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:66310  error  'Ss' is a function                                                         no-func-assign
+  50:66318  error  'Es' is a function                                                         no-func-assign
+  50:66986  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:67333  error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                            no-undef
+  50:67447  error  Empty block statement                                                      no-empty
+  50:67963  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:68268  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:68323  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:68334  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:68844  error  Assignment to function parameter 't'                                       no-param-reassign
+  50:68925  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:68944  error  Assignment to function parameter 'e'                                       no-param-reassign
+  50:68948  error  Assignment to function parameter 'n'                                       no-param-reassign
+  50:69816  error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                            no-undef
+  50:69878  error  '__REACT_DEVTOOLS_GLOBAL_HOOK__' is not defined                            no-undef
+
+/home/madkoding/proyectos/Web2026/dist/assets/vendor-three-BdyYIQGz.js
+     5:3526    error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+     5:3630    error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+     5:29851   error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:33433   error    Assignment to function parameter 'o'                                                                                                                                                                                                          no-param-reassign
+     5:40552   error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:82909   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:83516   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:95193   error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:95212   error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:95746   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:96069   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:96083   error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:96100   error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:96519   error    Expected a conditional expression and instead saw an assignment                                                                                                                                                                               no-cond-assign
+     5:96535   error    Unnecessary escape character: \)                                                                                                                                                                                                              no-useless-escape
+     5:96626   error    Expected a conditional expression and instead saw an assignment                                                                                                                                                                               no-cond-assign
+     5:96860   error    Expected a conditional expression and instead saw an assignment                                                                                                                                                                               no-cond-assign
+     5:96874   error    Unnecessary escape character: \%                                                                                                                                                                                                              no-useless-escape
+     5:96888   error    Unnecessary escape character: \%                                                                                                                                                                                                              no-useless-escape
+     5:96902   error    Unnecessary escape character: \%                                                                                                                                                                                                              no-useless-escape
+     5:97129   error    Expected a conditional expression and instead saw an assignment                                                                                                                                                                               no-cond-assign
+     5:97167   error    Unnecessary escape character: \%                                                                                                                                                                                                              no-useless-escape
+     5:97187   error    Unnecessary escape character: \%                                                                                                                                                                                                              no-useless-escape
+     5:97412   error    Expected a conditional expression and instead saw an assignment                                                                                                                                                                               no-cond-assign
+     5:97418   error    Unnecessary escape character: \#                                                                                                                                                                                                              no-useless-escape
+     5:103189  error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:116222  error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:116242  error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:117454  error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:117667  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:117880  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:118097  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:118314  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:118408  error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:118448  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:118471  error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:118576  error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:118616  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:118639  error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:118662  error    Assignment to function parameter 'r'                                                                                                                                                                                                          no-param-reassign
+     5:118794  error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     5:118834  error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+     5:118857  error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+     5:118880  error    Assignment to function parameter 'r'                                                                                                                                                                                                          no-param-reassign
+     5:118903  error    Assignment to function parameter 's'                                                                                                                                                                                                          no-param-reassign
+     5:136109  error    Assignment to function parameter 'r'                                                                                                                                                                                                          no-param-reassign
+     5:136128  error    Assignment to function parameter 's'                                                                                                                                                                                                          no-param-reassign
+     5:136147  error    Assignment to function parameter 'a'                                                                                                                                                                                                          no-param-reassign
+     9:8102    error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+     9:8129    error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+    10:1       error    This line has a length of 508. Maximum allowed is 120                                                                                                                                                                                         max-len
+    47:1       error    This line has a length of 146. Maximum allowed is 120                                                                                                                                                                                         max-len
+    48:6045    error    Assignment to function parameter 'o'                                                                                                                                                                                                          no-param-reassign
+    48:6121    error    Assignment to function parameter 'o'                                                                                                                                                                                                          no-param-reassign
+    48:6441    error    Assignment to function parameter 'o'                                                                                                                                                                                                          no-param-reassign
+  3571:22501   error    Assignment to function parameter 'R'                                                                                                                                                                                                          no-param-reassign
+  3729:8673    error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+  3729:8715    error    Assignment to function parameter 'n'                                                                                                                                                                                                          no-param-reassign
+  3729:18039   error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+  3797:1       error    This line has a length of 596. Maximum allowed is 120                                                                                                                                                                                         max-len
+  3826:5517    error    Assignment to function parameter 'st'                                                                                                                                                                                                         no-param-reassign
+  3826:5527    error    Assignment to function parameter 'Rt'                                                                                                                                                                                                         no-param-reassign
+  3826:5537    error    Assignment to function parameter 'Vt'                                                                                                                                                                                                         no-param-reassign
+  3826:11150   error    Assignment to function parameter 'st'                                                                                                                                                                                                         no-param-reassign
+  3826:11165   error    Assignment to function parameter 'Rt'                                                                                                                                                                                                         no-param-reassign
+  3826:11179   error    Assignment to function parameter 'Vt'                                                                                                                                                                                                         no-param-reassign
+  3826:12864   error    Assignment to function parameter 'P'                                                                                                                                                                                                          no-param-reassign
+  3826:12984   error    Assignment to function parameter 'q'                                                                                                                                                                                                          no-param-reassign
+  3826:13009   error    Assignment to function parameter 'q'                                                                                                                                                                                                          no-param-reassign
+  3826:20062   error    Empty block statement                                                                                                                                                                                                                         no-empty
+  3826:20504   error    'VideoFrame' is not defined                                                                                                                                                                                                                   no-undef
+  3826:47965   error    'VideoFrame' is not defined                                                                                                                                                                                                                   no-undef
+  3850:27359   warning  Unexpected console statement                                                                                                                                                                                                                  no-console
+  3850:27435   warning  Unexpected console statement                                                                                                                                                                                                                  no-console
+  3850:28161   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:30382   error    Assignment to function parameter 'N'                                                                                                                                                                                                          no-param-reassign
+  3850:32106   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:33787   error    Assignment to function parameter 'N'                                                                                                                                                                                                          no-param-reassign
+  3850:37675   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:40477   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:42793   error    React Hook "X.useProgram" is called in function "ca" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"  react-hooks/rules-of-hooks
+  3850:50665   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:50691   error    Assignment to function parameter 'x'                                                                                                                                                                                                          no-param-reassign
+  3850:51146   error    Assignment to function parameter 'O'                                                                                                                                                                                                          no-param-reassign
+  3850:51172   error    Assignment to function parameter 'x'                                                                                                                                                                                                          no-param-reassign
+  3850:51190   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:51208   error    Assignment to function parameter 'D'                                                                                                                                                                                                          no-param-reassign
+  3850:51231   error    Assignment to function parameter 'N'                                                                                                                                                                                                          no-param-reassign
+  3850:52900   error    Assignment to function parameter 'N'                                                                                                                                                                                                          no-param-reassign
+  3850:52926   error    Assignment to function parameter 'O'                                                                                                                                                                                                          no-param-reassign
+  3850:52952   error    Assignment to function parameter 'x'                                                                                                                                                                                                          no-param-reassign
+  3850:52970   error    Assignment to function parameter 'L'                                                                                                                                                                                                          no-param-reassign
+  3850:52988   error    Assignment to function parameter 'D'                                                                                                                                                                                                          no-param-reassign
+  3850:55384   error    '__THREE_DEVTOOLS__' is not defined                                                                                                                                                                                                           no-undef
+  3850:56161   error    '__THREE_DEVTOOLS__' is not defined                                                                                                                                                                                                           no-undef
+  3850:77127   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:77241   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:77580   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:77619   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:77652   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:79628   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:80221   error    Assignment to function parameter 'e'                                                                                                                                                                                                          no-param-reassign
+  3850:81393   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81648   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81770   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81791   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:81812   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81841   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81871   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81901   error    Assignment to function parameter 'i'                                                                                                                                                                                                          no-param-reassign
+  3850:81932   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:81961   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:81991   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:82021   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:85453   error    Assignment to function parameter 't'                                                                                                                                                                                                          no-param-reassign
+  3850:97706   error    '__THREE_DEVTOOLS__' is not defined                                                                                                                                                                                                           no-undef
+
+/home/madkoding/proyectos/Web2026/src/components/common/Button.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/common/LanguageSwitcher.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/common/MarkdownContent.jsx
+  41:17  warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
+  50:16  warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
+  54:17  warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
+  63:18  warning  Dangerous property 'dangerouslySetInnerHTML' found  react/no-danger
+
+/home/madkoding/proyectos/Web2026/src/components/home/Carousel.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/home/EventCard.jsx
+  1:8   error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+  3:29  error  'index' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/home/EventsSection.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/home/FAQItem.jsx
+   1:8   error    'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+  11:12  warning  Dangerous property 'dangerouslySetInnerHTML' found                       react/no-danger
+
+/home/madkoding/proyectos/Web2026/src/components/home/FAQSection.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/home/FlyingHeartsBackground.jsx
+  179:1  error  This line has a length of 122. Maximum allowed is 120  max-len
+
+/home/madkoding/proyectos/Web2026/src/components/layout/Footer.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/components/layout/NavBar.jsx
+  1:8  error  'React' is defined but never used. Allowed unused vars must match /^_/u  no-unused-vars
+
+/home/madkoding/proyectos/Web2026/src/pages/AdminPage.jsx
+   141:1   error    This line has a length of 129. Maximum allowed is 120                                                                                                                                                                max-len
+   147:10  error    'findItemLocationInSection' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                          no-unused-vars
+   185:10  error    'parseRowDragId' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                                     no-unused-vars
+   324:10  error    'getFirstColumnTarget' is defined but never used. Allowed unused vars must match /^_/u                                                                                                                               no-unused-vars
+   411:44  error    'page' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                               no-unused-vars
+   839:1   error    This line has a length of 127. Maximum allowed is 120                                                                                                                                                                max-len
+  1158:1   error    This line has a length of 127. Maximum allowed is 120                                                                                                                                                                max-len
+  1285:1   error    This line has a length of 127. Maximum allowed is 120                                                                                                                                                                max-len
+  1288:1   error    This line has a length of 125. Maximum allowed is 120                                                                                                                                                                max-len
+  1290:1   error    This line has a length of 150. Maximum allowed is 120                                                                                                                                                                max-len
+  1521:1   error    This line has a length of 130. Maximum allowed is 120                                                                                                                                                                max-len
+  1568:1   error    This line has a length of 122. Maximum allowed is 120                                                                                                                                                                max-len
+  1613:1   error    This line has a length of 134. Maximum allowed is 120                                                                                                                                                                max-len
+  1711:1   error    This line has a length of 159. Maximum allowed is 120                                                                                                                                                                max-len
+  1804:1   error    This line has a length of 159. Maximum allowed is 120                                                                                                                                                                max-len
+  1902:1   error    This line has a length of 133. Maximum allowed is 120                                                                                                                                                                max-len
+  2486:9   error    'i18nEntries' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                               no-unused-vars
+  2492:1   error    This line has a length of 134. Maximum allowed is 120                                                                                                                                                                max-len
+  2499:1   error    This line has a length of 128. Maximum allowed is 120                                                                                                                                                                max-len
+  2518:9   error    'sectionBlocks' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                             no-unused-vars
+  2725:6   warning  React Hook useEffect has a missing dependency: 'loadFiles'. Either include it or remove the dependency array                                                                                                         react-hooks/exhaustive-deps
+  2736:6   warning  React Hook useEffect has a missing dependency: 'loadActiveFile'. Either include it or remove the dependency array                                                                                                    react-hooks/exhaustive-deps
+  2793:6   warning  React Hook useEffect has missing dependencies: 'activePath' and 'requestPathChange'. Either include them or remove the dependency array                                                                              react-hooks/exhaustive-deps
+  3045:1   error    This line has a length of 135. Maximum allowed is 120                                                                                                                                                                max-len
+  3079:1   error    This line has a length of 130. Maximum allowed is 120                                                                                                                                                                max-len
+  3084:1   error    This line has a length of 157. Maximum allowed is 120                                                                                                                                                                max-len
+  3191:1   error    This line has a length of 122. Maximum allowed is 120                                                                                                                                                                max-len
+  3288:1   error    This line has a length of 160. Maximum allowed is 120                                                                                                                                                                max-len
+  3296:1   error    This line has a length of 123. Maximum allowed is 120                                                                                                                                                                max-len
+  3345:1   error    This line has a length of 125. Maximum allowed is 120                                                                                                                                                                max-len
+  3712:1   error    This line has a length of 136. Maximum allowed is 120                                                                                                                                                                max-len
+  3942:1   error    This line has a length of 124. Maximum allowed is 120                                                                                                                                                                max-len
+  3942:6   warning  React Hook useEffect has missing dependencies: 'duplicateSelectedBlock', 'moveSelectedBlock', 'redoBlocksChange', 'removeSelectedBlock', and 'undoBlocksChange'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  4235:1   error    This line has a length of 125. Maximum allowed is 120                                                                                                                                                                max-len
+  4261:1   error    This line has a length of 125. Maximum allowed is 120                                                                                                                                                                max-len
+  4323:1   error    This line has a length of 125. Maximum allowed is 120                                                                                                                                                                max-len
+  4339:1   error    This line has a length of 134. Maximum allowed is 120                                                                                                                                                                max-len
+  4342:1   error    This line has a length of 147. Maximum allowed is 120                                                                                                                                                                max-len
+  4411:1   error    This line has a length of 128. Maximum allowed is 120                                                                                                                                                                max-len
+
+/home/madkoding/proyectos/Web2026/src/pages/adminDragModel.js
+  220:1  error  This line has a length of 155. Maximum allowed is 120  max-len
+  229:1  error  This line has a length of 157. Maximum allowed is 120  max-len
+  316:1  error  This line has a length of 121. Maximum allowed is 120  max-len
+  356:1  error  This line has a length of 136. Maximum allowed is 120  max-len
+  398:1  error  This line has a length of 121. Maximum allowed is 120  max-len
+
+✖ 1086 problems (1073 errors, 13 warnings)
