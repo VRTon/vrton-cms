@@ -246,8 +246,28 @@ export function createAdminApiPlugin() {
   };
 }
 
+function copyStaticPublicAssetsPlugin() {
+  return {
+    name: 'copy-static-public-assets',
+    apply: 'build',
+    async closeBundle() {
+      const sourceRoot = path.resolve(__dirname, 'public');
+      const outputRoot = path.resolve(__dirname, 'dist');
+      const entries = await fs.readdir(sourceRoot, { withFileTypes: true });
+
+      await Promise.all(entries
+        .filter((entry) => entry.name !== 'index.html')
+        .map(async (entry) => {
+          const sourcePath = path.join(sourceRoot, entry.name);
+          const outputPath = path.join(outputRoot, entry.name);
+          await fs.cp(sourcePath, outputPath, { recursive: true, force: true });
+        }));
+    },
+  };
+}
+
 const sharedConfig = {
-  plugins: [react(), createAdminApiPlugin()],
+  plugins: [react(), createAdminApiPlugin(), copyStaticPublicAssetsPlugin()],
   base: publicBase,
   resolve: {
     alias: {
