@@ -9,3 +9,5 @@ public/src
 eslint-report.txt
 coverage/
 .vite/
+uploads/images/collaborators/
+public/uploads/images/collaborators/
