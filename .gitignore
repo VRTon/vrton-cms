@@ -10,6 +10,4 @@ eslint-report.txt
 coverage/
 .vite/
 uploads/images/collaborators/
-public/uploads/images/collaborators/
 uploads/images/events/
-public/uploads/images/events/
