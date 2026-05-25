@@ -9,6 +9,11 @@ import { isMarkdownPathAllowed, isAssetPathAllowed } from './src/utils/adminPath
 export const CONTENT_ROOT = '../content';
 export const PUBLIC_ROOT = 'public';
 
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] || '';
+const publicBase = process.env.GITHUB_ACTIONS === 'true' && repositoryName
+  ? `/${repositoryName}/`
+  : '/';
+
 const sendJson = (res, status, payload) => {
   res.statusCode = status;
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -243,7 +248,7 @@ export function createAdminApiPlugin() {
 
 const sharedConfig = {
   plugins: [react(), createAdminApiPlugin()],
-  base: './',
+  base: publicBase,
   resolve: {
     alias: {
       '@': resolve(__dirname, '../src'),
