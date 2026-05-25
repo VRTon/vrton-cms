@@ -4,6 +4,7 @@ import EventsSection from './EventsSection';
 import FAQSection from './FAQSection';
 import MarkdownContent from '../common/MarkdownContent';
 import { getYouTubeEmbedUrl } from '../../utils/mediaEmbeds';
+import { withBasePath } from '../../utils/assetPath';
 import type {
   Block,
   Item,
@@ -29,7 +30,7 @@ function GalleryBlock({ block }: GalleryBlockProps) {
     <div className="content-gallery" role="list">
       {items.map((item, index) => (
         <figure key={`gallery-item-${index}`} className="content-gallery-item" role="listitem">
-          <img src={item.src || ''} alt={item.alt || ''} loading="lazy" />
+          <img src={withBasePath(item.src || '')} alt={item.alt || ''} loading="lazy" />
           {item.caption ? <figcaption>{item.caption}</figcaption> : null}
         </figure>
       ))}
@@ -164,7 +165,7 @@ function BasicBlock({ block, inline = false }: BasicBlockProps) {
     return (
       <figure style={{ margin: 0 }}>
         <img
-          src={(block as { src?: string }).src || ''}
+          src={withBasePath((block as { src?: string }).src || '')}
           alt={(block as { alt?: string }).alt || ''}
           style={{ width: '100%', height: 'auto', borderRadius: 12 }}
         />
@@ -181,8 +182,8 @@ function BasicBlock({ block, inline = false }: BasicBlockProps) {
     return (
       <figure style={{ margin: 0 }}>
         <video
-          src={videoBlock.src || ''}
-          poster={videoBlock.poster || undefined}
+          src={withBasePath(videoBlock.src || '')}
+          poster={videoBlock.poster ? withBasePath(videoBlock.poster) : undefined}
           controls={videoBlock.controls !== false}
           autoPlay={Boolean(videoBlock.autoplay)}
           muted={Boolean(videoBlock.muted)}

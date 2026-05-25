@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Carousel from './Carousel';
 import { EVENTS_DEFAULT_DATA, EVENTS_DEFAULT_META, buildDefaultEventsRows } from './defaultHomeContent';
 import type { EventItem, CollaboratorItem } from '../../types';
+import { withBasePath } from '../../utils/assetPath';
 
 interface CollaboratorEntry {
   id?: string
@@ -76,11 +77,11 @@ function EventsSection({ config = {} }: { config?: EventsSectionConfig }) {
                     {collaborators.map((collab) => (
                       collab.href
                         ? (
-                          <a key={`${year}-${collab.alt}`} href={collab.href} target="_blank" rel="noopener noreferrer" aria-label={collab.alt || 'Collaborator'}>
-                            <img src={collab.src} alt={collab.alt} className="collab-logo" loading="lazy" />
+                            <a key={`${year}-${collab.alt}`} href={collab.href} target="_blank" rel="noopener noreferrer" aria-label={collab.alt || 'Collaborator'}>
+                            <img src={withBasePath(collab.src)} alt={collab.alt} className="collab-logo" loading="lazy" />
                           </a>
                         )
-                        : <img key={`${year}-${collab.alt}`} src={collab.src} alt={collab.alt} className="collab-logo" loading="lazy" />
+                        : <img key={`${year}-${collab.alt}`} src={withBasePath(collab.src)} alt={collab.alt} className="collab-logo" loading="lazy" />
                     ))}
                   </div>
                 </div>

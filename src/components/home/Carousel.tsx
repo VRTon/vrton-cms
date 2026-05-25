@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { EventItem } from '../../types';
+import { withBasePath } from '../../utils/assetPath';
 
 interface CarouselProps {
   events: EventItem[]
@@ -80,7 +81,7 @@ function Carousel({ events, year }: CarouselProps) {
             key={index}
             className={`carousel-item ${index === currentSlide ? 'active' : ''} ${isTransitioning && index === currentSlide ? `carousel-item-in dir-${transitionDirection}` : ''} ${isTransitioning && index === previousSlide ? `active carousel-item-out dir-${transitionDirection}` : ''}`}
           >
-            <img src={event.src} alt={event.alt} loading="lazy" />
+            <img src={withBasePath(event.src)} alt={event.alt} loading="lazy" />
           </div>
         ))}
       </div>

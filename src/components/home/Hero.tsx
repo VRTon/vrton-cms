@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '../common/Button';
 import SocialIcons from '../common/SocialIcons';
+import { withBasePath } from '../../utils/assetPath';
 
 const FlyingHeartsBackground = lazy(() => import('./FlyingHeartsBackground'));
 
@@ -68,7 +69,7 @@ function Hero({ config = {} }: HeroProps) {
       <div className="hero-content">
         <div className="logo-container">
           <img
-            src="/logo.png"
+            src={withBasePath('/logo.png')}
             alt="VRTon Logo"
             className="logo"
             width="540"
@@ -98,7 +99,7 @@ function Hero({ config = {} }: HeroProps) {
             {showVrchatBadge ? (
               <div className="vrchat-badge">
                 <img
-                  src="/vrchat-placeholder.png"
+                  src={withBasePath('/vrchat-placeholder.png')}
                   alt={t('home.hero.vrchat_alt')}
                   className="vrchat-img"
                   loading="lazy"

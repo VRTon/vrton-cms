@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../common/LanguageSwitcher';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../i18n/languages';
+import { withBasePath } from '../../utils/assetPath';
 
 const supportedCodes = new Set(SUPPORTED_LANGUAGES.map((lang) => lang.code));
 
@@ -55,7 +56,7 @@ function NavBar() {
       <div className="nav-container">
         <Link to={rootPath} className="nav-logo">
           <img
-            src="/logo.png"
+            src={withBasePath('/logo.png')}
             alt="VRTon Logo"
             className="nav-logo-img"
             width="40"
