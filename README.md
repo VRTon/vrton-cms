@@ -209,6 +209,3 @@ git push origin <tu-rama>
 - `No veo cambios en el sitio publico`: refresca `http://localhost:5173` y confirma que guardaste en el idioma correcto (`ES`/`EN`).
 - `Push rechazado por hook`: corre `npm run test:prepush`, corrige errores y vuelve a hacer `git push`.
 
----
-
-Si queres, tambien te puedo preparar una version en ingles de este README con el mismo flujo.
