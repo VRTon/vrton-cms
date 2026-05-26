@@ -6,9 +6,9 @@ import { BLOCK_LIBRARY, getBlockIcon, getBlockLabel } from './constants';
 import { createDefaultBlock, createSectionItem } from './blocks';
 import { DraggableLibraryItem, SectionItemsDropZone, SortableSectionItemRow } from './DragComponents';
 import { LibraryDragGhost, SubitemDragGhost, RowDragGhost, ColumnDragGhost } from './DragGhost';
-import { buildDefaultEventsRows, buildDefaultFaqConfig } from '../home/defaultHomeContent';
 import { fileToDataUrl, optimizeImageForUpload } from './upload';
 import { socialLinks as socialLinkPresets } from '../common/SocialIcons';
+import { buildDefaultEventsRows, buildDefaultFaqConfig } from '../home/defaultHomeContent';
 import { slugify } from './utils';
 import { extractI18nObject, injectI18nObject, injectBlocks } from './markdown';
 import {
@@ -168,6 +168,48 @@ interface BlockEntry {
   rows?: SectionRow[]
   items?: SectionItem[]
   [key: string]: unknown
+}
+
+function normalizeHeroBlockForSave(block: BlockEntry): BlockEntry {
+  if (block.type !== 'hero') {
+    return block;
+  }
+
+  const hasButtons = Array.isArray(block.buttons) && block.buttons.length > 0;
+  if (hasButtons) {
+    return block;
+  }
+
+  const attendText = String(block.attendText || '').trim();
+  const volunteerText = String(block.volunteerText || '').trim();
+  const sponsorText = String(block.sponsorText || '').trim();
+  const volunteerUrl = String(block.volunteerUrl || '').trim();
+  const sponsorUrl = String(block.sponsorUrl || '').trim();
+
+  const hasLegacyContent = Boolean(attendText || volunteerText || sponsorText || volunteerUrl || sponsorUrl);
+  if (!hasLegacyContent) {
+    return block;
+  }
+
+  const migratedButtons: HeroButtonItem[] = [
+    { label: attendText, href: '/discord/', variant: 'primary', external: false },
+    { label: volunteerText, href: volunteerUrl, variant: 'accent', external: true },
+    { label: sponsorText, href: sponsorUrl, variant: 'accent', external: true },
+  ].filter((entry) => Boolean(String(entry.label || '').trim()) || Boolean(String(entry.href || '').trim()));
+
+  const {
+    attendText: _attendText,
+    volunteerText: _volunteerText,
+    sponsorText: _sponsorText,
+    volunteerUrl: _volunteerUrl,
+    sponsorUrl: _sponsorUrl,
+    ...rest
+  } = block;
+
+  return {
+    ...rest,
+    buttons: migratedButtons,
+  } as BlockEntry;
 }
 
 interface SortTargetProps {
@@ -509,7 +551,7 @@ export function AdminPage(props: AdminPageProps) {
     }
     return Array.isArray(eventsBlock.rows) && eventsBlock.rows.length > 0
       ? eventsBlock.rows as EventsRow[]
-      : buildDefaultEventsRows() as unknown as EventsRow[];
+      : [] as EventsRow[];
   }, [eventsBlock]);
 
   const collaboratorsCatalog = useMemo(() => {
@@ -799,7 +841,7 @@ export function AdminPage(props: AdminPageProps) {
 
     const sourceRows = Array.isArray(targetBlock.rows) && targetBlock.rows.length > 0
       ? targetBlock.rows as EventsRow[]
-      : buildDefaultEventsRows() as unknown as EventsRow[];
+      : [] as EventsRow[];
     const localCatalog = Array.isArray(targetBlock.collaboratorsCatalog) && targetBlock.collaboratorsCatalog.length > 0
       ? targetBlock.collaboratorsCatalog as CollaboratorCatalogEntry[]
       : collaboratorsCatalog;
@@ -852,7 +894,7 @@ export function AdminPage(props: AdminPageProps) {
 
     const sourceRows = Array.isArray(targetBlock.rows) && targetBlock.rows.length > 0
       ? targetBlock.rows as EventsRow[]
-      : buildDefaultEventsRows() as unknown as EventsRow[];
+      : [] as EventsRow[];
 
     const targetRow = sourceRows[collaboratorsPicker.rowIndex];
     if (!targetRow) {
@@ -1707,7 +1749,12 @@ export function AdminPage(props: AdminPageProps) {
     setBusy(true);
     setStatus('Saving...');
     try {
-      const contentToSave = comparableContent;
+      let contentToSave = comparableContent;
+      if (!isI18nFile && Array.isArray(blocksData)) {
+        const normalizedBlocks = blocksData.map((entry) => normalizeHeroBlockForSave(entry as BlockEntry));
+        contentToSave = injectBlocks(rawMarkdown, stripClientIds(normalizedBlocks));
+      }
+
       await saveFile(activePath, contentToSave);
       const regenerateResponse = await fetch('/__admin/api/content/regenerate', { method: 'POST' });
       if (!regenerateResponse.ok) {
@@ -1728,6 +1775,7 @@ export function AdminPage(props: AdminPageProps) {
         mode: 'cors',
       });
 
+      setRawMarkdown(contentToSave);
       setLastSavedMarkdown(contentToSave);
       setStatus('Saved');
       setPreviewVersion((v) => v + 1);
@@ -1736,7 +1784,19 @@ export function AdminPage(props: AdminPageProps) {
     } finally {
       setBusy(false);
     }
-  }, [activePath, comparableContent, saveFile, setBusy, setLastSavedMarkdown, setPreviewVersion, setStatus]);
+  }, [
+    activePath,
+    blocksData,
+    comparableContent,
+    isI18nFile,
+    rawMarkdown,
+    saveFile,
+    setBusy,
+    setLastSavedMarkdown,
+    setPreviewVersion,
+    setRawMarkdown,
+    setStatus,
+  ]);
 
   const handleDelete = useCallback(async () => {
     if (!activePath) {
@@ -2172,32 +2232,46 @@ export function AdminPage(props: AdminPageProps) {
                   const blockType = String(typedBlock?.type || 'Unknown');
 
                   const sectionRows = sectionRowsByBlock[index] || [];
-                  const defaultFaq = buildDefaultFaqConfig(activeLang);
+                  const legacyHeroAttendText = String(typedBlock.attendText || '');
+                  const legacyHeroVolunteerText = String(typedBlock.volunteerText || '');
+                  const legacyHeroSponsorText = String(typedBlock.sponsorText || '');
+                  const legacyHeroVolunteerUrl = String(typedBlock.volunteerUrl || '');
+                  const legacyHeroSponsorUrl = String(typedBlock.sponsorUrl || '');
+                  const hasLegacyHeroData = Boolean(
+                    legacyHeroAttendText
+                    || legacyHeroVolunteerText
+                    || legacyHeroSponsorText
+                    || legacyHeroVolunteerUrl
+                    || legacyHeroSponsorUrl,
+                  );
                   const effectiveHero = {
-                    title: String(typedBlock.title || t('home.hero.title')),
-                    subtitle: String(typedBlock.subtitle || t('home.hero.subtitle')),
-                    attendText: String(typedBlock.attendText || t('home.hero.attend')),
-                    volunteerText: String(typedBlock.volunteerText || t('home.hero.volunteer')),
-                    sponsorText: String(typedBlock.sponsorText || t('home.hero.sponsor')),
-                    volunteerUrl: String(typedBlock.volunteerUrl || 'https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header'),
-                    sponsorUrl: String(typedBlock.sponsorUrl || 'https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header'),
+                    title: String(typedBlock.title || ''),
+                    subtitle: String(typedBlock.subtitle || ''),
+                    attendText: legacyHeroAttendText,
+                    volunteerText: legacyHeroVolunteerText,
+                    sponsorText: legacyHeroSponsorText,
+                    volunteerUrl: legacyHeroVolunteerUrl,
+                    sponsorUrl: legacyHeroSponsorUrl,
                     buttons: Array.isArray(typedBlock.buttons) && typedBlock.buttons.length > 0
                       ? typedBlock.buttons
-                      : [
-                        { label: String(typedBlock.attendText || t('home.hero.attend')), href: '/discord/', variant: 'primary', external: false },
-                        { label: String(typedBlock.volunteerText || t('home.hero.volunteer')), href: String(typedBlock.volunteerUrl || 'https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header'), variant: 'accent', external: true },
-                        { label: String(typedBlock.sponsorText || t('home.hero.sponsor')), href: String(typedBlock.sponsorUrl || 'https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header'), variant: 'accent', external: true },
-                      ],
+                      : hasLegacyHeroData
+                        ? [
+                          { label: legacyHeroAttendText, href: '/discord/', variant: 'primary', external: false },
+                          { label: legacyHeroVolunteerText, href: legacyHeroVolunteerUrl, variant: 'accent', external: true },
+                          { label: legacyHeroSponsorText, href: legacyHeroSponsorUrl, variant: 'accent', external: true },
+                        ]
+                        : [],
                   };
-                  const effectiveEventsRows = Array.isArray(typedBlock.rows) && typedBlock.rows.length > 0
-                    ? typedBlock.rows
-                    : buildDefaultEventsRows();
-                  const effectiveFaqLeft = Array.isArray(typedBlock.leftItems) && typedBlock.leftItems.length > 0
-                    ? typedBlock.leftItems
-                    : defaultFaq.leftItems;
-                  const effectiveFaqRight = Array.isArray(typedBlock.rightItems) && typedBlock.rightItems.length > 0
-                    ? typedBlock.rightItems
-                    : defaultFaq.rightItems;
+                  const defaultFaq = buildDefaultFaqConfig(activeLang);
+                  const effectiveEventsRows = typedBlock.rows === undefined
+                    ? buildDefaultEventsRows()
+                    : (Array.isArray(typedBlock.rows) ? typedBlock.rows : []);
+                  const effectiveFaqLeft = typedBlock.leftItems === undefined
+                    ? defaultFaq.leftItems
+                    : (Array.isArray(typedBlock.leftItems) ? typedBlock.leftItems : []);
+                  const effectiveFaqRight = typedBlock.rightItems === undefined
+                    ? defaultFaq.rightItems
+                    : (Array.isArray(typedBlock.rightItems) ? typedBlock.rightItems : []);
 
                   return (
                     <div key={typedBlock?._cid || index}>
@@ -2520,10 +2594,10 @@ export function AdminPage(props: AdminPageProps) {
                                     type="button"
                                     className="admin-icon-btn secondary"
                                     title="Add hero button"
-                                    onClick={() => {
-                                      const nextButtons = [...(effectiveHero.buttons as HeroButtonItem[]), { label: 'New button', href: '/', variant: 'accent', external: false }];
-                                      updateBlockField(String(typedBlock._cid || ''), 'buttons', nextButtons);
-                                    }}
+                                      onClick={() => {
+                                        const nextButtons = [...(effectiveHero.buttons as HeroButtonItem[]), { label: '', href: '', variant: 'accent', external: false }];
+                                        updateBlockField(String(typedBlock._cid || ''), 'buttons', nextButtons);
+                                      }}
                                   >
                                     <i className="fa-solid fa-plus" aria-hidden="true" />
                                   </button>
@@ -2658,7 +2732,7 @@ export function AdminPage(props: AdminPageProps) {
                                   <label>Events title</label>
                                   <input
                                     className="admin-input"
-                                    value={String(typedBlock.title || t('home.events.title'))}
+                                    value={String(typedBlock.title || '')}
                                     onChange={(e) => updateBlockField(String(typedBlock._cid || ''), 'title', e.target.value)}
                                   />
                                 </div>
@@ -2852,7 +2926,7 @@ export function AdminPage(props: AdminPageProps) {
                                   <label>FAQ title</label>
                                   <input
                                     className="admin-input"
-                                    value={String(typedBlock.title || t('home.faq.title'))}
+                                    value={String(typedBlock.title || '')}
                                     onChange={(e) => updateBlockField(String(typedBlock._cid || ''), 'title', e.target.value)}
                                   />
                                 </div>
@@ -2869,7 +2943,7 @@ export function AdminPage(props: AdminPageProps) {
                                       onClick={() => updateBlockField(
                                         String(typedBlock._cid || ''),
                                         'leftItems',
-                                        [...effectiveFaqLeft, { question: 'New question', answer_html: '' }],
+                                        [...effectiveFaqLeft, { question: '', answer_html: '' }],
                                       )}
                                     >
                                       <i className="fa-solid fa-plus" aria-hidden="true" />
@@ -2992,7 +3066,7 @@ export function AdminPage(props: AdminPageProps) {
                                       onClick={() => updateBlockField(
                                         String(typedBlock._cid || ''),
                                         'rightItems',
-                                        [...effectiveFaqRight, { question: 'New question', answer_html: '' }],
+                                        [...effectiveFaqRight, { question: '', answer_html: '' }],
                                       )}
                                     >
                                       <i className="fa-solid fa-plus" aria-hidden="true" />
@@ -3260,7 +3334,7 @@ export function AdminPage(props: AdminPageProps) {
                                   type="button"
                                   className="admin-icon-btn secondary"
                                   title="Add link"
-                                  onClick={() => addBlockItem(String(typedBlock._cid || ''), () => ({ label: 'New link', href: '/' }))}
+                                  onClick={() => addBlockItem(String(typedBlock._cid || ''), () => ({ label: '', href: '' }))}
                                 >
                                   <i className="fa-solid fa-plus" aria-hidden="true" />
                                 </button>
@@ -3396,7 +3470,7 @@ export function AdminPage(props: AdminPageProps) {
                                   type="button"
                                   className="admin-icon-btn secondary"
                                   title="Add accordion item"
-                                  onClick={() => addBlockItem(String(typedBlock._cid || ''), () => ({ title: 'New item', markdown: '' }))}
+                                  onClick={() => addBlockItem(String(typedBlock._cid || ''), () => ({ title: '', markdown: '' }))}
                                 >
                                   <i className="fa-solid fa-plus" aria-hidden="true" />
                                 </button>

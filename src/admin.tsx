@@ -11,9 +11,48 @@ import './i18n';
 import './styles/index.css';
 import './styles/admin.css';
 
+const ADMIN_STATE_STORAGE_KEY = 'vrton:admin-state';
+
+type ContentMode = 'pages' | 'links' | 'collaborators';
+type AdminLanguage = 'es' | 'en';
+
+const readStoredAdminState = (): { contentMode?: ContentMode; activePath?: string; preferredLang?: AdminLanguage } => {
+  try {
+    const raw = window.localStorage.getItem(ADMIN_STATE_STORAGE_KEY);
+    if (!raw) {
+      return {};
+    }
+
+    const parsed = JSON.parse(raw) as { contentMode?: string; activePath?: string; preferredLang?: string };
+    const contentMode = parsed.contentMode === 'links' || parsed.contentMode === 'collaborators' || parsed.contentMode === 'pages'
+      ? parsed.contentMode
+      : undefined;
+    const activePath = typeof parsed.activePath === 'string' ? parsed.activePath : undefined;
+    const preferredLang = parsed.preferredLang === 'es' || parsed.preferredLang === 'en'
+      ? parsed.preferredLang
+      : undefined;
+    return { contentMode, activePath, preferredLang };
+  } catch {
+    return {};
+  }
+};
+
+const writeStoredAdminState = (
+  state: { contentMode: ContentMode; activePath: string; preferredLang: AdminLanguage },
+) => {
+  try {
+    window.localStorage.setItem(ADMIN_STATE_STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // ignore storage write failures
+  }
+};
+
 export default function AdminApp() {
+  const storedState = readStoredAdminState();
+
   /* UI state that lives outside usePageState */
-  const [contentMode, setContentMode] = useState<'pages' | 'links' | 'collaborators'>('pages');
+  const [contentMode, setContentMode] = useState<ContentMode>(storedState.contentMode || 'pages');
+  const [preferredLang, setPreferredLang] = useState<AdminLanguage>(storedState.preferredLang || 'es');
 
   // Pull every field from usePageState explicitly so there is no accidental
   // overlap with local UI state
@@ -65,6 +104,13 @@ export default function AdminApp() {
     loadActiveFile(activePath);
   }, [activePath]);
 
+  useEffect(() => {
+    const activeFile = normalizedFiles.find((file) => file.path === activePath);
+    if (activeFile?.lang === 'es' || activeFile?.lang === 'en') {
+      setPreferredLang(activeFile.lang);
+    }
+  }, [activePath, normalizedFiles]);
+
   const [isModeMenuOpen, setIsModeMenuOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
@@ -77,20 +123,36 @@ export default function AdminApp() {
   useEffect(() => {
     const targetSection = contentMode === 'links' ? 'i18n' : 'pages';
     const candidates = normalizedFiles.filter((file) => file.section === targetSection);
-    const preferredHomeSpanish = candidates.find((file) => file.page === 'home' && file.lang === 'es');
-    const preferredSpanish = candidates.find((file) => file.lang === 'es');
-    const preferredHome = candidates.find((file) => file.page === 'home');
-    const nextPath = preferredHomeSpanish?.path || preferredSpanish?.path || preferredHome?.path || candidates[0]?.path || '';
-
-    if (nextPath && nextPath !== activePath) {
-      setActivePath(nextPath);
-      return;
-    }
 
     if (!candidates.length) {
       loadFiles();
+      return;
     }
-  }, [contentMode]);
+
+    if (candidates.some((file) => file.path === activePath)) {
+      return;
+    }
+
+    const persistedPath = readStoredAdminState().activePath;
+    if (persistedPath && candidates.some((file) => file.path === persistedPath)) {
+      setActivePath(persistedPath);
+      return;
+    }
+
+    const preferredPersistedLanguage = candidates.find((file) => file.lang === preferredLang);
+    const preferredHomeSpanish = candidates.find((file) => file.page === 'home' && file.lang === 'es');
+    const preferredSpanish = candidates.find((file) => file.lang === 'es');
+    const preferredHome = candidates.find((file) => file.page === 'home');
+    const nextPath = preferredPersistedLanguage?.path || preferredHomeSpanish?.path || preferredSpanish?.path || preferredHome?.path || candidates[0]?.path || '';
+
+    if (nextPath && nextPath !== activePath) {
+      setActivePath(nextPath);
+    }
+  }, [contentMode, normalizedFiles, activePath, loadFiles, preferredLang, setActivePath]);
+
+  useEffect(() => {
+    writeStoredAdminState({ contentMode, activePath, preferredLang });
+  }, [contentMode, activePath, preferredLang]);
 
   /* API helpers */
   const saveFile = useCallback(async (path: string, content: string) => {
@@ -147,11 +209,13 @@ export default function AdminApp() {
       );
       /* eslint-disable @typescript-eslint/no-explicit-any */
       const preferred =
-        entries.find((e: any) => e.lang === 'es') || entries[0];
+        entries.find((e: any) => e.lang === preferredLang)
+        || entries.find((e: any) => e.lang === 'es')
+        || entries[0];
       /* eslint-enable @typescript-eslint/no-explicit-any */
       if (preferred) onPathChange(preferred.path);
     },
-    [normalizedFiles, onPathChange],
+    [normalizedFiles, onPathChange, preferredLang],
   );
 
   const onUndo = useCallback(() => {
@@ -256,7 +320,12 @@ export default function AdminApp() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter
+    future={{
+      v7_startTransition: true,
+      v7_relativeSplatPath: true,
+    }}
+  >
     <AdminApp />
   </BrowserRouter>,
 );

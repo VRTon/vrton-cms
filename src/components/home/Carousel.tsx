@@ -17,13 +17,14 @@ function Carousel({ events, year }: CarouselProps) {
   const [transitionDirection, setTransitionDirection] = useState<'next' | 'prev'>('next');
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
-
-  if (!events.length) {
-    return null;
-  }
+  const totalSlides = events.length;
 
   const goToSlide = useCallback((index: number, direction: 'next' | 'prev') => {
-    const nextIndex = ((index % events.length) + events.length) % events.length;
+    if (!totalSlides) {
+      return;
+    }
+
+    const nextIndex = ((index % totalSlides) + totalSlides) % totalSlides;
     if (nextIndex === currentSlide) {
       return;
     }
@@ -43,19 +44,40 @@ function Carousel({ events, year }: CarouselProps) {
       setPreviousSlide(null);
       transitionTimeoutRef.current = null;
     }, SLIDE_TRANSITION_MS);
-  }, [currentSlide, events.length]);
+  }, [currentSlide, totalSlides]);
 
   useEffect(() => {
-    if (!isPaused) {
-      intervalRef.current = setInterval(() => {
-        goToSlide(currentSlide + 1, 'next');
-      }, 5000);
+    if (totalSlides < 2 || isPaused) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      return undefined;
     }
+
+    intervalRef.current = setInterval(() => {
+      goToSlide(currentSlide + 1, 'next');
+    }, 5000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPaused, events.length, currentSlide, goToSlide]);
+  }, [isPaused, currentSlide, goToSlide, totalSlides]);
+
+  useEffect(() => {
+    if (currentSlide >= totalSlides && totalSlides > 0) {
+      setCurrentSlide(0);
+      setPreviousSlide(null);
+      setIsTransitioning(false);
+    }
+  }, [currentSlide, totalSlides]);
+
+  useEffect(() => {
+    if (!totalSlides) {
+      setCurrentSlide(0);
+      setPreviousSlide(null);
+      setIsTransitioning(false);
+    }
+  }, [totalSlides]);
 
   useEffect(() => {
     return () => {
@@ -67,6 +89,10 @@ function Carousel({ events, year }: CarouselProps) {
 
   const nextSlide = () => goToSlide(currentSlide + 1, 'next');
   const prevSlide = () => goToSlide(currentSlide - 1, 'prev');
+
+  if (!totalSlides) {
+    return null;
+  }
 
   return (
     <div

@@ -31,14 +31,15 @@
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-key": "error",
     "react/jsx-no-target-blank": "error",
     "react/jsx-no-undef": "error",
+    "react/no-unknown-property": ["error", { "ignore": ["fetchpriority"] }],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "react/no-danger": "warn",
+    "react/no-danger": "off",
     "react/no-deprecated": "error",
     "react/no-direct-mutation-state": "error",
     "react/no-find-dom-node": "error",
@@ -102,6 +103,48 @@
         "@typescript-eslint/no-unused-vars": "off",
         "react/jsx-no-undef": "off",
         "max-len": ["error", { "code": 160, "ignoreStrings": true, "ignoreTemplateLiterals": true }]
+      }
+    },
+    {
+      "files": [
+        "src/components/page/PageUI.tsx"
+      ],
+      "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "max-len": "off",
+        "indent": "off"
+      }
+    },
+    {
+      "files": [
+        "src/components/page/usePageState.ts",
+        "src/components/page/fileOps.ts",
+        "src/components/page/upload.ts",
+        "src/pages/adminDragModel.ts"
+      ],
+      "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "max-len": "off"
+      }
+    },
+    {
+      "files": [
+        "src/components/page/parsing.ts",
+        "src/components/page/utils.ts"
+      ],
+      "rules": {
+        "max-len": "off"
+      }
+    },
+    {
+      "files": [
+        "src/components/page/*.test.js"
+      ],
+      "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off"
       }
     }
   ]

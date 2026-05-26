@@ -74,7 +74,7 @@ function Hero({ config = {} }: HeroProps) {
             className="logo"
             width="540"
             height="540"
-            fetchPriority="high"
+            fetchpriority="high"
           />
         </div>
 

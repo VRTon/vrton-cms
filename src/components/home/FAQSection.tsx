@@ -19,10 +19,14 @@ function FAQSection({ config = {} }: { config?: FAQSectionConfig }) {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const leftFAQs = config.leftItems || (t('home.faq.left', { returnObjects: true }) as FAQItemType[]) || [];
-  const rightFAQs = config.rightItems || (t('home.faq.right', { returnObjects: true }) as FAQItemType[]) || [];
+  const leftFAQs = Array.isArray(config.leftItems) && config.leftItems.length > 0
+    ? config.leftItems
+    : (t('home.faq.left', { returnObjects: true }) as FAQItemType[]) || [];
+  const rightFAQs = Array.isArray(config.rightItems) && config.rightItems.length > 0
+    ? config.rightItems
+    : (t('home.faq.right', { returnObjects: true }) as FAQItemType[]) || [];
   const volunteeringUrl = localizePath('/legal/volunteering/');
-  const title = config.title || t('home.faq.title');
+  const title = String(config.title || '').trim() || t('home.faq.title');
 
   return (
     <section className="faq-section" id="faq">

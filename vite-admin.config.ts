@@ -239,6 +239,7 @@ export default defineConfig({
     createAdminApiPlugin(),
   ],
   root: 'src',
+  cacheDir: '../node_modules/.vite-admin',
   base: '/',
   publicDir: '../public',
   server: {

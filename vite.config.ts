@@ -10,9 +10,16 @@ export const CONTENT_ROOT = '../content';
 export const PUBLIC_ROOT = 'public';
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] || '';
-const publicBase = process.env.GITHUB_ACTIONS === 'true' && repositoryName
-  ? `/${repositoryName}/`
-  : '/';
+
+const getPublicBase = (command) => {
+  if (command === 'serve') {
+    return '/';
+  }
+
+  return process.env.GITHUB_ACTIONS === 'true' && repositoryName
+    ? `/${repositoryName}/`
+    : '/';
+};
 
 const sendJson = (res, status, payload) => {
   res.statusCode = status;
@@ -268,7 +275,6 @@ function copyStaticPublicAssetsPlugin() {
 
 const sharedConfig = {
   plugins: [react(), createAdminApiPlugin(), copyStaticPublicAssetsPlugin()],
-  base: publicBase,
   resolve: {
     alias: {
       '@': resolve(__dirname, '../src'),
@@ -297,9 +303,11 @@ const sharedConfig = {
   },
 };
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   root: 'public',
+  cacheDir: '../node_modules/.vite-public',
   ...sharedConfig,
+  base: getPublicBase(command),
   build: {
     ...sharedConfig.build,
     outDir: '../dist',
@@ -311,4 +319,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

@@ -17,7 +17,7 @@ function PageRenderer() {
       <main className="legal-page">
         <div className="container">
           <h1>Content not found</h1>
-          <p>Page "{slug}" not available in {language}.</p>
+          <p>Page &quot;{slug}&quot; not available in {language}.</p>
         </div>
       </main>
     );

@@ -229,7 +229,6 @@ export function applySubitemDrag(current: Block[], activeId: string, overId: str
     })),
   }));
 
-  // eslint-disable-next-line max-len
   if (!sourceRows[sourceLocation.rowIndex] || !sourceRows[sourceLocation.rowIndex].columns[sourceLocation.columnIndex]) {
     return null;
   }
@@ -270,7 +269,7 @@ export function applySubitemDrag(current: Block[], activeId: string, overId: str
     if (targetRowIndex < 0) {
       return null;
     }
-    // eslint-disable-next-line max-len
+
     const targetColumnIndex = (targetRows[targetRowIndex].columns || []).findIndex((column) => column._colid === targetColumn.columnId);
     if (targetColumnIndex < 0) {
       return null;
@@ -313,7 +312,6 @@ export function applySubitemDrag(current: Block[], activeId: string, overId: str
     })),
   }));
 
-  // eslint-disable-next-line max-len
   if (!targetRows[targetLocation.rowIndex] || !targetRows[targetLocation.rowIndex].columns[targetLocation.columnIndex]) {
     return null;
   }

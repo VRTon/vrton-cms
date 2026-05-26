@@ -77,7 +77,7 @@ function EventsSection({ config = {} }: { config?: EventsSectionConfig }) {
                     {collaborators.map((collab) => (
                       collab.href
                         ? (
-                            <a key={`${year}-${collab.alt}`} href={collab.href} target="_blank" rel="noopener noreferrer" aria-label={collab.alt || 'Collaborator'}>
+                          <a key={`${year}-${collab.alt}`} href={collab.href} target="_blank" rel="noopener noreferrer" aria-label={collab.alt || 'Collaborator'}>
                             <img src={withBasePath(collab.src)} alt={collab.alt} className="collab-logo" loading="lazy" />
                           </a>
                         )

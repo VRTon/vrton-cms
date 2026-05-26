@@ -15,7 +15,7 @@
     "test:drag": "node --test src/pages/adminDragModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js",
     "setup:hooks": "git config core.hooksPath .githooks",
     "preview": "vite preview",
-    "lint": "eslint --ext js,jsx,ts,tsx . --report-unused-disable-directives --max-warnings 0 --ignore-pattern dist/"
+    "lint": "eslint --ext js,jsx,ts,tsx . --report-unused-disable-directives --max-warnings 0 --ignore-pattern dist/ --ignore-pattern 'public/src/**'"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
