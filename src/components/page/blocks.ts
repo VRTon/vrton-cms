@@ -8,6 +8,7 @@ export interface BlockDefaults {
   gallery: Record<string, unknown>
   accordion: Record<string, unknown>
   schedule: Record<string, unknown>
+  itinerary: Record<string, unknown>
   heading: Record<string, unknown>
   text: Record<string, unknown>
   image: Record<string, unknown>
@@ -50,6 +51,15 @@ export function createDefaultBlock(type: string): Record<string, unknown> & { _c
       title: '',
       items: [],
     },
+    itinerary: {
+      type: 'itinerary',
+      title: '',
+      columns: [
+        { id: 'main', label: 'Main Instance' },
+        { id: 'party', label: 'Party Instance' },
+      ],
+      rows: [],
+    },
     heading: { type: 'heading', level: 2, text: '' },
     text: { type: 'text', markdown: '' },
     image: { type: 'image', src: '', alt: '', caption: '' },
@@ -86,6 +96,6 @@ export function isContainerBlock(block: { type?: string } | null | undefined): b
 export function isInlineComponentType(type: string): boolean {
   return [
     'heading', 'text', 'image', 'video', 'youtube', 'button', 'links',
-    'divider', 'spacer', 'gallery', 'accordion', 'schedule',
+    'divider', 'spacer', 'gallery', 'accordion', 'schedule', 'itinerary',
   ].includes(type);
 }

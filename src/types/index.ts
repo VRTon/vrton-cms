@@ -31,6 +31,7 @@ export type BlockType =
   | 'gallery'
   | 'accordion'
   | 'schedule'
+  | 'itinerary'
   | 'richText'
   | 'spacer'
   | 'divider'
@@ -144,6 +145,48 @@ export interface ScheduleBlock extends BaseBlock {
   items?: ScheduleItem[]
 }
 
+export type ItineraryColumnId = 'main' | 'party'
+
+export type ItineraryIcon =
+  | 'welcome'
+  | 'accessibility'
+  | 'panel'
+  | 'story'
+  | 'music'
+  | 'social'
+  | 'ceremony'
+  | 'ambient'
+  | 'dj'
+  | 'dance'
+  | 'games'
+
+export interface ItineraryColumn {
+  id: ItineraryColumnId
+  label: string
+}
+
+export interface ItineraryActivity {
+  title: string
+  description: string
+  speaker?: string
+  image?: string
+  imageAlt?: string
+  icon?: ItineraryIcon
+}
+
+export interface ItineraryRow {
+  startTime: string
+  endTime: string
+  activities: Record<ItineraryColumnId, ItineraryActivity | null>
+}
+
+export interface ItineraryBlock extends BaseBlock {
+  type: 'itinerary'
+  title?: string
+  columns: [ItineraryColumn, ItineraryColumn]
+  rows: ItineraryRow[]
+}
+
 export interface RichTextBlock extends BaseBlock {
   type: 'richText'
   markdown?: string
@@ -193,6 +236,7 @@ export type Block =
   | GalleryBlock
   | AccordionBlock
   | ScheduleBlock
+  | ItineraryBlock
   | RichTextBlock
   | SpacerBlock
   | DividerBlock

@@ -1,4 +1,5 @@
 import { makeId, makeItemId, makeRowId, makeColumnId } from './ids.ts';
+import { normalizeItineraryBlock } from '../itinerary/itineraryModel.ts';
 
 export function normalizeSectionItems(items: unknown[]): Array<{ _iid: string } & Record<string, unknown>> {
   if (!Array.isArray(items)) {
@@ -318,6 +319,7 @@ export function withClientIds(blocks: unknown[]): unknown[] | null {
       ...(b.type === 'section' || b.type === 'subsection'
         ? { rows: normalizeSectionRows(b.rows, b.items) }
         : {}),
+      ...(b.type === 'itinerary' ? normalizeItineraryBlock(block) : {}),
     };
   });
 }
@@ -348,6 +350,9 @@ export function stripClientIds(blocks: unknown[]): unknown[] {
         }),
       };
     }
+    if (b.type === 'itinerary') {
+      return { ...normalizeItineraryBlock(block), _cid: undefined };
+    }
     return block;
   });
 }
@@ -360,6 +365,9 @@ export function normalizeBlocksForBuilder(blocks: unknown[]): unknown[] {
     const b = block as { type?: string; items?: unknown[]; rows?: unknown[] };
     if (b.type === 'section' || b.type === 'subsection') {
       return { ...block, rows: normalizeSectionRows(b.rows, b.items) };
+    }
+    if (b.type === 'itinerary') {
+      return normalizeItineraryBlock(block, { preserveEditableWhitespace: true });
     }
     return block;
   });
@@ -375,4 +383,3 @@ export function slugify(title: string): string {
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
 }
-
