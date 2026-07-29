@@ -17,7 +17,7 @@ import {
   buildSectionDropId,
   buildColumnDragId,
   buildColumnTargetId,
-} from './parsing.js';
+} from './parsing.ts';
 
 describe('parsing', () => {
   describe('parseColumnDropId', () => {

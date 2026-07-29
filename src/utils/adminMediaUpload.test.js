@@ -6,7 +6,7 @@ import {
   sanitizeAssetBaseName,
   toMegabytesText,
   assertUploadFileOrThrow,
-} from './adminMediaUpload.js';
+} from './adminMediaUpload.ts';
 
 function fakeFile({ type, size }) {
   return { type, size };

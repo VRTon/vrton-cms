@@ -9,7 +9,7 @@ import {
   buildVideoAttributes,
   buildImageAttributes,
   buildPictureSrcset,
-} from './upload.js';
+} from './upload.ts';
 
 describe('upload', () => {
   describe('isImageFile', () => {

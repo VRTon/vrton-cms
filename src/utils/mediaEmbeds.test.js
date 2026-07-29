@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getYouTubeEmbedUrl } from './mediaEmbeds.js';
+import { getYouTubeEmbedUrl } from './mediaEmbeds.ts';
 
 test('returns empty for empty and invalid values', () => {
   assert.equal(getYouTubeEmbedUrl(''), '');

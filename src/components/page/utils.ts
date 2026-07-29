@@ -1,4 +1,4 @@
-import { makeId, makeItemId, makeRowId, makeColumnId } from './ids';
+import { makeId, makeItemId, makeRowId, makeColumnId } from './ids.ts';
 
 export function normalizeSectionItems(items: unknown[]): Array<{ _iid: string } & Record<string, unknown>> {
   if (!Array.isArray(items)) {

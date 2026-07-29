@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseAssetUploadPayload } from './adminAssetApiValidation.js';
+import { parseAssetUploadPayload } from './adminAssetApiValidation.ts';
 
 const LIMITS = {
   maxImageBytes: 10 * 1024 * 1024,
