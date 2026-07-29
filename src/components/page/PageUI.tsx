@@ -8,6 +8,8 @@ import { DraggableLibraryItem, SectionItemsDropZone, SortableSectionItemRow } fr
 import { LibraryDragGhost, SubitemDragGhost, RowDragGhost, ColumnDragGhost } from './DragGhost';
 import { fileToDataUrl, optimizeImageForUpload } from './upload';
 import { socialLinks as socialLinkPresets } from '../common/SocialIcons';
+import ItineraryEditor from '../itinerary/ItineraryEditor';
+import type { ItineraryBlock } from '../../types';
 import { buildDefaultEventsRows, buildDefaultFaqConfig } from '../home/defaultHomeContent';
 import { slugify } from './utils';
 import { extractI18nObject, injectI18nObject, injectBlocks } from './markdown';
@@ -3585,6 +3587,13 @@ export function AdminPage(props: AdminPageProps) {
                                 })}
                               </div>
                             </>
+                          )}
+
+                          {typedBlock.type === 'itinerary' && (
+                            <ItineraryEditor
+                              block={typedBlock as unknown as ItineraryBlock}
+                              onChange={(field, value) => updateBlockField(String(typedBlock._cid || ''), field, value)}
+                            />
                           )}
                         </div>
                       )}
