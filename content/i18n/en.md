@@ -20,6 +20,10 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "get_involved": "Get Involved",
     "language_label": "Language"
   },
+  "theme": {
+    "switch_to_dark": "Switch to dark mode",
+    "switch_to_light": "Switch to light mode"
+  },
   "footer": {
     "title": "VRTon",
     "text": "Using technology to change lives through virtual reality philanthropy.",

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../common/LanguageSwitcher';
+import ThemeToggle from '../common/ThemeToggle';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../i18n/languages';
 import { withBasePath } from '../../utils/assetPath';
 
@@ -100,6 +101,9 @@ function NavBar() {
           })}
           <li className="nav-item nav-lang-item">
             <LanguageSwitcher />
+          </li>
+          <li className="nav-item nav-theme-item">
+            <ThemeToggle />
           </li>
         </ul>
       </div>
