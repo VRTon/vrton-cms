@@ -21,7 +21,7 @@ import {
   areJsonObjectsEqual,
   normalizeComparableContent,
   cloneBlocks,
-} from './utils.js';
+} from './utils.ts';
 
 describe('utils', () => {
   describe('normalizeSectionItems', () => {

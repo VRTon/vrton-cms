@@ -1,5 +1,5 @@
-import { makeId, makeItemId } from './ids';
-import { createDefaultSectionRow } from './utils';
+import { makeId, makeItemId } from './ids.ts';
+import { createDefaultSectionRow } from './utils.ts';
 
 export interface BlockDefaults {
   hero: Record<string, unknown>

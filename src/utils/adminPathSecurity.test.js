@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
-import { isMarkdownPathAllowed, isAssetPathAllowed } from './adminPathSecurity.js';
+import { isMarkdownPathAllowed, isAssetPathAllowed } from './adminPathSecurity.ts';
 
 test('isMarkdownPathAllowed accepts .md inside root', () => {
   const root = '/repo/content';

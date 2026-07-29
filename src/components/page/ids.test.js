@@ -1,6 +1,6 @@
 import { describe, it, beforeEach } from 'node:test';
 import { strict as assert } from 'node:assert';
-import { makeId, makeItemId, makeRowId, makeColumnId, makeCollaboratorId } from './ids.js';
+import { makeId, makeItemId, makeRowId, makeColumnId, makeCollaboratorId } from './ids.ts';
 
 describe('ids', () => {
   describe('makeId', () => {

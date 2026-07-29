@@ -5,7 +5,7 @@ import {
   createSectionItem,
   isContainerBlock,
   isInlineComponentType,
-} from './blocks.js';
+} from './blocks.ts';
 
 describe('blocks', () => {
   describe('createDefaultBlock', () => {

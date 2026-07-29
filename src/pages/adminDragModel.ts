@@ -1,8 +1,8 @@
 import { arrayMove } from '@dnd-kit/sortable';
-import type { Block, Row, Column, Item, SectionBlock } from '../types';
-import { normalizeSectionItems, createDefaultSectionColumn, createDefaultSectionRow, normalizeSectionRows } from '../components/page/utils';
-import { parseColumnDropId, parseColumnDragId, parseColumnTargetId, parseAnyColumnTarget, parseRowDragId } from '../components/page/parsing';
-import { isContainerBlock } from '../components/page/blocks';
+import type { Block, Row, Column, Item, SectionBlock } from '../types.ts';
+import { normalizeSectionItems, createDefaultSectionColumn, createDefaultSectionRow, normalizeSectionRows } from '../components/page/utils.ts';
+import { parseColumnDropId, parseColumnDragId, parseColumnTargetId, parseAnyColumnTarget, parseRowDragId } from '../components/page/parsing.ts';
+import { isContainerBlock } from '../components/page/blocks.ts';
 
 function makeItemId() {
   return `item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { applySubitemDrag, applyColumnDrag, applyRowDrag } from './adminDragModel.js';
+import { applySubitemDrag, applyColumnDrag, applyRowDrag } from './adminDragModel.ts';
 
 function makeSection(id, rows) {
   return {

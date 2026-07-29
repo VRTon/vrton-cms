@@ -11,7 +11,7 @@ import {
   extractFrontmatterFields,
   injectFrontmatterField,
   deriveBlocksFromMarkdown,
-} from './markdown.js';
+} from './markdown.ts';
 
 describe('markdown', () => {
   describe('BLOCKS_PATTERN', () => {

@@ -14,7 +14,7 @@ import {
   SOCIAL_ICON_BY_CLASS,
   getBlockIcon,
   getBlockLabel,
-} from './constants.js';
+} from './constants.ts';
 
 describe('constants', () => {
   describe('API_PREFIX', () => {

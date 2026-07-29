@@ -1,0 +1,32 @@
+# Finales de linea: el repo guarda LF y el checkout tambien entrega LF,
+# en Windows tambien. Sin esto, core.autocrlf=true convierte a CRLF al
+# hacer checkout y el arbol de trabajo deja de coincidir con el repo.
+* text=auto eol=lf
+
+# scripts/generate-content.mjs lee los .md y mete el markdown crudo dentro
+# de un string JSON. Si los .md llegan con CRLF al arbol de trabajo, el
+# JSON generado queda con \r\n incrustado y src/generated y public/api
+# salen distintos segun el sistema operativo que corra npm run build.
+*.md    text eol=lf
+*.json  text eol=lf
+
+# El hook corre con "#!/usr/bin/env sh". Con CRLF, sh no encuentra el
+# interprete y el pre-push falla sin explicacion util.
+.githooks/pre-push text eol=lf
+*.sh               text eol=lf
+
+# Binarios: git no debe normalizar nada aca.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.gif  binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.otf   binary
+*.mp4  binary
+*.webm binary
+*.pdf  binary
