@@ -24,6 +24,13 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "switch_to_dark": "Cambiar a modo oscuro",
     "switch_to_light": "Cambiar a modo claro"
   },
+  "itinerary": {
+    "schedule": "Programación de actividades",
+    "time": "Horario",
+    "speaker": "Ponente",
+    "close": "Cerrar",
+    "untitled": "Actividad"
+  },
   "footer": {
     "title": "VRTon",
     "text": "Usando tecnologia para cambiar vidas a traves de la filantropia en realidad virtual.",
