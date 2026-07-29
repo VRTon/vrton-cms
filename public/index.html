@@ -4,8 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#d33741" />
+    <meta name="theme-color" content="#ffffff" />
     <title>VRTon</title>
+    <!--
+      Resuelve el tema antes del primer pintado para que no haya flash blanco
+      al cargar en modo oscuro. Tiene que ser inline y sincrono: si esperara al
+      bundle de React, la pagina ya se dibujo clara.
+
+      Duplica a proposito la logica de src/utils/theme.js (resolveTheme y
+      applyTheme). Son seis lineas y no hay forma de importar el modulo aca sin
+      volver a introducir el flash. Si cambia la clave o los colores, hay que
+      tocar los dos lados.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem('vrton-theme');
+          var theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) {
+            meta.setAttribute('content', theme === 'dark' ? '#12100f' : '#ffffff');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
