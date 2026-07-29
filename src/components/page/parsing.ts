@@ -133,6 +133,21 @@ export function parseColumnId(value: string): string | null {
   return text.slice(4);
 }
 
+export function parseRowDragId(value: string): { sectionId: string; rowId: string } | null {
+  const text = String(value || '');
+  if (!text.startsWith('row:')) {
+    return null;
+  }
+  const parts = text.split(':');
+  if (parts.length !== 3) {
+    return null;
+  }
+  return {
+    sectionId: parts[1],
+    rowId: parts[2],
+  };
+}
+
 export function parseRowDropId(value: string): { sectionId: string; rowId: string } | null {
   const text = String(value || '');
   if (!text.startsWith('row-drop:')) {
