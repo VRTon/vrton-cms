@@ -12,7 +12,7 @@
     "dev:admin": "pkill -f 'vite.*5174' 2>/dev/null; npx vite --config vite-admin.config.ts --port 5174",
     "build": "vite build",
     "test:prepush": "npm run test:drag && npm run build",
-    "test:drag": "node --test src/utils/theme.test.js src/pages/adminDragModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js",
+    "test:drag": "node --test src/utils/theme.test.js src/utils/accessibility.test.js src/pages/adminDragModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js",
     "setup:hooks": "git config core.hooksPath .githooks",
     "preview": "vite preview",
     "lint": "eslint --ext js,jsx,ts,tsx . --report-unused-disable-directives --max-warnings 0 --ignore-pattern dist/ --ignore-pattern 'public/src/**'"

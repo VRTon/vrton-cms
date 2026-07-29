@@ -28,6 +28,14 @@
           if (meta) {
             meta.setAttribute('content', theme === 'dark' ? '#12100f' : '#ffffff');
           }
+
+          // Modo accesible, por el mismo motivo: sin esto la pagina se dibuja
+          // con la tipografia normal y salta al tamano grande recien cuando
+          // monta React. La clase del body la pone React, porque el <body>
+          // todavia no existe en este punto del <head>.
+          if (window.localStorage.getItem('vrton-accessibility') === 'on') {
+            document.documentElement.setAttribute('data-a11y', 'on');
+          }
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'light');
         }

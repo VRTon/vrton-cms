@@ -24,6 +24,10 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "switch_to_dark": "Cambiar a modo oscuro",
     "switch_to_light": "Cambiar a modo claro"
   },
+  "a11y": {
+    "enable": "Activar modo accesibilidad: mas contraste, letra mas grande y menos animaciones",
+    "disable": "Desactivar modo accesibilidad"
+  },
   "footer": {
     "title": "VRTon",
     "text": "Usando tecnologia para cambiar vidas a traves de la filantropia en realidad virtual.",

@@ -71,6 +71,13 @@
     --vrton-text: var(--text-primary);
     --vrton-text-secondary: var(--text-secondary);
 
+    /*
+      Alto del navbar. Era un 80px suelto repetido en tres lugares. Pasa a
+      variable porque el navbar crece cuando el modo accesible sube la
+      tipografia, y con el valor fijo la barra terminaba tapando el contenido.
+    */
+    --nav-height: 80px;
+
     color-scheme: light;
 }
 
@@ -112,7 +119,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 80px;
+    padding-top: var(--nav-height);
 }
 
 /*
@@ -1157,10 +1164,14 @@ body,
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
+    :root {
+        --nav-height: 70px;
     }
-    
+
+    :root[data-a11y="on"] {
+        --nav-height: 88px;
+    }
+
     .nav-container {
         padding: 0.75rem 1rem;
     }
@@ -1564,7 +1575,7 @@ body,
 
 /* 404 page */
 .error-page {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - var(--nav-height));
     display: flex;
     align-items: center;
     text-align: center;
@@ -1598,4 +1609,341 @@ body,
     color: var(--vrton-text-secondary);
     font-size: 1.1rem;
     margin-bottom: 2.5rem;
+}
+
+/* ==========================================================================
+   Modo accesibilidad (Tarea 5)
+
+   Se activa con la clase .accessibility-mode en el <body>, que es lo que pide
+   el issue. El atributo data-a11y en <html> es un espejo de esa clase y existe
+   por una razon concreta: casi todos los tamanos de este archivo estan en rem,
+   y rem se calcula sobre el font-size de <html>, no del body. Sin el atributo
+   no habria forma de subir la tipografia base sin reescribir el archivo.
+
+   Es independiente del tema: funciona igual en claro y en oscuro, y los dos
+   pueden estar encendidos a la vez (CP12).
+   ========================================================================== */
+
+/* Criterio 2: la base pasa de 16px a 20px. Como casi todo esta en rem, sube
+   texto y espaciado juntos, que es lo que espera alguien que agranda la letra. */
+:root[data-a11y="on"] {
+    font-size: 125%;
+    --nav-height: 100px;
+}
+
+/* --------------------------------------------------------------------------
+   Criterio 3: contraste AAA 7:1. Valores calculados par por par, no estimados.
+   -------------------------------------------------------------------------- */
+body.accessibility-mode {
+    --vrton-red: #a52b33;
+    --vrton-red-rgb: 165, 43, 51;
+    --accent-fill: #a52b33;
+    --accent-text: #96272e;
+
+    --surface-page: #ffffff;
+    --surface-raised: #ffffff;
+    --surface-sunken: #f0f0f0;
+    --surface-nav: #ffffff;
+    --surface-footer: #000000;
+    --surface-inset: #f0f0f0;
+    --surface-invert: #000000;
+    --text-on-invert: #ffffff;
+
+    --text-primary: #000000;
+    --text-secondary: #505050;
+    --text-on-footer: #ffffff;
+    --text-on-footer-muted: #e0e0e0;
+
+    --border-subtle: rgba(0, 0, 0, 0.45);
+    --border-strong: rgba(0, 0, 0, 0.7);
+
+    --gradient-hero: #ffffff;
+    --hero-glow-1: transparent;
+    --hero-glow-2: transparent;
+    --hero-glow-3: transparent;
+    --hero-glow-stop: transparent;
+}
+
+:root[data-theme="dark"] body.accessibility-mode {
+    --accent-text: #ff9ba3;
+
+    --surface-page: #000000;
+    --surface-raised: #0d0d0d;
+    --surface-sunken: #0a0a0a;
+    --surface-nav: #000000;
+    --surface-footer: #000000;
+    --surface-inset: #0d0d0d;
+    --surface-invert: #ffffff;
+    --text-on-invert: #000000;
+
+    --text-primary: #ffffff;
+    --text-secondary: #c9c4c2;
+
+    --border-subtle: rgba(255, 255, 255, 0.5);
+    --border-strong: rgba(255, 255, 255, 0.75);
+
+    --gradient-hero: #000000;
+}
+
+/*
+   Los titulos usan background-clip: text con el relleno transparente, asi que
+   el color real sale de un degradado. Es el peor problema de contraste del
+   sitio y en modo accesible no puede quedarse: vuelven a color solido.
+*/
+body.accessibility-mode .hero-title,
+body.accessibility-mode .hero-subtitle,
+body.accessibility-mode .legal-page h1,
+body.accessibility-mode .error-code {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: currentColor;
+    color: var(--text-primary);
+}
+
+/* El navbar deja de ser translucido: el desenfoque sobre contenido en
+   movimiento arruina el contraste del texto que tiene encima. */
+body.accessibility-mode .navbar {
+    backdrop-filter: none;
+    border-bottom: 2px solid var(--border-strong);
+}
+
+/* --------------------------------------------------------------------------
+   Criterio 7: interlineado minimo 1.8
+   -------------------------------------------------------------------------- */
+body.accessibility-mode {
+    line-height: 1.8;
+}
+
+body.accessibility-mode p,
+body.accessibility-mode li,
+body.accessibility-mode .faq-answer p,
+body.accessibility-mode .legal-section p,
+body.accessibility-mode .legal-section li,
+body.accessibility-mode .page-card p,
+body.accessibility-mode .page-card li,
+body.accessibility-mode .section-block-description,
+body.accessibility-mode .footer-text {
+    line-height: 1.8;
+}
+
+body.accessibility-mode p + p,
+body.accessibility-mode li + li {
+    margin-top: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Criterio 5: todos los enlaces subrayados, para no depender solo del color
+   -------------------------------------------------------------------------- */
+body.accessibility-mode a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* El subrayado no aplica a los que son botones o iconos: ahi estorba y el
+   elemento ya se distingue por su forma. */
+body.accessibility-mode a.btn,
+body.accessibility-mode a.nav-btn,
+body.accessibility-mode a.social-icon,
+body.accessibility-mode a.footer-social-icon,
+body.accessibility-mode .nav-logo,
+body.accessibility-mode .collab-logo,
+body.accessibility-mode .event-collaborators a {
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   Criterio 6: areas clickeables mas grandes
+   -------------------------------------------------------------------------- */
+body.accessibility-mode .btn {
+    padding: 1.5rem 3.5rem;
+}
+
+body.accessibility-mode .nav-link {
+    padding: 0.9rem 1.4rem;
+}
+
+body.accessibility-mode .faq-question {
+    padding: 2rem 1.75rem;
+}
+
+body.accessibility-mode .footer-link {
+    padding: 0.35rem 0;
+}
+
+body.accessibility-mode .carousel-btn {
+    width: 56px;
+    height: 56px;
+}
+
+body.accessibility-mode .indicator {
+    width: 16px;
+    height: 16px;
+}
+
+body.accessibility-mode .theme-toggle,
+body.accessibility-mode .a11y-toggle {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+}
+
+body.accessibility-mode .social-icon {
+    width: 60px;
+    height: 60px;
+}
+
+/* --------------------------------------------------------------------------
+   Criterio 4: animaciones reducidas
+
+   El CSS solo no alcanza. El ripple se inyecta por JS, el carrusel avanza con
+   un setInterval y los corazones son un loop de requestAnimationFrame sobre
+   Three.js, asi que esos cuatro van apagados desde los componentes.
+   -------------------------------------------------------------------------- */
+body.accessibility-mode *,
+body.accessibility-mode *::before,
+body.accessibility-mode *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+}
+
+/* El hover no debe desplazar ni escalar: es el movimiento mas repetido del
+   sitio y aparece en casi todos los componentes. */
+body.accessibility-mode .btn:hover,
+body.accessibility-mode .nav-btn:hover,
+body.accessibility-mode .event-card:hover,
+body.accessibility-mode .social-icon:hover,
+body.accessibility-mode .footer-social-icon:hover,
+body.accessibility-mode .footer-link:hover,
+body.accessibility-mode .collab-logo:hover,
+body.accessibility-mode .page-card:hover,
+body.accessibility-mode .theme-toggle:hover,
+body.accessibility-mode .a11y-toggle:hover {
+    transform: none;
+}
+
+body.accessibility-mode .carousel-btn:hover {
+    transform: translateY(-50%);
+}
+
+/* El circulo que se expande dentro de los botones tambien es movimiento. */
+body.accessibility-mode .btn::before,
+body.accessibility-mode .btn:hover::before {
+    display: none;
+}
+
+body.accessibility-mode .logo {
+    animation: none;
+}
+
+/*
+   Respetar prefers-reduced-motion siempre, este el modo encendido o no.
+   Aca si va un media query suelto y no rompe nada del admin: admin.css no
+   tiene un solo @keyframes, asi que lo unico que pasa es que sus transiciones
+   se vuelven instantaneas, que es exactamente lo que el usuario pidio.
+*/
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .logo,
+    .hero-title,
+    .hero-subtitle {
+        animation: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Boton de accesibilidad
+   -------------------------------------------------------------------------- */
+.nav-a11y-item {
+    display: flex;
+    align-items: center;
+}
+
+.a11y-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.a11y-toggle:hover {
+    color: var(--accent-text);
+    border-color: var(--vrton-red);
+    transform: translateY(-2px);
+}
+
+.a11y-toggle:active {
+    transform: translateY(0);
+}
+
+/* Encendido se nota sin depender solo del color. */
+.a11y-toggle-active {
+    background: var(--accent-fill);
+    color: var(--vrton-white);
+    border-color: var(--accent-fill);
+}
+
+.a11y-toggle-active:hover {
+    color: var(--vrton-white);
+}
+
+/*
+   Foco visible. El repositorio no tenia ni un :focus ni un outline en las dos
+   hojas de estilo, asi que navegar con teclado era adivinar donde estabas.
+   Va fuera del modo accesible a proposito: es el minimo para todo el mundo.
+*/
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid var(--accent-text);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+body.accessibility-mode a:focus-visible,
+body.accessibility-mode button:focus-visible,
+body.accessibility-mode select:focus-visible,
+body.accessibility-mode summary:focus-visible,
+body.accessibility-mode [role="button"]:focus-visible {
+    outline-width: 4px;
+}
+
+@media (max-width: 768px) {
+    .a11y-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .a11y-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+        border-width: 1px;
+    }
 }
