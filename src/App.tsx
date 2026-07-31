@@ -81,10 +81,11 @@ function App() {
 
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/:lang" element={<HomePage />} />
-        <Route path="/:lang/" element={<HomePage />} />
+        {SUPPORTED_LANGUAGES.map((language) => (
+          <Route key={language.code} path={`/${language.code}`} element={<HomePage />} />
+        ))}
+        <Route path="/:slug" element={<PageRenderer />} />
         <Route path="/:lang/:slug" element={<PageRenderer />} />
-        <Route path="/:lang/:slug/" element={<PageRenderer />} />
 
         <Route path="/404.html" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />

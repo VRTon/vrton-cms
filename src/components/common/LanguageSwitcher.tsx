@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { SUPPORTED_LANGUAGES } from '../../i18n/languages';
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../i18n/languages';
 import type { LanguageCode } from '../../types';
 
 const languageCodes = SUPPORTED_LANGUAGES.map((lang) => lang.code);
@@ -20,6 +20,9 @@ function LanguageSwitcher() {
     const hasLangPrefix = pathSegments.length > 0 && languageCodes.includes(pathSegments[0]);
     const remainder = hasLangPrefix ? `/${pathSegments.slice(1).join('/')}` : location.pathname;
     const normalized = remainder === '' ? '/' : remainder;
+    if (targetLang === DEFAULT_LANGUAGE) {
+      return normalized;
+    }
     return normalized === '/' ? `/${targetLang}/` : `/${targetLang}${normalized}`;
   };
 

@@ -1,0 +1,139 @@
+---
+title: "VRTon 2026 Activity Schedule"
+slug: "itinerario-2026"
+lang: "en"
+status: "published"
+updatedAt: "2026-07-29T00:00:00.000Z"
+kind: "page"
+description: "Times are shown in 24-hour format."
+---
+
+```json blocks
+[
+  {
+    "type": "itinerary",
+    "columns": [
+      { "id": "main", "label": "Main Instance" },
+      { "id": "party", "label": "Party Instance" }
+    ],
+    "rows": [
+      {
+        "startTime": "12:00",
+        "endTime": "13:00",
+        "activities": {
+          "main": {
+            "title": "Community Welcome",
+            "description": "Welcome and event opening.",
+            "speaker": "VRTon Team",
+            "icon": "welcome"
+          },
+          "party": {
+            "title": "Ambient Music",
+            "description": "A chill space to relax.",
+            "icon": "ambient"
+          }
+        }
+      },
+      {
+        "startTime": "13:00",
+        "endTime": "14:00",
+        "activities": {
+          "main": {
+            "title": "VR Accessibility Talk",
+            "description": "Making virtual reality accessible for everyone.",
+            "icon": "accessibility"
+          },
+          "party": {
+            "title": "DJ Set: Lunar",
+            "description": "Live DJ set.",
+            "speaker": "Lunar",
+            "icon": "dj"
+          }
+        }
+      },
+      {
+        "startTime": "14:00",
+        "endTime": "15:00",
+        "activities": {
+          "main": {
+            "title": "Artist Panel",
+            "description": "Questions and answers with creators.",
+            "icon": "panel"
+          },
+          "party": {
+            "title": "Open Dance",
+            "description": "Everyone is welcome.",
+            "icon": "dance"
+          }
+        }
+      },
+      {
+        "startTime": "15:00",
+        "endTime": "16:00",
+        "activities": {
+          "main": {
+            "title": "Tabletop Impact Stories",
+            "description": "Real stories and real impact.",
+            "icon": "story"
+          },
+          "party": {
+            "title": "Community Games",
+            "description": "Fun with friends.",
+            "icon": "games"
+          }
+        }
+      },
+      {
+        "startTime": "16:00",
+        "endTime": "17:00",
+        "activities": {
+          "main": {
+            "title": "Live Performance",
+            "description": "Music and performances.",
+            "icon": "music"
+          },
+          "party": {
+            "title": "DJ Set: Nova",
+            "description": "High-energy set.",
+            "speaker": "Nova",
+            "icon": "dj"
+          }
+        }
+      },
+      {
+        "startTime": "17:00",
+        "endTime": "18:00",
+        "activities": {
+          "main": {
+            "title": "VR Creator Social",
+            "description": "Creator community meetup.",
+            "icon": "social"
+          },
+          "party": {
+            "title": "Dance Marathon",
+            "description": "Let's dance!",
+            "icon": "dance"
+          }
+        }
+      },
+      {
+        "startTime": "18:00",
+        "endTime": "19:00",
+        "activities": {
+          "main": {
+            "title": "Closing Ceremony",
+            "description": "Thank you and final words.",
+            "speaker": "VRTon Team",
+            "icon": "ceremony"
+          },
+          "party": {
+            "title": "Allnight Party",
+            "description": "Until we drop!",
+            "icon": "music"
+          }
+        }
+      }
+    ]
+  }
+]
+```
