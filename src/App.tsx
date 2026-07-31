@@ -8,12 +8,14 @@ import NotFoundPage from './pages/NotFoundPage';
 import PageRenderer from './pages/PageRenderer';
 import AdminPage from './pages/AdminPage';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './i18n/languages';
+import { useAccessibilityMode } from './hooks/useAccessibility.ts';
 
 const IS_DEV = import.meta.env.DEV;
 
 function App() {
   const location = useLocation();
   const { i18n } = useTranslation();
+  const reduceMotion = useAccessibilityMode();
 
   useEffect(() => {
     const firstSegment = location.pathname.split('/').filter(Boolean)[0];
@@ -25,6 +27,12 @@ function App() {
   }, [i18n, location.pathname]);
 
   useEffect(() => {
+    // CP7: en modo accesible los botones no hacen ripple. El efecto se inyecta
+    // por JS, asi que apagarlo desde CSS no alcanza; hay que no registrarlo.
+    if (reduceMotion) {
+      return undefined;
+    }
+
     const styleId = 'vrton-ripple-keyframes';
     if (!document.getElementById(styleId)) {
       const style = document.createElement('style');
@@ -69,7 +77,7 @@ function App() {
     return () => {
       document.removeEventListener('click', handleClick);
     };
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <Routes>

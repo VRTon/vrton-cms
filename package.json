@@ -12,7 +12,7 @@
     "dev:admin": "pkill -f 'vite.*5174' 2>/dev/null; npx vite --config vite-admin.config.ts --port 5174",
     "build": "vite build",
     "test:prepush": "npm run test:drag && npm run build",
-    "test:drag": "node --test src/utils/theme.test.js src/pages/adminDragModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js src/components/itinerary/itineraryModel.test.js",
+    "test:drag": "node --test src/utils/theme.test.js src/utils/accessibility.test.js src/pages/adminDragModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js src/components/itinerary/itineraryModel.test.js",
     "test:e2e": "npm run generate:content && playwright test",
     "setup:hooks": "git config core.hooksPath .githooks",
     "preview": "vite preview",

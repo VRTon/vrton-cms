@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../common/Button';
 import SocialIcons from '../common/SocialIcons';
 import { withBasePath } from '../../utils/assetPath';
+import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
 
 const FlyingHeartsBackground = lazy(() => import('./FlyingHeartsBackground'));
 
@@ -29,6 +30,7 @@ interface HeroProps {
 }
 
 function Hero({ config = {} }: HeroProps) {
+  const reduceMotion = useAccessibilityMode();
   const { t } = useTranslation();
 
   const title = config.title || t('home.hero.title');
@@ -63,9 +65,17 @@ function Hero({ config = {} }: HeroProps) {
   return (
     <header className="hero-section" id="home">
       <div className="hero-background" />
-      <Suspense fallback={null}>
-        <FlyingHeartsBackground />
-      </Suspense>
+      {/*
+        CP9: en modo accesible los corazones no se montan. Es un loop de
+        requestAnimationFrame sobre Three.js, el movimiento mas fuerte de la
+        pagina, y no basta con ocultarlo por CSS porque seguiria corriendo.
+        De paso se ahorra cargar el chunk de Three.js entero.
+      */}
+      {!reduceMotion && (
+        <Suspense fallback={null}>
+          <FlyingHeartsBackground />
+        </Suspense>
+      )}
       <div className="hero-content">
         <div className="logo-container">
           <img

@@ -2,15 +2,18 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
 
 function PublicLayout() {
   const location = useLocation();
+  const reduceMotion = useAccessibilityMode();
   const hideShell = location.pathname === '/discord' || location.pathname === '/discord/' || location.pathname === '/discord.html';
 
   useEffect(() => {
+    const scrollBehavior: ScrollBehavior = reduceMotion ? 'auto' : 'smooth';
     const hash = String(location.hash || '');
     if (!hash) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: scrollBehavior });
       return;
     }
 
@@ -29,7 +32,7 @@ function PublicLayout() {
 
       const target = document.getElementById(id);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
         return;
       }
 
@@ -44,7 +47,7 @@ function PublicLayout() {
     return () => {
       cancelled = true;
     };
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.hash, reduceMotion]);
 
   return (
     <>

@@ -23,6 +23,10 @@
       "switch_to_dark": "Cambiar a modo oscuro",
       "switch_to_light": "Cambiar a modo claro"
     },
+    "a11y": {
+      "enable": "Activar modo accesibilidad: mas contraste, letra mas grande y menos animaciones",
+      "disable": "Desactivar modo accesibilidad"
+    },
     "itinerary": {
       "schedule": "Programación de actividades",
       "time": "Horario",

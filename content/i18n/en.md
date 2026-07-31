@@ -24,6 +24,10 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "switch_to_dark": "Switch to dark mode",
     "switch_to_light": "Switch to light mode"
   },
+  "a11y": {
+    "enable": "Enable accessibility mode: higher contrast, larger text and reduced motion",
+    "disable": "Disable accessibility mode"
+  },
   "itinerary": {
     "schedule": "Activity schedule",
     "time": "Time",

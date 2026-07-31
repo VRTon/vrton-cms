@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { EventItem } from '../../types';
 import { withBasePath } from '../../utils/assetPath';
+import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
 
 interface CarouselProps {
   events: EventItem[]
@@ -18,6 +19,7 @@ function Carousel({ events, year }: CarouselProps) {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
   const totalSlides = events.length;
+  const reduceMotion = useAccessibilityMode();
 
   const goToSlide = useCallback((index: number, direction: 'next' | 'prev') => {
     if (!totalSlides) {
@@ -34,6 +36,15 @@ function Carousel({ events, year }: CarouselProps) {
       transitionTimeoutRef.current = null;
     }
 
+    // CP8: en modo accesible la imagen cambia de golpe. El barrido dura 1100ms
+    // y es de los movimientos mas grandes de la pagina.
+    if (reduceMotion) {
+      setPreviousSlide(null);
+      setCurrentSlide(nextIndex);
+      setIsTransitioning(false);
+      return;
+    }
+
     setTransitionDirection(direction);
     setPreviousSlide(currentSlide);
     setCurrentSlide(nextIndex);
@@ -44,10 +55,12 @@ function Carousel({ events, year }: CarouselProps) {
       setPreviousSlide(null);
       transitionTimeoutRef.current = null;
     }, SLIDE_TRANSITION_MS);
-  }, [currentSlide, totalSlides]);
+  }, [currentSlide, totalSlides, reduceMotion]);
 
   useEffect(() => {
-    if (totalSlides < 2 || isPaused) {
+    // El avance automatico es movimiento que el usuario no pidio, asi que en
+    // modo accesible queda solo la navegacion manual.
+    if (totalSlides < 2 || isPaused || reduceMotion) {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
@@ -61,7 +74,7 @@ function Carousel({ events, year }: CarouselProps) {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isPaused, currentSlide, goToSlide, totalSlides]);
+  }, [isPaused, currentSlide, goToSlide, totalSlides, reduceMotion]);
 
   useEffect(() => {
     if (currentSlide >= totalSlides && totalSlides > 0) {
