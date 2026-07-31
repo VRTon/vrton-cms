@@ -3,6 +3,7 @@ import Hero from './Hero';
 import EventsSection from './EventsSection';
 import FAQSection from './FAQSection';
 import MarkdownContent from '../common/MarkdownContent';
+import ItineraryBlock from '../itinerary/ItineraryBlock';
 import { getYouTubeEmbedUrl } from '../../utils/mediaEmbeds';
 import { withBasePath } from '../../utils/assetPath';
 import type {
@@ -13,6 +14,7 @@ import type {
   GalleryBlock as GalleryBlockType,
   AccordionBlock as AccordionBlockType,
   ScheduleBlock as ScheduleBlockType,
+  ItineraryBlock as ItineraryBlockType,
   SectionBlock as SectionBlockType,
 } from '../../types';
 
@@ -263,6 +265,10 @@ function BasicBlock({ block, inline = false }: BasicBlockProps) {
     return <ScheduleBlock block={block as ScheduleBlockType} />;
   }
 
+  if (blockType === 'itinerary') {
+    return <ItineraryBlock block={block as ItineraryBlockType} />;
+  }
+
   if (blockType === 'spacer') {
     const spacerBlock = block as { height?: string | number };
     return <div style={{ height: Math.max(8, Number(spacerBlock.height) || 40) }} aria-hidden="true" />;
@@ -286,7 +292,7 @@ function renderHomeBlock(block: Block, index: number) {
     return <FAQSection key={key} config={block} />;
   }
 
-  if (['heading', 'text', 'markdown', 'image', 'video', 'youtube', 'button', 'links', 'section', 'divider', 'spacer', 'gallery', 'accordion', 'schedule'].includes(block.type)) {
+  if (['heading', 'text', 'markdown', 'image', 'video', 'youtube', 'button', 'links', 'section', 'divider', 'spacer', 'gallery', 'accordion', 'schedule', 'itinerary'].includes(block.type)) {
     return <BasicBlock key={key} block={block} />;
   }
 
@@ -295,7 +301,7 @@ function renderHomeBlock(block: Block, index: number) {
 
 function renderPageBlock(block: Block, index: number) {
   const key = `${block.type || 'block'}-${index}`;
-  if (['heading', 'text', 'markdown', 'image', 'video', 'youtube', 'button', 'links', 'section', 'divider', 'spacer', 'gallery', 'accordion', 'schedule'].includes(block.type)) {
+  if (['heading', 'text', 'markdown', 'image', 'video', 'youtube', 'button', 'links', 'section', 'divider', 'spacer', 'gallery', 'accordion', 'schedule', 'itinerary'].includes(block.type)) {
     return <BasicBlock key={key} block={block} inline />;
   }
 

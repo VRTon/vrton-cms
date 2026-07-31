@@ -1468,6 +1468,69 @@ body.admin-mode {
   align-items: center;
 }
 
+.admin-itinerary-editor,
+.admin-itinerary-rows {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-itinerary-columns,
+.admin-itinerary-time-fields,
+.admin-itinerary-activities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-itinerary-columns-label {
+  margin: 0;
+  color: #374151;
+  font-size: 13px;
+}
+
+.admin-itinerary-row,
+.admin-itinerary-activity {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+.admin-itinerary-row-head,
+.admin-itinerary-activity-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.admin-itinerary-activity {
+  border-top: 3px solid #0799df;
+}
+
+.admin-itinerary-activity-party {
+  border-top-color: #a72ce0;
+}
+
+.admin-itinerary-activity-fields {
+  display: grid;
+  gap: 7px;
+}
+
+.admin-itinerary-upload {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.admin-itinerary-upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
 .admin-subsection-item {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -1846,6 +1909,12 @@ body.admin-mode {
   }
 
   .admin-schedule-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-itinerary-columns,
+  .admin-itinerary-time-fields,
+  .admin-itinerary-activities {
     grid-template-columns: 1fr;
   }
 

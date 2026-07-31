@@ -1561,6 +1561,11 @@ body,
         padding: 6.5rem 0 3rem;
     }
 
+    .legal-page > .container > h1,
+    .legal-page > .container > p:first-of-type {
+        margin-inline: 1rem;
+    }
+
     .legal-section {
         padding: 1.25rem;
         border-radius: 14px;

@@ -28,6 +28,13 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "enable": "Enable accessibility mode: higher contrast, larger text and reduced motion",
     "disable": "Disable accessibility mode"
   },
+  "itinerary": {
+    "schedule": "Activity schedule",
+    "time": "Time",
+    "speaker": "Speaker",
+    "close": "Close",
+    "untitled": "Activity"
+  },
   "footer": {
     "title": "VRTon",
     "text": "Using technology to change lives through virtual reality philanthropy.",

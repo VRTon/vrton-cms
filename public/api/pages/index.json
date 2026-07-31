@@ -17,6 +17,22 @@
       "url": "/api/pages/home.es.json"
     },
     {
+      "slug": "itinerario-2026",
+      "lang": "en",
+      "title": "VRTon 2026 Activity Schedule",
+      "status": "published",
+      "updatedAt": "2026-07-29T00:00:00.000Z",
+      "url": "/api/pages/itinerario-2026.en.json"
+    },
+    {
+      "slug": "itinerario-2026",
+      "lang": "es",
+      "title": "Itinerario de actividades VRTon 2026",
+      "status": "published",
+      "updatedAt": "2026-07-29T00:00:00.000Z",
+      "url": "/api/pages/itinerario-2026.es.json"
+    },
+    {
       "slug": "legal-code-of-conduct",
       "lang": "en",
       "title": "VRTon 2026 Code of Conduct",
@@ -82,6 +98,24 @@
         "status": "published",
         "updatedAt": "2026-05-21T13:57:23.934Z",
         "url": "/api/pages/home.es.json"
+      }
+    ],
+    "itinerario-2026": [
+      {
+        "slug": "itinerario-2026",
+        "lang": "en",
+        "title": "VRTon 2026 Activity Schedule",
+        "status": "published",
+        "updatedAt": "2026-07-29T00:00:00.000Z",
+        "url": "/api/pages/itinerario-2026.en.json"
+      },
+      {
+        "slug": "itinerario-2026",
+        "lang": "es",
+        "title": "Itinerario de actividades VRTon 2026",
+        "status": "published",
+        "updatedAt": "2026-07-29T00:00:00.000Z",
+        "url": "/api/pages/itinerario-2026.es.json"
       }
     ],
     "legal-code-of-conduct": [

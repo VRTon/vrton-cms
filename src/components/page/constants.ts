@@ -26,6 +26,7 @@ export const BLOCK_LIBRARY: BlockLibraryEntry[] = [
   { type: 'gallery', label: 'Gallery', icon: 'fa-images', category: 'media' },
   { type: 'accordion', label: 'Accordion', icon: 'fa-rectangle-list', category: 'content' },
   { type: 'schedule', label: 'Schedule', icon: 'fa-clock', category: 'content' },
+  { type: 'itinerary', label: 'Itinerary', icon: 'fa-table-list', category: 'content' },
   { type: 'heading', label: 'Heading', icon: 'fa-heading', category: 'content' },
   { type: 'text', label: 'Text', icon: 'fa-align-left', category: 'content' },
   { type: 'image', label: 'Image', icon: 'fa-image', category: 'media' },
@@ -46,7 +47,7 @@ export const BLOCK_CATEGORIES = [
 ];
 
 export const BASIC_BLOCK_TYPES = new Set([
-  'gallery', 'accordion', 'schedule', 'heading', 'text',
+  'gallery', 'accordion', 'schedule', 'itinerary', 'heading', 'text',
   'image', 'video', 'youtube', 'button', 'links',
   'section', 'divider', 'spacer',
 ]);

@@ -28,6 +28,13 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "enable": "Activar modo accesibilidad: mas contraste, letra mas grande y menos animaciones",
     "disable": "Desactivar modo accesibilidad"
   },
+  "itinerary": {
+    "schedule": "Programación de actividades",
+    "time": "Horario",
+    "speaker": "Ponente",
+    "close": "Cerrar",
+    "untitled": "Actividad"
+  },
   "footer": {
     "title": "VRTon",
     "text": "Usando tecnologia para cambiar vidas a traves de la filantropia en realidad virtual.",
