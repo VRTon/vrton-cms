@@ -626,6 +626,33 @@ body,
     box-shadow: 0 20px 60px rgba(var(--vrton-red-rgb), 0.3);
 }
 
+.event-card:focus-within {
+    border-color: var(--vrton-red);
+    box-shadow: 0 0 0 4px rgba(var(--vrton-red-rgb), 0.3), 0 20px 60px rgba(var(--vrton-red-rgb), 0.3);
+}
+
+.event-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    border-radius: inherit;
+}
+
+.event-card-link:focus-visible {
+    outline: 3px solid var(--vrton-white);
+    outline-offset: -6px;
+}
+
+.event-card .event-info {
+    pointer-events: none;
+}
+
+.event-card .carousel-btn,
+.event-card .carousel-indicators,
+.event-card .event-collaborators {
+    z-index: 12;
+}
+
 .carousel {
     position: absolute;
     top: 0;

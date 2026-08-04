@@ -20,6 +20,7 @@ interface EventsSectionConfig {
 
 interface EventRow {
   year: string
+  href?: string
   amount?: string
   events?: EventItem[]
   collaborators?: CollaboratorItem[]
@@ -27,10 +28,10 @@ interface EventRow {
 }
 
 function EventsSection({ config = {} }: { config?: EventsSectionConfig }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const title = config.title || t('home.events.title');
   const configuredRows = Array.isArray(config.rows) ? config.rows : [];
-  const defaultRows = buildDefaultEventsRows();
+  const defaultRows = buildDefaultEventsRows(i18n.resolvedLanguage || i18n.language);
   const rows = configuredRows.length > 0 ? configuredRows : defaultRows;
 
   return (
@@ -44,6 +45,7 @@ function EventsSection({ config = {} }: { config?: EventsSectionConfig }) {
             .sort((a, b) => Number(b.year) - Number(a.year))
             .map((row, index) => {
               const year = String(row.year || '');
+              const href = String(row.href || '').trim();
               const events = Array.isArray(row.events) && row.events.length > 0
                 ? row.events
                 : (EVENTS_DEFAULT_DATA[year] || []);
@@ -64,6 +66,13 @@ function EventsSection({ config = {} }: { config?: EventsSectionConfig }) {
               const sideClass = index % 2 === 0 ? 'event-left' : 'event-right';
               return (
                 <div key={year} className={`event-card ${sideClass}`}>
+                  {href ? (
+                    <a
+                      className="event-card-link"
+                      href={href}
+                      aria-label={`${t('home.events.view_edition')}: VRTon ${year}`}
+                    />
+                  ) : null}
                   <Carousel events={events} year={year} />
 
                   <div className="event-info">
