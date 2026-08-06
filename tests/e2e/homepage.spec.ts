@@ -52,3 +52,22 @@ test('keeps event cards keyboard accessible and responsive at 375px', async ({ p
   const hasOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   expect(hasOverflow).toBe(false);
 });
+
+test('pauses carousel auto-advance while hovering the linked card', async ({ page }) => {
+  await page.goto('/');
+
+  const carousel = page.locator('[data-carousel="2025"]');
+  const activeIndicator = carousel.locator('.indicator.active');
+  const activeIndex = async () => carousel.locator('.indicator').evaluateAll(
+    (indicators) => indicators.findIndex((indicator) => indicator.classList.contains('active')),
+  );
+
+  await carousel.locator('.event-card-link').hover({ position: { x: 100, y: 250 } });
+  const beforeHover = await activeIndex();
+  await page.waitForTimeout(5200);
+  expect(await activeIndex()).toBe(beforeHover);
+  await expect(activeIndicator).toHaveCount(1);
+
+  await page.getByRole('heading', { name: 'VRTon 2026' }).hover();
+  await expect.poll(activeIndex, { timeout: 6500 }).not.toBe(beforeHover);
+});

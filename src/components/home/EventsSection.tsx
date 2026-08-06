@@ -66,14 +66,12 @@ function EventsSection({ config = {} }: { config?: EventsSectionConfig }) {
               const sideClass = index % 2 === 0 ? 'event-left' : 'event-right';
               return (
                 <div key={year} className={`event-card ${sideClass}`}>
-                  {href ? (
-                    <a
-                      className="event-card-link"
-                      href={href}
-                      aria-label={`${t('home.events.view_edition')}: VRTon ${year}`}
-                    />
-                  ) : null}
-                  <Carousel events={events} year={year} />
+                  <Carousel
+                    events={events}
+                    year={year}
+                    href={href || undefined}
+                    linkLabel={`${t('home.events.view_edition')}: VRTon ${year}`}
+                  />
 
                   <div className="event-info">
                     <h3 className="event-title">VRTon {year}</h3>
