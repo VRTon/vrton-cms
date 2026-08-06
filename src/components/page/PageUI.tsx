@@ -55,6 +55,7 @@ interface ScheduleItem {
 
 interface EventsRow {
   year?: string
+  href?: string
   amount?: string
   events?: unknown[]
   collaborators?: unknown[]
@@ -2723,7 +2724,7 @@ export function AdminPage(props: AdminPageProps) {
                                     onClick={() => updateBlockField(
                                       String(typedBlock._cid || ''),
                                       'rows',
-                                      [...effectiveEventsRows, { year: String(new Date().getFullYear()), amount: '', events: [], collaboratorIds: [] }],
+                                      [...effectiveEventsRows, { year: String(new Date().getFullYear()), href: '', amount: '', events: [], collaboratorIds: [] }],
                                     )}
                                   >
                                     <i className="fa-solid fa-plus" aria-hidden="true" />
@@ -2771,6 +2772,17 @@ export function AdminPage(props: AdminPageProps) {
                                             onChange={(e) => {
                                               const nextRows = [...effectiveEventsRows];
                                               nextRows[rowIndex] = { ...eventRow, amount: e.target.value };
+                                              updateBlockField(String(typedBlock._cid || ''), 'rows', nextRows);
+                                            }}
+                                          />
+                                          <input
+                                            className="admin-input admin-events-row-link"
+                                            placeholder="Edition link (for example /eventos/vrton-2025)"
+                                            aria-label={`Edition link for VRTon ${String(eventRow.year || '')}`}
+                                            value={String(eventRow.href || '')}
+                                            onChange={(e) => {
+                                              const nextRows = [...effectiveEventsRows];
+                                              nextRows[rowIndex] = { ...eventRow, href: e.target.value };
                                               updateBlockField(String(typedBlock._cid || ''), 'rows', nextRows);
                                             }}
                                           />

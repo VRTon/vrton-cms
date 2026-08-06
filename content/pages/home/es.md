@@ -36,7 +36,7 @@ VRTon es una iniciativa voluntaria que une comunidades del metaverso de realidad
         "external": true
       },
       {
-        "label": "Voluntariado",
+        "label": "Ser Voluntario",
         "href": "https://docs.google.com/forms/d/e/1FAIpQLSd7f-826J4-Ca9-QZ9GRjV9-HMOqhsM8yF1M65bfwb5ZfliwA/viewform?usp=header",
         "variant": "accent",
         "external": true
@@ -159,6 +159,7 @@ VRTon es una iniciativa voluntaria que une comunidades del metaverso de realidad
     "rows": [
       {
         "year": "2025",
+        "href": "/eventos/vrton-2025",
         "amount": "U$D 3.255",
         "events": [
           {
@@ -241,6 +242,7 @@ VRTon es una iniciativa voluntaria que une comunidades del metaverso de realidad
       },
       {
         "year": "2024",
+        "href": "/eventos/vrton-2024",
         "amount": "U$D 1458",
         "events": [
           {
@@ -293,6 +295,7 @@ VRTon es una iniciativa voluntaria que une comunidades del metaverso de realidad
       },
       {
         "year": "2023",
+        "href": "/eventos/vrton-2023",
         "amount": "U$D 474",
         "events": [
           {

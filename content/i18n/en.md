@@ -109,7 +109,8 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     },
     "events": {
       "title": "Previous Events",
-      "goal_reached": "Goal Reached"
+      "goal_reached": "Goal Reached",
+      "view_edition": "View edition"
     },
     "faq": {
       "title": "Frequently Asked Questions",

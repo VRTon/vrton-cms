@@ -1340,6 +1340,10 @@ body.admin-mode {
   min-width: 280px;
 }
 
+.admin-events-row-link {
+  grid-column: 1 / -1;
+}
+
 .admin-events-row-stats {
   display: flex;
   align-items: center;

@@ -103,13 +103,14 @@ updatedAt: "2026-05-21T03:25:31.942Z"
       "title": "VRTon 2026",
       "subtitle": "6 y 7 de Noviembre",
       "attend": "Asistir",
-      "volunteer": "Voluntariado",
+      "volunteer": "Ser Voluntario",
       "sponsor": "Patrocinar",
       "vrchat_alt": "Vivi la experiencia en VRChat"
     },
     "events": {
       "title": "Eventos Anteriores",
-      "goal_reached": "Meta Alcanzada"
+      "goal_reached": "Meta Alcanzada",
+      "view_edition": "Ver edición"
     },
     "faq": {
       "title": "Preguntas Frecuentes",
