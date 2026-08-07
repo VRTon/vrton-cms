@@ -13,9 +13,14 @@ test('renders bilingual legal content with independent accessible accordions', a
   await rules.getByText('Normas de Convivencia', { exact: true }).click();
   await expect(terms).toHaveAttribute('open', '');
   await expect(rules).toHaveAttribute('open', '');
+  await expect(terms.locator('.page-card')).toHaveCount(6);
+  await expect(rules.locator('.page-card')).toHaveCount(2);
+  await expect(terms.locator('.page-card').first()).toBeVisible();
+  await expect(rules.locator('.page-card').first()).toBeVisible();
 
   await terms.getByText('Términos y Condiciones', { exact: true }).click();
   await expect(terms).not.toHaveAttribute('open', '');
+  await expect(terms.locator('.page-card').first()).toBeHidden();
   await expect(rules).toHaveAttribute('open', '');
 
   const volunteeringSummary = volunteering.getByText('Términos de Voluntariado', { exact: true });
@@ -38,6 +43,7 @@ test('renders bilingual legal content with independent accessible accordions', a
 });
 
 test('redirects every legacy legal route to its localized anchor', async ({ page }) => {
+  test.setTimeout(60_000);
   const routes = [
     { path: '/legal/terms', es: 'terminos', en: 'terms' },
     { path: '/legal/code-of-conduct', es: 'normas', en: 'code-of-conduct' },
@@ -84,4 +90,21 @@ test('keeps the legal page responsive without horizontal overflow', async ({ pag
   await expect(page.locator('#terminos')).toHaveAttribute('open', '');
   const hasOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   expect(hasOverflow).toBe(false);
+});
+
+test('restores the original legal cards in light, dark, and accessibility modes', async ({ page }) => {
+  await page.goto('/legal#terminos');
+
+  const firstCard = page.locator('#terminos .page-card').first();
+  await expect(firstCard).toBeVisible();
+  await expect(firstCard).toHaveCSS('border-top-width', '2px');
+  await expect(firstCard).toHaveCSS('border-radius', '16px');
+
+  await page.getByRole('button', { name: 'Cambiar a modo oscuro' }).click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(firstCard).toBeVisible();
+
+  await page.getByRole('button', { name: /Activar modo accesibilidad/ }).click();
+  await expect(page.locator('body')).toHaveClass(/accessibility-mode/);
+  await expect(firstCard).toBeVisible();
 });

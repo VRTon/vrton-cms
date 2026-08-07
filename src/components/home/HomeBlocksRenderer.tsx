@@ -43,9 +43,10 @@ function GalleryBlock({ block }: GalleryBlockProps) {
 
 interface AccordionBlockProps {
   block: AccordionBlockType
+  pageLayout?: boolean
 }
 
-function AccordionBlock({ block }: AccordionBlockProps) {
+function AccordionBlock({ block, pageLayout = false }: AccordionBlockProps) {
   const items = Array.isArray(block.items) ? block.items : [];
   const accordionRef = useRef<HTMLDivElement>(null);
   const itemIds = useMemo(() => {
@@ -112,7 +113,11 @@ function AccordionBlock({ block }: AccordionBlockProps) {
         >
           <summary>{item.title || `Item ${index + 1}`}</summary>
           <div className="content-accordion-body">
-            <MarkdownContent markdown={item.markdown || ''} />
+            <MarkdownContent
+              markdown={item.markdown || ''}
+              splitByDivider={pageLayout}
+              sectionClassName={pageLayout ? 'page-card' : undefined}
+            />
           </div>
         </details>
       ))}
@@ -314,7 +319,7 @@ function BasicBlock({ block, inline = false }: BasicBlockProps) {
   }
 
   if (blockType === 'accordion') {
-    return <AccordionBlock block={block as AccordionBlockType} />;
+    return <AccordionBlock block={block as AccordionBlockType} pageLayout={inline} />;
   }
 
   if (blockType === 'schedule') {

@@ -1550,6 +1550,66 @@ body,
     padding: 0 0.9rem 0.9rem;
 }
 
+/* Legal accordions keep their compact controls while restoring the chapter
+   cards used by the original individual legal pages. */
+.legal-page .page-blocks-stack > .content-accordion.content-accordion {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    gap: 1rem;
+}
+
+.legal-page .content-accordion-item {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.legal-page .content-accordion-item:target {
+    box-shadow: none;
+}
+
+.legal-page .content-accordion-item > summary {
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    background: var(--surface-inset);
+    box-shadow: 0 5px 18px rgba(var(--shadow-rgb), 0.04);
+    font-size: 1.08rem;
+    font-weight: 800;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.legal-page .content-accordion-item > summary:hover {
+    border-color: rgba(var(--vrton-red-rgb), 0.35);
+    background: var(--surface-raised);
+    box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.07);
+}
+
+.legal-page .content-accordion-item > summary::marker {
+    color: var(--accent-text);
+}
+
+.legal-page .content-accordion-item[open] > summary {
+    margin-bottom: 1rem;
+    border-color: rgba(var(--vrton-red-rgb), 0.35);
+    background: var(--surface-raised);
+}
+
+.legal-page .content-accordion-item:target > summary {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color) 22%, transparent);
+}
+
+.legal-page .content-accordion-body {
+    padding: 0;
+}
+
+.legal-page .content-accordion-body .page-card:last-child {
+    margin-bottom: 0;
+}
+
 .content-schedule {
     display: grid;
     gap: 0.65rem;
@@ -1607,6 +1667,10 @@ body,
     .page-card {
         padding: 1.25rem;
         border-radius: 14px;
+    }
+
+    .legal-page .content-accordion-item > summary {
+        padding: 0.9rem 1rem;
     }
 
 }
