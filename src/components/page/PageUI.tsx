@@ -43,6 +43,7 @@ interface GalleryItem {
 }
 
 interface AccordionItem {
+  id?: string
   title?: string
   markdown?: string
 }
@@ -770,6 +771,18 @@ export function AdminPage(props: AdminPageProps) {
 
   const removeBlockItem = useCallback((blockCid: string, itemIndex: number) => {
     updateBlockItems(blockCid, (items) => items.filter((_, idx) => idx !== itemIndex));
+  }, [updateBlockItems]);
+
+  const moveBlockItem = useCallback((blockCid: string, itemIndex: number, direction: -1 | 1) => {
+    updateBlockItems(blockCid, (items) => {
+      const targetIndex = itemIndex + direction;
+      if (targetIndex < 0 || targetIndex >= items.length) {
+        return items;
+      }
+      const nextItems = [...items];
+      [nextItems[itemIndex], nextItems[targetIndex]] = [nextItems[targetIndex], nextItems[itemIndex]];
+      return nextItems;
+    });
   }, [updateBlockItems]);
 
   const updateCollaboratorCatalogItem = useCallback((index: number, patch: Record<string, unknown>) => {
@@ -3484,7 +3497,7 @@ export function AdminPage(props: AdminPageProps) {
                                   type="button"
                                   className="admin-icon-btn secondary"
                                   title="Add accordion item"
-                                  onClick={() => addBlockItem(String(typedBlock._cid || ''), () => ({ title: '', markdown: '' }))}
+                                  onClick={() => addBlockItem(String(typedBlock._cid || ''), () => ({ id: '', title: '', markdown: '' }))}
                                 >
                                   <i className="fa-solid fa-plus" aria-hidden="true" />
                                 </button>
@@ -3495,6 +3508,17 @@ export function AdminPage(props: AdminPageProps) {
                                   <div key={accordionIndex} style={{ marginBottom: 8, padding: 8, border: '1px solid #e5e7eb', borderRadius: 8 }}>
                                     <input
                                       className="admin-input"
+                                      placeholder="Anchor ID"
+                                      value={String(accordionItem.id || '')}
+                                      onChange={(e) => {
+                                        const nextItems = [...(Array.isArray(typedBlock.items) ? typedBlock.items : [])];
+                                        nextItems[accordionIndex] = { ...accordionItem, id: e.target.value };
+                                        updateBlockField(String(typedBlock._cid || ''), 'items', nextItems);
+                                      }}
+                                    />
+                                    <input
+                                      className="admin-input"
+                                      style={{ marginTop: 6 }}
                                       placeholder="Title"
                                       value={String(accordionItem.title || '')}
                                       onChange={(e) => {
@@ -3514,14 +3538,37 @@ export function AdminPage(props: AdminPageProps) {
                                         updateBlockField(String(typedBlock._cid || ''), 'items', nextItems);
                                       }}
                                     />
-                                    <button
-                                      type="button"
-                                      className="admin-icon-btn danger"
-                                      style={{ marginTop: 6 }}
-                                      onClick={() => removeBlockItem(String(typedBlock._cid || ''), accordionIndex)}
-                                    >
-                                      <i className="fa-solid fa-trash" aria-hidden="true" />
-                                    </button>
+                                    <div className="admin-actions" style={{ marginTop: 6 }}>
+                                      <button
+                                        type="button"
+                                        className="admin-icon-btn secondary"
+                                        title="Move accordion item up"
+                                        aria-label="Move accordion item up"
+                                        disabled={accordionIndex === 0}
+                                        onClick={() => moveBlockItem(String(typedBlock._cid || ''), accordionIndex, -1)}
+                                      >
+                                        <i className="fa-solid fa-arrow-up" aria-hidden="true" />
+                                      </button>
+                                      <button
+                                        type="button"
+                                        className="admin-icon-btn secondary"
+                                        title="Move accordion item down"
+                                        aria-label="Move accordion item down"
+                                        disabled={accordionIndex === (Array.isArray(typedBlock.items) ? typedBlock.items.length : 0) - 1}
+                                        onClick={() => moveBlockItem(String(typedBlock._cid || ''), accordionIndex, 1)}
+                                      >
+                                        <i className="fa-solid fa-arrow-down" aria-hidden="true" />
+                                      </button>
+                                      <button
+                                        type="button"
+                                        className="admin-icon-btn danger"
+                                        title="Remove accordion item"
+                                        aria-label="Remove accordion item"
+                                        onClick={() => removeBlockItem(String(typedBlock._cid || ''), accordionIndex)}
+                                      >
+                                        <i className="fa-solid fa-trash" aria-hidden="true" />
+                                      </button>
+                                    </div>
                                   </div>
                                 );
                               })}
