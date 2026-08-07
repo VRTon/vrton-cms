@@ -1532,6 +1532,12 @@ body,
     border: 1px solid var(--border-strong);
     border-radius: 10px;
     background: var(--surface-raised);
+    scroll-margin-top: 6rem;
+}
+
+.content-accordion-item:target {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color) 22%, transparent);
 }
 
 .content-accordion-item summary {

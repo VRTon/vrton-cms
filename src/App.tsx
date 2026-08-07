@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PublicLayout from './components/layout/PublicLayout';
 import AdminShell from './components/layout/AdminShell';
@@ -9,6 +9,34 @@ import PageRenderer from './pages/PageRenderer';
 import AdminPage from './pages/AdminPage';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './i18n/languages';
 import { useAccessibilityMode } from './hooks/useAccessibility.ts';
+
+type LegalSection = 'terms' | 'code-of-conduct' | 'volunteering';
+
+const legacyLegalRoutes: Array<{ path: string; section: LegalSection }> = [
+  { path: '/legal/terms', section: 'terms' },
+  { path: '/legal/code-of-conduct', section: 'code-of-conduct' },
+  { path: '/legal/volunteering', section: 'volunteering' },
+  { path: '/legal-terms', section: 'terms' },
+  { path: '/legal-code-of-conduct', section: 'code-of-conduct' },
+  { path: '/legal-volunteering', section: 'volunteering' },
+];
+
+function LegacyLegalRedirect({
+  section,
+  language = 'es',
+  localized = false,
+}: {
+  section: LegalSection;
+  language?: 'es' | 'en';
+  localized?: boolean;
+}) {
+  const anchors: Record<'es' | 'en', Record<LegalSection, string>> = {
+    es: { terms: 'terminos', 'code-of-conduct': 'normas', volunteering: 'voluntariado' },
+    en: { terms: 'terms', 'code-of-conduct': 'code-of-conduct', volunteering: 'volunteering' },
+  };
+  const basePath = localized ? `/${language}/legal` : '/legal';
+  return <Navigate replace to={`${basePath}#${anchors[language][section]}`} />;
+}
 
 const IS_DEV = import.meta.env.DEV;
 
@@ -88,6 +116,20 @@ function App() {
       )}
 
       <Route element={<PublicLayout />}>
+        {legacyLegalRoutes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={<LegacyLegalRedirect section={route.section} />}
+          />
+        ))}
+        {SUPPORTED_LANGUAGES.flatMap((language) => legacyLegalRoutes.map((route) => (
+          <Route
+            key={`/${language.code}${route.path}`}
+            path={`/${language.code}${route.path}`}
+            element={<LegacyLegalRedirect section={route.section} language={language.code} localized />}
+          />
+        )))}
         <Route path="/" element={<HomePage />} />
         {SUPPORTED_LANGUAGES.map((language) => (
           <Route key={language.code} path={`/${language.code}`} element={<HomePage />} />

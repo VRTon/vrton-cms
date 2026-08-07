@@ -6,6 +6,7 @@ import MarkdownContent from '../common/MarkdownContent';
 import ItineraryBlock from '../itinerary/ItineraryBlock';
 import { getYouTubeEmbedUrl } from '../../utils/mediaEmbeds';
 import { withBasePath } from '../../utils/assetPath';
+import { useEffect, useMemo, useRef } from 'react';
 import type {
   Block,
   Item,
@@ -46,14 +47,69 @@ interface AccordionBlockProps {
 
 function AccordionBlock({ block }: AccordionBlockProps) {
   const items = Array.isArray(block.items) ? block.items : [];
+  const accordionRef = useRef<HTMLDivElement>(null);
+  const itemIds = useMemo(() => {
+    const seen = new Map<string, number>();
+    return items.map((item, index) => {
+      const requestedId = String(item.id || '').trim() || `accordion-item-${index + 1}`;
+      const occurrence = (seen.get(requestedId) || 0) + 1;
+      seen.set(requestedId, occurrence);
+      return occurrence === 1 ? requestedId : `${requestedId}-${occurrence}`;
+    });
+  }, [items]);
+
+  useEffect(() => {
+    const openHashTarget = () => {
+      let hash = window.location.hash.slice(1);
+      try {
+        hash = decodeURIComponent(hash);
+      } catch {
+        return;
+      }
+
+      if (!hash || !accordionRef.current) {
+        return;
+      }
+
+      const target = Array.from(accordionRef.current.querySelectorAll<HTMLDetailsElement>('details'))
+        .find((details) => details.id === hash);
+      if (!target) {
+        return;
+      }
+
+      target.open = true;
+      const summary = target.querySelector<HTMLElement>('summary');
+      window.requestAnimationFrame(() => {
+        target.scrollIntoView({ block: 'start', behavior: 'auto' });
+        summary?.focus({ preventScroll: true });
+      });
+    };
+
+    openHashTarget();
+    window.addEventListener('hashchange', openHashTarget);
+    return () => window.removeEventListener('hashchange', openHashTarget);
+  }, [itemIds]);
+
   if (items.length === 0) {
     return null;
   }
 
   return (
-    <div className="content-accordion">
+    <div ref={accordionRef} className="content-accordion">
       {items.map((item, index) => (
-        <details key={`accordion-item-${index}`} className="content-accordion-item">
+        <details
+          id={itemIds[index]}
+          key={itemIds[index]}
+          className="content-accordion-item"
+          onKeyDown={(event) => {
+            if (event.key !== 'Escape' || !event.currentTarget.open) {
+              return;
+            }
+            event.preventDefault();
+            event.currentTarget.open = false;
+            event.currentTarget.querySelector<HTMLElement>('summary')?.focus();
+          }}
+        >
           <summary>{item.title || `Item ${index + 1}`}</summary>
           <div className="content-accordion-body">
             <MarkdownContent markdown={item.markdown || ''} />
