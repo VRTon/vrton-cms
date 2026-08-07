@@ -131,6 +131,7 @@ export interface GalleryBlock extends BaseBlock {
 }
 
 export interface AccordionItem {
+  id?: string
   title: string
   markdown: string
 }

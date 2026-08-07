@@ -2,7 +2,7 @@ import { defineConfig, devices } from 'playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
-  testMatch: 'homepageBasePath.spec.ts',
+  testMatch: ['homepageBasePath.spec.ts', 'legalBasePath.spec.ts'],
   reporter: 'line',
   use: {
     baseURL: 'http://127.0.0.1:4175',
