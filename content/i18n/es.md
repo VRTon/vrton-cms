@@ -18,7 +18,25 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "events": "Eventos",
     "faq": "Preguntas",
     "get_involved": "Sumate",
-    "language_label": "Idioma"
+    "language_label": "Idioma",
+    "links": [
+      {
+        "label": "Inicio",
+        "href": "/"
+      },
+      {
+        "label": "Eventos",
+        "href": "#events"
+      },
+      {
+        "label": "Preguntas",
+        "href": "#faq"
+      },
+      {
+        "label": "Legal",
+        "href": "/legal"
+      }
+    ]
   },
   "theme": {
     "switch_to_dark": "Cambiar a modo oscuro",
@@ -46,15 +64,15 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "quick_links_items": [
       {
         "label": "Terminos de Servicio",
-        "href": "/es/legal-terms"
+        "href": "/legal#terminos"
       },
       {
         "label": "Codigo de Conducta",
-        "href": "/es/legal-code-of-conduct/"
+        "href": "/legal#normas"
       },
       {
         "label": "Terminos de Voluntariado",
-        "href": "/es/legal-volunteering/"
+        "href": "/legal#voluntariado"
       }
     ],
     "rights": "Todos los derechos reservados."

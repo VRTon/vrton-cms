@@ -79,6 +79,22 @@
       "status": "published",
       "updatedAt": "2026-05-21T13:57:23.934Z",
       "url": "/api/pages/legal-volunteering.es.json"
+    },
+    {
+      "slug": "legal",
+      "lang": "en",
+      "title": "VRTon 2026 Legal Documentation",
+      "status": "published",
+      "updatedAt": "2026-08-07T00:00:00.000Z",
+      "url": "/api/pages/legal.en.json"
+    },
+    {
+      "slug": "legal",
+      "lang": "es",
+      "title": "Documentación legal de VRTon 2026",
+      "status": "published",
+      "updatedAt": "2026-08-07T00:00:00.000Z",
+      "url": "/api/pages/legal.es.json"
     }
   ],
   "slugs": {
@@ -170,6 +186,24 @@
         "status": "published",
         "updatedAt": "2026-05-21T13:57:23.934Z",
         "url": "/api/pages/legal-volunteering.es.json"
+      }
+    ],
+    "legal": [
+      {
+        "slug": "legal",
+        "lang": "en",
+        "title": "VRTon 2026 Legal Documentation",
+        "status": "published",
+        "updatedAt": "2026-08-07T00:00:00.000Z",
+        "url": "/api/pages/legal.en.json"
+      },
+      {
+        "slug": "legal",
+        "lang": "es",
+        "title": "Documentación legal de VRTon 2026",
+        "status": "published",
+        "updatedAt": "2026-08-07T00:00:00.000Z",
+        "url": "/api/pages/legal.es.json"
       }
     ]
   }
