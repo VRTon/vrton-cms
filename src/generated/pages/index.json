@@ -95,6 +95,54 @@
       "status": "published",
       "updatedAt": "2026-08-07T00:00:00.000Z",
       "url": "/api/pages/legal.es.json"
+    },
+    {
+      "slug": "vrton-2023",
+      "lang": "en",
+      "title": "VRTon 2023",
+      "status": "published",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "url": "/api/pages/vrton-2023.en.json"
+    },
+    {
+      "slug": "vrton-2023",
+      "lang": "es",
+      "title": "VRTon 2023",
+      "status": "published",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "url": "/api/pages/vrton-2023.es.json"
+    },
+    {
+      "slug": "vrton-2024",
+      "lang": "en",
+      "title": "VRTon 2024",
+      "status": "published",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "url": "/api/pages/vrton-2024.en.json"
+    },
+    {
+      "slug": "vrton-2024",
+      "lang": "es",
+      "title": "VRTon 2024",
+      "status": "published",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "url": "/api/pages/vrton-2024.es.json"
+    },
+    {
+      "slug": "vrton-2025",
+      "lang": "en",
+      "title": "VRTon 2025",
+      "status": "published",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "url": "/api/pages/vrton-2025.en.json"
+    },
+    {
+      "slug": "vrton-2025",
+      "lang": "es",
+      "title": "VRTon 2025",
+      "status": "published",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "url": "/api/pages/vrton-2025.es.json"
     }
   ],
   "slugs": {
@@ -204,6 +252,60 @@
         "status": "published",
         "updatedAt": "2026-08-07T00:00:00.000Z",
         "url": "/api/pages/legal.es.json"
+      }
+    ],
+    "vrton-2023": [
+      {
+        "slug": "vrton-2023",
+        "lang": "en",
+        "title": "VRTon 2023",
+        "status": "published",
+        "updatedAt": "2026-08-14T00:00:00.000Z",
+        "url": "/api/pages/vrton-2023.en.json"
+      },
+      {
+        "slug": "vrton-2023",
+        "lang": "es",
+        "title": "VRTon 2023",
+        "status": "published",
+        "updatedAt": "2026-08-14T00:00:00.000Z",
+        "url": "/api/pages/vrton-2023.es.json"
+      }
+    ],
+    "vrton-2024": [
+      {
+        "slug": "vrton-2024",
+        "lang": "en",
+        "title": "VRTon 2024",
+        "status": "published",
+        "updatedAt": "2026-08-14T00:00:00.000Z",
+        "url": "/api/pages/vrton-2024.en.json"
+      },
+      {
+        "slug": "vrton-2024",
+        "lang": "es",
+        "title": "VRTon 2024",
+        "status": "published",
+        "updatedAt": "2026-08-14T00:00:00.000Z",
+        "url": "/api/pages/vrton-2024.es.json"
+      }
+    ],
+    "vrton-2025": [
+      {
+        "slug": "vrton-2025",
+        "lang": "en",
+        "title": "VRTon 2025",
+        "status": "published",
+        "updatedAt": "2026-08-14T00:00:00.000Z",
+        "url": "/api/pages/vrton-2025.en.json"
+      },
+      {
+        "slug": "vrton-2025",
+        "lang": "es",
+        "title": "VRTon 2025",
+        "status": "published",
+        "updatedAt": "2026-08-14T00:00:00.000Z",
+        "url": "/api/pages/vrton-2025.es.json"
       }
     ]
   }
