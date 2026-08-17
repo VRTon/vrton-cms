@@ -6,6 +6,7 @@ import AdminShell from './components/layout/AdminShell';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import PageRenderer from './pages/PageRenderer';
+import EventPage from './pages/EventPage';
 import AdminPage from './pages/AdminPage';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './i18n/languages';
 import { useAccessibilityMode } from './hooks/useAccessibility.ts';
@@ -134,6 +135,9 @@ function App() {
         {SUPPORTED_LANGUAGES.map((language) => (
           <Route key={language.code} path={`/${language.code}`} element={<HomePage />} />
         ))}
+        <Route path="/eventos/:slug" element={<EventPage language="es" />} />
+        <Route path="/es/eventos/:slug" element={<EventPage language="es" />} />
+        <Route path="/en/events/:slug" element={<EventPage language="en" />} />
         <Route path="/:slug" element={<PageRenderer />} />
         <Route path="/:lang/:slug" element={<PageRenderer />} />
 
