@@ -326,6 +326,10 @@ updatedAt: "2026-05-21T03:25:31.940Z"
       }
     }
   },
+  "event_page": {
+    "gallery_label": "VRTon {{year}} gallery",
+    "no_photos": "No photos are available for this edition."
+  },
   "errors": {
     "not_found": {
       "title": "Page Not Found",

@@ -19,7 +19,13 @@ function LanguageSwitcher() {
     const pathSegments = location.pathname.split('/').filter(Boolean);
     const hasLangPrefix = pathSegments.length > 0 && languageCodes.includes(pathSegments[0]);
     const remainder = hasLangPrefix ? `/${pathSegments.slice(1).join('/')}` : location.pathname;
-    const normalized = remainder === '' ? '/' : remainder;
+    let normalized = remainder === '' ? '/' : remainder;
+    if (targetLang === 'en' && normalized.startsWith('/eventos/')) {
+      normalized = normalized.replace('/eventos/', '/events/');
+    }
+    if (targetLang === 'es' && normalized.startsWith('/events/')) {
+      normalized = normalized.replace('/events/', '/eventos/');
+    }
     if (targetLang === DEFAULT_LANGUAGE) {
       return normalized;
     }
