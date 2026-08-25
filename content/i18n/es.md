@@ -18,7 +18,25 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "events": "Eventos",
     "faq": "Preguntas",
     "get_involved": "Sumate",
-    "language_label": "Idioma"
+    "language_label": "Idioma",
+    "links": [
+      {
+        "label": "Inicio",
+        "href": "/"
+      },
+      {
+        "label": "Eventos",
+        "href": "#events"
+      },
+      {
+        "label": "Preguntas",
+        "href": "#faq"
+      },
+      {
+        "label": "Legal",
+        "href": "/legal"
+      }
+    ]
   },
   "theme": {
     "switch_to_dark": "Cambiar a modo oscuro",
@@ -46,15 +64,15 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "quick_links_items": [
       {
         "label": "Terminos de Servicio",
-        "href": "/es/legal-terms"
+        "href": "/legal#terminos"
       },
       {
         "label": "Codigo de Conducta",
-        "href": "/es/legal-code-of-conduct/"
+        "href": "/legal#normas"
       },
       {
         "label": "Terminos de Voluntariado",
-        "href": "/es/legal-volunteering/"
+        "href": "/legal#voluntariado"
       }
     ],
     "rights": "Todos los derechos reservados."
@@ -103,13 +121,14 @@ updatedAt: "2026-05-21T03:25:31.942Z"
       "title": "VRTon 2026",
       "subtitle": "6 y 7 de Noviembre",
       "attend": "Asistir",
-      "volunteer": "Voluntariado",
+      "volunteer": "Ser Voluntario",
       "sponsor": "Patrocinar",
       "vrchat_alt": "Vivi la experiencia en VRChat"
     },
     "events": {
       "title": "Eventos Anteriores",
-      "goal_reached": "Meta Alcanzada"
+      "goal_reached": "Meta Alcanzada",
+      "view_edition": "Ver edición"
     },
     "faq": {
       "title": "Preguntas Frecuentes",
@@ -306,6 +325,10 @@ updatedAt: "2026-05-21T03:25:31.942Z"
         }
       }
     }
+  },
+  "event_page": {
+    "gallery_label": "Galería de VRTon {{year}}",
+    "no_photos": "No hay fotos disponibles para esta edición."
   },
   "errors": {
     "not_found": {

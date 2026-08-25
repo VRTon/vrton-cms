@@ -12,8 +12,9 @@
     "dev:admin": "pkill -f 'vite.*5174' 2>/dev/null; npx vite --config vite-admin.config.ts --port 5174",
     "build": "vite build",
     "test:prepush": "npm run test:drag && npm run build",
-    "test:drag": "node --test src/utils/theme.test.js src/utils/accessibility.test.js src/pages/adminDragModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js src/components/itinerary/itineraryModel.test.js",
+    "test:drag": "node --test src/utils/theme.test.js src/utils/accessibility.test.js src/pages/adminDragModel.test.js src/pages/eventPageModel.test.js src/utils/mediaEmbeds.test.js src/utils/adminMediaUpload.test.js src/utils/adminAssetApiValidation.test.js src/utils/adminPathSecurity.test.js src/components/itinerary/itineraryModel.test.js src/components/home/homepageRefinements.test.js",
     "test:e2e": "npm run generate:content && playwright test",
+    "test:e2e:base-path": "playwright test --config playwright.base-path.config.ts",
     "setup:hooks": "git config core.hooksPath .githooks",
     "preview": "vite preview",
     "lint": "eslint --ext js,jsx,ts,tsx . --report-unused-disable-directives --max-warnings 0 --ignore-pattern dist/ --ignore-pattern 'public/src/**'"
@@ -29,7 +30,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^14.1.2",
-    "react-router-dom": "^6.23.1",
+    "react-router-dom": "^7.18.2",
     "three": "^0.166.1"
   },
   "devDependencies": {
@@ -38,18 +39,18 @@
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.59.4",
     "@typescript-eslint/parser": "^8.59.4",
-    "@vitejs/plugin-react": "^4.3.0",
+    "@vitejs/plugin-react": "^6.0.5",
     "autoprefixer": "^10.4.19",
-    "concurrently": "^9.2.1",
+    "concurrently": "^9.2.4",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "globals": "^17.6.0",
     "playwright": "^1.60.0",
-    "postcss": "^8.5.18",
+    "postcss": "^8.5.25",
     "tailwindcss": "^3.4.3",
     "typescript": "^6.0.3",
-    "vite": "^5.2.11"
+    "vite": "^8.2.1"
   }
 }

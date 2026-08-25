@@ -265,12 +265,12 @@ export function buildCollaboratorsCatalogFromRows(
 export function normalizeEventsRowsWithCatalog(
   rows: unknown[],
   catalog: Array<{ id: string; src?: string; alt?: string; name?: string; href?: string }>,
-): Array<{ year?: string; amount?: string; events?: unknown[]; collaboratorIds?: string[]; collaborators?: unknown[] }> {
+): Array<{ year?: string; href?: string; amount?: string; events?: unknown[]; collaboratorIds?: string[]; collaborators?: unknown[] }> {
   if (!Array.isArray(rows)) {
     return [];
   }
   return rows.map((row) => {
-    const entry = row as { year?: string; amount?: string; events?: unknown[]; collaboratorIds?: string[]; collaborators?: unknown[] };
+    const entry = row as { year?: string; href?: string; amount?: string; events?: unknown[]; collaboratorIds?: string[]; collaborators?: unknown[] };
     const collaborators = (entry.collaboratorIds || [])
       .map((id: string) => catalog.find((c) => c.id === id))
       .filter(Boolean)

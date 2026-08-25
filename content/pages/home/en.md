@@ -50,7 +50,21 @@ VRTon is a voluntary initiative that brings together communities from the virtua
   },
   {
     "type": "events",
-    "_cid": "block-1779691039913-0z4hzc"
+    "_cid": "block-1779691039913-0z4hzc",
+    "rows": [
+      {
+        "year": "2025",
+        "href": "/en/events/vrton-2025"
+      },
+      {
+        "year": "2024",
+        "href": "/en/events/vrton-2024"
+      },
+      {
+        "year": "2023",
+        "href": "/en/events/vrton-2023"
+      }
+    ]
   },
   {
     "type": "faq",

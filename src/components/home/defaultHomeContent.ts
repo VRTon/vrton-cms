@@ -134,15 +134,18 @@ export const FAQ_DEFAULT_ITEMS_RIGHT_EN: FAQItem[] = [
 
 interface EventRow {
   year: string
+  href?: string
   amount: string
   events: EventItem[]
   collaborators: CollaboratorItem[]
 }
 
-export function buildDefaultEventsRows(): EventRow[] {
+export function buildDefaultEventsRows(lang = 'es'): EventRow[] {
+  const isEnglish = String(lang || '').toLowerCase().startsWith('en');
   return Object.keys(EVENTS_DEFAULT_DATA)
     .map((year) => ({
       year: String(year),
+      href: isEnglish ? `/en/events/vrton-${year}` : `/eventos/vrton-${year}`,
       amount: EVENTS_DEFAULT_META[year]?.amount || '',
       events: Array.isArray(EVENTS_DEFAULT_DATA[year]) ? EVENTS_DEFAULT_DATA[year].map((item) => ({ ...item })) : [],
       collaborators: Array.isArray(EVENTS_DEFAULT_META[year]?.collaborators)

@@ -71,6 +71,14 @@ export interface CollaboratorItem {
 export interface EventsBlock extends BaseBlock {
   type: 'events'
   title?: string
+  rows?: Array<{
+    year: string
+    href?: string
+    amount?: string
+    events?: EventItem[]
+    collaborators?: CollaboratorItem[]
+    collaboratorIds?: string[]
+  }>
   yearsData?: Record<string, EventItem[]>
   meta?: Record<string, { amount: string; collaborators: CollaboratorItem[] }>
 }
@@ -123,6 +131,7 @@ export interface GalleryBlock extends BaseBlock {
 }
 
 export interface AccordionItem {
+  id?: string
   title: string
   markdown: string
 }
