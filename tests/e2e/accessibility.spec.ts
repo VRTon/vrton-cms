@@ -126,6 +126,58 @@ test('restablecer deja todo en el estado inicial', async ({ page }) => {
   await expect(page.locator('body')).not.toHaveClass(/a11y-text-scaled/);
 });
 
+test('el interruptor maestro prende y apaga todas las opciones', async ({ page }) => {
+  await page.goto('/');
+  const dialog = await openPanel(page);
+  const body = page.locator('body');
+  const master = dialog.getByRole('checkbox', { name: 'Activar todas las opciones' });
+
+  await master.check();
+  await expect(page.locator('html')).toHaveAttribute('data-a11y-text-size', 'large');
+  await expect(body).toHaveClass(/a11y-high-contrast/);
+  await expect(body).toHaveClass(/a11y-reduce-motion/);
+  await expect(body).toHaveClass(/a11y-underline-links/);
+  await expect(dialog.getByRole('checkbox', { name: 'Alto contraste' })).toBeChecked();
+
+  await master.uncheck();
+  await expect(page.locator('html')).toHaveAttribute('data-a11y-text-size', 'normal');
+  await expect(body).not.toHaveClass(/a11y-high-contrast/);
+  await expect(body).not.toHaveClass(/a11y-reduce-motion/);
+  await expect(body).not.toHaveClass(/a11y-underline-links/);
+  await expect(body).not.toHaveClass(/a11y-text-scaled/);
+});
+
+test('el interruptor maestro queda en mixto cuando solo hay algunas opciones', async ({ page }) => {
+  await page.goto('/');
+  const dialog = await openPanel(page);
+  const master = dialog.getByRole('checkbox', { name: 'Activar todas las opciones' });
+
+  await expect(master).not.toBeChecked();
+  await expect(master).toHaveJSProperty('indeterminate', false);
+
+  await dialog.getByRole('checkbox', { name: 'Reducir animaciones' }).check();
+  await expect(master).toHaveJSProperty('indeterminate', true);
+  await expect(master).not.toBeChecked();
+
+  await dialog.getByRole('checkbox', { name: 'Alto contraste' }).check();
+  await dialog.getByRole('checkbox', { name: 'Subrayar enlaces' }).check();
+  await dialog.getByRole('radio', { name: 'Grande', exact: true }).click();
+  await expect(master).toBeChecked();
+  await expect(master).toHaveJSProperty('indeterminate', false);
+});
+
+test('el interruptor maestro no toca el tema', async ({ page }) => {
+  await page.goto('/');
+  const dialog = await openPanel(page);
+
+  await dialog.getByRole('radio', { name: 'Oscuro' }).click();
+  await dialog.getByRole('checkbox', { name: 'Activar todas las opciones' }).check();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+
+  await dialog.getByRole('checkbox', { name: 'Activar todas las opciones' }).uncheck();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+});
+
 test('el panel se cierra con Escape y devuelve el foco al boton', async ({ page }) => {
   await page.goto('/');
   await openPanel(page);

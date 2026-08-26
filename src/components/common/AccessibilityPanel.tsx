@@ -84,12 +84,23 @@ interface PreferenceCheckboxProps {
   label: string
   checked: boolean
   onChange: (_checked: boolean) => void
+  indeterminate?: boolean
+  className?: string
 }
 
-function PreferenceCheckbox({ label, checked, onChange }: PreferenceCheckboxProps) {
+function PreferenceCheckbox({ label, checked, onChange, indeterminate, className }: PreferenceCheckboxProps) {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.indeterminate = Boolean(indeterminate);
+    }
+  }, [indeterminate]);
+
   return (
-    <label className="a11y-check">
+    <label className={className ? `a11y-check ${className}` : 'a11y-check'}>
       <input
+        ref={inputRef}
         type="checkbox"
         checked={checked}
         onChange={(event) => onChange(event.target.checked)}
@@ -108,6 +119,9 @@ function AccessibilityPanel() {
 
   const {
     preferences,
+    allEnabled,
+    partiallyEnabled,
+    setAllEnabled,
     setTextSize,
     setHighContrast,
     setReduceMotion,
@@ -212,6 +226,14 @@ function AccessibilityPanel() {
             </div>
 
             <div className="a11y-dialog-body">
+              <PreferenceCheckbox
+                className="a11y-check-master"
+                label={t('a11y.master')}
+                checked={allEnabled}
+                indeterminate={partiallyEnabled}
+                onChange={setAllEnabled}
+              />
+
               <div className="a11y-field">
                 <span className="a11y-field-label">{t('a11y.theme_label')}</span>
                 <SegmentedControl

@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
+  ALL_ON_PREFERENCES,
   DEFAULT_PREFERENCES,
   applyPreferences,
+  areAllPreferencesOn,
   clearStoredPreferences,
+  isAnyPreferenceOn,
   readStoredPreferences,
   resolvePreferences,
   withPreference,
@@ -48,6 +51,9 @@ export function useReduceMotion(): boolean {
 
 export interface UseAccessibilityControlsResult {
   preferences: AccessibilityPreferences
+  allEnabled: boolean
+  partiallyEnabled: boolean
+  setAllEnabled: (_enabled: boolean) => void
   setTextSize: (_size: TextSize) => void
   setHighContrast: (_enabled: boolean) => void
   setReduceMotion: (_enabled: boolean) => void
@@ -76,6 +82,12 @@ export function useAccessibilityControls(): UseAccessibilityControlsResult {
   const setReduceMotion = useCallback((enabled: boolean) => update('reduceMotion', enabled), [update]);
   const setUnderlineLinks = useCallback((enabled: boolean) => update('underlineLinks', enabled), [update]);
 
+  const setAllEnabled = useCallback((enabled: boolean) => {
+    const next = enabled ? { ...ALL_ON_PREFERENCES } : { ...DEFAULT_PREFERENCES };
+    writeStoredPreferences(next);
+    notify(next);
+  }, []);
+
   const reset = useCallback(() => {
     clearStoredPreferences();
     notify({ ...DEFAULT_PREFERENCES });
@@ -83,6 +95,9 @@ export function useAccessibilityControls(): UseAccessibilityControlsResult {
 
   return {
     preferences,
+    allEnabled: areAllPreferencesOn(preferences),
+    partiallyEnabled: isAnyPreferenceOn(preferences) && !areAllPreferencesOn(preferences),
+    setAllEnabled,
     setTextSize,
     setHighContrast,
     setReduceMotion,

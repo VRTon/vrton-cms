@@ -32,12 +32,14 @@ export const DEFAULT_PREFERENCES: AccessibilityPreferences = {
 export const LEGACY_ON = 'on';
 export const LEGACY_OFF = 'off';
 
-export const LEGACY_ON_PREFERENCES: AccessibilityPreferences = {
+export const ALL_ON_PREFERENCES: AccessibilityPreferences = {
   textSize: TEXT_SIZE_LARGE,
   highContrast: true,
   reduceMotion: true,
   underlineLinks: true,
 };
+
+export const LEGACY_ON_PREFERENCES: AccessibilityPreferences = ALL_ON_PREFERENCES;
 
 export const TEXT_SIZE_ATTRIBUTE = 'data-a11y-text-size';
 export const TEXT_SCALED_CLASS = 'a11y-text-scaled';
@@ -121,6 +123,18 @@ export function withPreference<K extends keyof AccessibilityPreferences>(
   value: AccessibilityPreferences[K],
 ): AccessibilityPreferences {
   return normalizePreferences({ ...preferences, [key]: value });
+}
+
+export function areAllPreferencesOn(preferences: AccessibilityPreferences): boolean {
+  const resolved = normalizePreferences(preferences);
+  return resolved.textSize !== TEXT_SIZE_NORMAL
+    && resolved.highContrast
+    && resolved.reduceMotion
+    && resolved.underlineLinks;
+}
+
+export function isAnyPreferenceOn(preferences: AccessibilityPreferences): boolean {
+  return !isDefaultPreferences(preferences);
 }
 
 export function isDefaultPreferences(preferences: AccessibilityPreferences): boolean {

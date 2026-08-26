@@ -2,6 +2,7 @@ import test, { describe } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   ACCESSIBILITY_STORAGE_KEY,
+  ALL_ON_PREFERENCES,
   DEFAULT_PREFERENCES,
   HIGH_CONTRAST_CLASS,
   LEGACY_ON_PREFERENCES,
@@ -13,7 +14,9 @@ import {
   TEXT_SIZE_XLARGE,
   UNDERLINE_LINKS_CLASS,
   applyPreferences,
+  areAllPreferencesOn,
   clearStoredPreferences,
+  isAnyPreferenceOn,
   isDefaultPreferences,
   isValidTextSize,
   normalizePreferences,
@@ -202,6 +205,40 @@ describe('isDefaultPreferences', () => {
   test('cualquier opcion encendida ya no es el estado por defecto', () => {
     assert.equal(isDefaultPreferences({ ...DEFAULT_PREFERENCES, reduceMotion: true }), false);
     assert.equal(isDefaultPreferences({ ...DEFAULT_PREFERENCES, textSize: TEXT_SIZE_LARGE }), false);
+  });
+});
+
+describe('areAllPreferencesOn', () => {
+  test('reconoce el estado con todo encendido', () => {
+    assert.equal(areAllPreferencesOn(ALL_ON_PREFERENCES), true);
+  });
+
+  test('falta una sola opcion y ya no esta todo encendido', () => {
+    assert.equal(areAllPreferencesOn({ ...ALL_ON_PREFERENCES, underlineLinks: false }), false);
+    assert.equal(areAllPreferencesOn({ ...ALL_ON_PREFERENCES, textSize: TEXT_SIZE_NORMAL }), false);
+  });
+
+  test('el tamano muy grande tambien cuenta como encendido', () => {
+    assert.equal(areAllPreferencesOn({ ...ALL_ON_PREFERENCES, textSize: TEXT_SIZE_XLARGE }), true);
+  });
+
+  test('el estado por defecto no es todo encendido', () => {
+    assert.equal(areAllPreferencesOn(DEFAULT_PREFERENCES), false);
+  });
+});
+
+describe('isAnyPreferenceOn', () => {
+  test('el estado por defecto no tiene nada encendido', () => {
+    assert.equal(isAnyPreferenceOn(DEFAULT_PREFERENCES), false);
+  });
+
+  test('una sola opcion basta para que haya algo encendido', () => {
+    assert.equal(isAnyPreferenceOn({ ...DEFAULT_PREFERENCES, reduceMotion: true }), true);
+    assert.equal(isAnyPreferenceOn({ ...DEFAULT_PREFERENCES, textSize: TEXT_SIZE_LARGE }), true);
+  });
+
+  test('con todo encendido tambien hay algo encendido', () => {
+    assert.equal(isAnyPreferenceOn(ALL_ON_PREFERENCES), true);
   });
 });
 

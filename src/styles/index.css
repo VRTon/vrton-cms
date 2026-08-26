@@ -2218,6 +2218,20 @@ summary:focus-visible,
     border-color: var(--vrton-red);
 }
 
+.a11y-check-master {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.1rem;
+    border: 0;
+    border-bottom: 1px solid var(--border-subtle);
+    border-radius: 0;
+    font-weight: 700;
+}
+
+.a11y-check-master:hover {
+    border-color: var(--border-subtle);
+    color: var(--accent-text);
+}
+
 .a11y-check input {
     width: 18px;
     height: 18px;

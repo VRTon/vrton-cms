@@ -46,6 +46,7 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "open": "Preferencias de accesibilidad",
     "title": "Preferencias de accesibilidad",
     "close": "Cerrar",
+    "master": "Activar todas las opciones",
     "theme_label": "Tema de color",
     "theme_system": "Usar ajuste del sistema",
     "theme_light": "Claro",

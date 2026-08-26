@@ -46,6 +46,7 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "open": "Accessibility preferences",
     "title": "Accessibility preferences",
     "close": "Close",
+    "master": "Turn on every option",
     "theme_label": "Color theme",
     "theme_system": "Use system setting",
     "theme_light": "Light",
