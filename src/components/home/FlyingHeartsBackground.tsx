@@ -33,7 +33,6 @@ function FlyingHeartsBackground() {
 
     const container = mountRef.current;
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
     camera.position.z = 18;
@@ -41,7 +40,7 @@ function FlyingHeartsBackground() {
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setClearColor(0xffffff, 1);
+    renderer.setClearColor(0x000000, 0);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.premultipliedAlpha = true;
     container.appendChild(renderer.domElement);
