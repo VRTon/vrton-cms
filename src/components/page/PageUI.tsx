@@ -254,7 +254,6 @@ function DragHandleButton({ id, data, icon, title }: DragHandleButtonProps) {
 }
 
 interface AdminPageProps {
-  contentMode: string
   pages: PageGroup[]
   normalizedFiles: Array<{ path: string; page: string; lang: string; section: string }>
   activePath: string

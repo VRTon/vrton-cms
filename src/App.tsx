@@ -2,15 +2,11 @@ import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PublicLayout from './components/layout/PublicLayout';
-import AdminShell from './components/layout/AdminShell';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import PageRenderer from './pages/PageRenderer';
-import AdminPage from './pages/AdminPage';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './i18n/languages';
 import { useAccessibilityMode } from './hooks/useAccessibility.ts';
-
-const IS_DEV = import.meta.env.DEV;
 
 function App() {
   const location = useLocation();
@@ -81,12 +77,6 @@ function App() {
 
   return (
     <Routes>
-      {IS_DEV && (
-        <Route element={<AdminShell />}>
-          <Route path="/admin" element={<AdminPage />} />
-        </Route>
-      )}
-
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
         {SUPPORTED_LANGUAGES.map((language) => (

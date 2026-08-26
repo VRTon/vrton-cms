@@ -277,7 +277,7 @@ const sharedConfig = {
   plugins: [react(), createAdminApiPlugin(), copyStaticPublicAssetsPlugin()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, '../src'),
+      '@': resolve(__dirname, 'src'),
     },
   },
   build: {
