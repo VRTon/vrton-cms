@@ -4,11 +4,16 @@ import {
   THEME_STORAGE_KEY,
   LIGHT,
   DARK,
+  SYSTEM,
   isValidTheme,
+  isValidThemeChoice,
   resolveTheme,
+  resolveThemeChoice,
   toggleTheme,
   readStoredTheme,
+  readStoredThemeChoice,
   writeStoredTheme,
+  writeStoredThemeChoice,
   applyTheme,
 } from './theme.ts';
 
@@ -168,5 +173,90 @@ describe('applyTheme', () => {
     const doc = fakeDoc();
     applyTheme('naranjo', doc);
     assert.equal(doc._html.attrs['data-theme'], undefined);
+  });
+});
+
+function withFullLocalStorage(initial, run) {
+  const store = new Map(Object.entries(initial || {}));
+  const original = globalThis.window;
+  globalThis.window = {
+    localStorage: {
+      getItem: (k) => (store.has(k) ? store.get(k) : null),
+      setItem: (k, v) => store.set(k, String(v)),
+      removeItem: (k) => store.delete(k),
+    },
+  };
+  try {
+    return run(store);
+  } finally {
+    globalThis.window = original;
+  }
+}
+
+describe('isValidThemeChoice', () => {
+  test('acepta system ademas de los dos temas', () => {
+    assert.equal(isValidThemeChoice(SYSTEM), true);
+    assert.equal(isValidThemeChoice(LIGHT), true);
+    assert.equal(isValidThemeChoice(DARK), true);
+  });
+
+  test('rechaza cualquier otra cosa', () => {
+    assert.equal(isValidThemeChoice('auto'), false);
+    assert.equal(isValidThemeChoice(null), false);
+  });
+});
+
+describe('readStoredThemeChoice', () => {
+  test('sin nada guardado la eleccion es system', () => {
+    withFullLocalStorage({}, () => {
+      assert.equal(readStoredThemeChoice(), SYSTEM);
+    });
+  });
+
+  test('un tema guardado se devuelve tal cual', () => {
+    withFullLocalStorage({ [THEME_STORAGE_KEY]: DARK }, () => {
+      assert.equal(readStoredThemeChoice(), DARK);
+    });
+  });
+
+  test('un valor invalido se trata como system', () => {
+    withFullLocalStorage({ [THEME_STORAGE_KEY]: 'morado' }, () => {
+      assert.equal(readStoredThemeChoice(), SYSTEM);
+    });
+  });
+});
+
+describe('writeStoredThemeChoice', () => {
+  test('elegir system borra la clave en vez de guardar la palabra', () => {
+    withFullLocalStorage({ [THEME_STORAGE_KEY]: DARK }, (store) => {
+      writeStoredThemeChoice(SYSTEM);
+      assert.equal(store.has(THEME_STORAGE_KEY), false);
+    });
+  });
+
+  test('elegir un tema lo persiste', () => {
+    withFullLocalStorage({}, (store) => {
+      writeStoredThemeChoice(LIGHT);
+      assert.equal(store.get(THEME_STORAGE_KEY), LIGHT);
+    });
+  });
+
+  test('ignora una eleccion invalida', () => {
+    withFullLocalStorage({ [THEME_STORAGE_KEY]: DARK }, (store) => {
+      writeStoredThemeChoice('morado');
+      assert.equal(store.get(THEME_STORAGE_KEY), DARK);
+    });
+  });
+});
+
+describe('resolveThemeChoice', () => {
+  test('system sigue al sistema', () => {
+    assert.equal(resolveThemeChoice(SYSTEM, true), DARK);
+    assert.equal(resolveThemeChoice(SYSTEM, false), LIGHT);
+  });
+
+  test('una eleccion explicita le gana al sistema', () => {
+    assert.equal(resolveThemeChoice(LIGHT, true), LIGHT);
+    assert.equal(resolveThemeChoice(DARK, false), DARK);
   });
 });

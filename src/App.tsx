@@ -6,12 +6,12 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import PageRenderer from './pages/PageRenderer';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './i18n/languages';
-import { useAccessibilityMode } from './hooks/useAccessibility.ts';
+import { useReduceMotion } from './hooks/useAccessibility.ts';
 
 function App() {
   const location = useLocation();
   const { i18n } = useTranslation();
-  const reduceMotion = useAccessibilityMode();
+  const reduceMotion = useReduceMotion();
 
   useEffect(() => {
     const firstSegment = location.pathname.split('/').filter(Boolean)[0];

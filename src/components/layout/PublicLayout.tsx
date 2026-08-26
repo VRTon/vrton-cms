@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
+import AccessibilityPanel from '../common/AccessibilityPanel';
+import { useReduceMotion } from '../../hooks/useAccessibility.ts';
 
 function PublicLayout() {
   const location = useLocation();
-  const reduceMotion = useAccessibilityMode();
+  const reduceMotion = useReduceMotion();
   const hideShell = location.pathname === '/discord' || location.pathname === '/discord/' || location.pathname === '/discord.html';
 
   useEffect(() => {
@@ -54,6 +55,7 @@ function PublicLayout() {
       {!hideShell && <NavBar />}
       <Outlet />
       {!hideShell && <Footer />}
+      {!hideShell && <AccessibilityPanel />}
     </>
   );
 }

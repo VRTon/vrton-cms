@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../common/Button';
 import SocialIcons from '../common/SocialIcons';
 import { withBasePath } from '../../utils/assetPath';
-import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
+import { useReduceMotion } from '../../hooks/useAccessibility.ts';
 
 const FlyingHeartsBackground = lazy(() => import('./FlyingHeartsBackground'));
 
@@ -30,7 +30,7 @@ interface HeroProps {
 }
 
 function Hero({ config = {} }: HeroProps) {
-  const reduceMotion = useAccessibilityMode();
+  const reduceMotion = useReduceMotion();
   const { t } = useTranslation();
 
   const title = config.title || t('home.hero.title');

@@ -1,71 +1,152 @@
 export const ACCESSIBILITY_STORAGE_KEY = 'vrton-accessibility';
 
-export const ON = 'on';
-export const OFF = 'off';
+export const TEXT_SIZE_NORMAL = 'normal';
+export const TEXT_SIZE_LARGE = 'large';
+export const TEXT_SIZE_XLARGE = 'xlarge';
 
-/** Clase que pide la Tarea 5. Va en el body y activa todo el modo. */
-export const ACCESSIBILITY_CLASS = 'accessibility-mode';
+export type TextSize =
+  | typeof TEXT_SIZE_NORMAL
+  | typeof TEXT_SIZE_LARGE
+  | typeof TEXT_SIZE_XLARGE;
 
-/**
- * Atributo espejo en <html>. Existe por una razon concreta: casi todos los
- * tamanos de index.css estan en rem, y rem se calcula sobre el font-size de
- * <html>, no del body. Con la clase solamente en el body no habria forma de
- * subir la tipografia base sin reescribir el archivo entero.
- */
-export const ACCESSIBILITY_ATTRIBUTE = 'data-a11y';
+export const TEXT_SIZES: readonly TextSize[] = [
+  TEXT_SIZE_NORMAL,
+  TEXT_SIZE_LARGE,
+  TEXT_SIZE_XLARGE,
+];
 
-export function isValidStoredValue(value: unknown): value is typeof ON | typeof OFF {
-  return value === ON || value === OFF;
+export interface AccessibilityPreferences {
+  textSize: TextSize
+  highContrast: boolean
+  reduceMotion: boolean
+  underlineLinks: boolean
 }
 
-export function readStoredAccessibility(): boolean | null {
+export const DEFAULT_PREFERENCES: AccessibilityPreferences = {
+  textSize: TEXT_SIZE_NORMAL,
+  highContrast: false,
+  reduceMotion: false,
+  underlineLinks: false,
+};
+
+export const LEGACY_ON = 'on';
+export const LEGACY_OFF = 'off';
+
+export const LEGACY_ON_PREFERENCES: AccessibilityPreferences = {
+  textSize: TEXT_SIZE_LARGE,
+  highContrast: true,
+  reduceMotion: true,
+  underlineLinks: true,
+};
+
+export const TEXT_SIZE_ATTRIBUTE = 'data-a11y-text-size';
+export const TEXT_SCALED_CLASS = 'a11y-text-scaled';
+export const HIGH_CONTRAST_CLASS = 'a11y-high-contrast';
+export const REDUCE_MOTION_CLASS = 'a11y-reduce-motion';
+export const UNDERLINE_LINKS_CLASS = 'a11y-underline-links';
+
+export function isValidTextSize(value: unknown): value is TextSize {
+  return value === TEXT_SIZE_NORMAL || value === TEXT_SIZE_LARGE || value === TEXT_SIZE_XLARGE;
+}
+
+export function normalizePreferences(value: unknown): AccessibilityPreferences {
+  if (!value || typeof value !== 'object') {
+    return { ...DEFAULT_PREFERENCES };
+  }
+
+  const source = value as Record<string, unknown>;
+
+  return {
+    textSize: isValidTextSize(source.textSize) ? source.textSize : DEFAULT_PREFERENCES.textSize,
+    highContrast: source.highContrast === true,
+    reduceMotion: source.reduceMotion === true,
+    underlineLinks: source.underlineLinks === true,
+  };
+}
+
+export function parseStoredPreferences(raw: string | null): AccessibilityPreferences | null {
+  if (raw === null) {
+    return null;
+  }
+
+  if (raw === LEGACY_ON) {
+    return { ...LEGACY_ON_PREFERENCES };
+  }
+
+  if (raw === LEGACY_OFF) {
+    return { ...DEFAULT_PREFERENCES };
+  }
+
   try {
-    const raw = window.localStorage.getItem(ACCESSIBILITY_STORAGE_KEY);
-    if (!isValidStoredValue(raw)) {
-      return null;
-    }
-    return raw === ON;
+    return normalizePreferences(JSON.parse(raw));
   } catch {
     return null;
   }
 }
 
-export function writeStoredAccessibility(enabled: boolean): void {
+export function readStoredPreferences(): AccessibilityPreferences | null {
   try {
-    window.localStorage.setItem(ACCESSIBILITY_STORAGE_KEY, enabled ? ON : OFF);
+    return parseStoredPreferences(window.localStorage.getItem(ACCESSIBILITY_STORAGE_KEY));
   } catch {
-    // Navegador en modo privado o storage lleno. El modo igual funciona en memoria.
+    return null;
   }
 }
 
-/**
- * El modo accesible arranca apagado y solo se enciende a mano.
- *
- * No se auto-activa desde prefers-reduced-motion ni prefers-contrast a
- * proposito: subir la tipografia un 25% y cambiar toda la paleta a AAA porque
- * el sistema pidio menos animacion seria una sorpresa desagradable, y ademas
- * chocaria con el criterio 10, que exige que no haya regresion visual en modo
- * normal. La preferencia del sistema se respeta igual, pero solo en la parte
- * que corresponde: el bloque @media (prefers-reduced-motion: reduce) de
- * index.css apaga las animaciones tenga el modo encendido o no.
- */
-export function resolveAccessibility(storedEnabled: boolean | null): boolean {
-  return storedEnabled === true;
+export function writeStoredPreferences(preferences: AccessibilityPreferences): void {
+  try {
+    window.localStorage.setItem(
+      ACCESSIBILITY_STORAGE_KEY,
+      JSON.stringify(normalizePreferences(preferences)),
+    );
+  } catch {
+    return;
+  }
 }
 
-export function applyAccessibility(enabled: boolean, doc?: Document): void {
+export function clearStoredPreferences(): void {
+  try {
+    window.localStorage.removeItem(ACCESSIBILITY_STORAGE_KEY);
+  } catch {
+    return;
+  }
+}
+
+export function resolvePreferences(stored: AccessibilityPreferences | null): AccessibilityPreferences {
+  return stored ? normalizePreferences(stored) : { ...DEFAULT_PREFERENCES };
+}
+
+export function withPreference<K extends keyof AccessibilityPreferences>(
+  preferences: AccessibilityPreferences,
+  key: K,
+  value: AccessibilityPreferences[K],
+): AccessibilityPreferences {
+  return normalizePreferences({ ...preferences, [key]: value });
+}
+
+export function isDefaultPreferences(preferences: AccessibilityPreferences): boolean {
+  const resolved = normalizePreferences(preferences);
+  return resolved.textSize === DEFAULT_PREFERENCES.textSize
+    && !resolved.highContrast
+    && !resolved.reduceMotion
+    && !resolved.underlineLinks;
+}
+
+export function applyPreferences(preferences: AccessibilityPreferences, doc?: Document): void {
   const target = doc || (typeof document === 'undefined' ? null : document);
   if (!target) {
     return;
   }
 
-  if (target.body) {
-    target.body.classList.toggle(ACCESSIBILITY_CLASS, enabled);
+  const resolved = normalizePreferences(preferences);
+
+  target.documentElement.setAttribute(TEXT_SIZE_ATTRIBUTE, resolved.textSize);
+
+  if (!target.body) {
+    return;
   }
 
-  if (enabled) {
-    target.documentElement.setAttribute(ACCESSIBILITY_ATTRIBUTE, ON);
-  } else {
-    target.documentElement.removeAttribute(ACCESSIBILITY_ATTRIBUTE);
-  }
+  target.body.classList.toggle(TEXT_SCALED_CLASS, resolved.textSize !== TEXT_SIZE_NORMAL);
+  target.body.classList.toggle(HIGH_CONTRAST_CLASS, resolved.highContrast);
+  target.body.classList.toggle(REDUCE_MOTION_CLASS, resolved.reduceMotion);
+  target.body.classList.toggle(UNDERLINE_LINKS_CLASS, resolved.underlineLinks);
 }
