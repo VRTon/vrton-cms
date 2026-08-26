@@ -146,6 +146,9 @@ function AccessibilityPanel() {
       first.focus();
     }
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault();
@@ -172,7 +175,10 @@ function AccessibilityPanel() {
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open, close]);
 
   const themeOptions: Array<SegmentedOption<ThemeChoice>> = [

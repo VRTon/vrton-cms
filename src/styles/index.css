@@ -1972,6 +1972,7 @@ body.a11y-high-contrast .navbar {
 
 body.a11y-high-contrast a:focus-visible,
 body.a11y-high-contrast button:focus-visible,
+body.a11y-high-contrast input:focus-visible,
 body.a11y-high-contrast select:focus-visible,
 body.a11y-high-contrast summary:focus-visible,
 body.a11y-high-contrast [role="button"]:focus-visible {
@@ -2048,6 +2049,7 @@ body.a11y-reduce-motion .logo {
 
 a:focus-visible,
 button:focus-visible,
+input:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [role="button"]:focus-visible {

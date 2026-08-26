@@ -187,6 +187,32 @@ test('el panel se cierra con Escape y devuelve el foco al boton', async ({ page 
   await expect(page.locator('.a11y-fab')).toBeFocused();
 });
 
+test('el panel bloquea el scroll de la pagina mientras esta abierto', async ({ page }) => {
+  await page.goto('/');
+  await openPanel(page);
+
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  const before = await page.evaluate(() => window.scrollY);
+  await page.mouse.wheel(0, 600);
+  await page.waitForTimeout(300);
+  expect(await page.evaluate(() => window.scrollY)).toBe(before);
+
+  await page.keyboard.press('Escape');
+  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+});
+
+test('las casillas del panel muestran el anillo de foco del sitio', async ({ page }) => {
+  await page.goto('/');
+  await openPanel(page);
+
+  await page.keyboard.press('Tab');
+  const outline = await page.evaluate(() => {
+    const el = document.activeElement;
+    return el ? getComputedStyle(el).outlineStyle : null;
+  });
+  expect(outline).toBe('solid');
+});
+
 test('la preferencia guardada del modo viejo se migra a las opciones nuevas', async ({ page }) => {
   await page.goto('/');
   await page.evaluate((key) => window.localStorage.setItem(key, 'on'), STORAGE_KEY);
