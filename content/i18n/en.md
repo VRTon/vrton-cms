@@ -18,7 +18,25 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "events": "Events",
     "faq": "FAQ",
     "get_involved": "Get Involved",
-    "language_label": "Language"
+    "language_label": "Language",
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Events",
+        "href": "#events"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Legal",
+        "href": "/legal"
+      }
+    ]
   },
   "theme": {
     "switch_to_dark": "Switch to dark mode",
@@ -59,15 +77,15 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "quick_links_items": [
       {
         "label": "Terms of Service",
-        "href": "/legal-terms"
+        "href": "/legal#terms"
       },
       {
         "label": "Code of Conduct",
-        "href": "/legal-code-of-conduct/"
+        "href": "/legal#code-of-conduct"
       },
       {
         "label": "Volunteering Terms",
-        "href": "/legal-volunteering/"
+        "href": "/legal#volunteering"
       }
     ],
     "rights": "All rights reserved."
@@ -122,7 +140,8 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     },
     "events": {
       "title": "Previous Events",
-      "goal_reached": "Goal Reached"
+      "goal_reached": "Goal Reached",
+      "view_edition": "View edition"
     },
     "faq": {
       "title": "Frequently Asked Questions",
@@ -319,6 +338,10 @@ updatedAt: "2026-05-21T03:25:31.940Z"
         }
       }
     }
+  },
+  "event_page": {
+    "gallery_label": "VRTon {{year}} gallery",
+    "no_photos": "No photos are available for this edition."
   },
   "errors": {
     "not_found": {

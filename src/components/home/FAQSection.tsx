@@ -11,7 +11,7 @@ interface FAQSectionConfig {
 }
 
 function FAQSection({ config = {} }: { config?: FAQSectionConfig }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { localizePath } = useLanguagePath();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -25,7 +25,9 @@ function FAQSection({ config = {} }: { config?: FAQSectionConfig }) {
   const rightFAQs = Array.isArray(config.rightItems) && config.rightItems.length > 0
     ? config.rightItems
     : (t('home.faq.right', { returnObjects: true }) as FAQItemType[]) || [];
-  const volunteeringUrl = localizePath('/legal/volunteering/');
+  const language = i18n.language.split('-')[0];
+  const volunteeringAnchor = language === 'en' ? 'volunteering' : 'voluntariado';
+  const volunteeringUrl = localizePath(`/legal#${volunteeringAnchor}`);
   const title = String(config.title || '').trim() || t('home.faq.title');
 
   return (

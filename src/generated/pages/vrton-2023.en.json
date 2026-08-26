@@ -1,0 +1,68 @@
+{
+  "slug": "vrton-2023",
+  "lang": "en",
+  "meta": {
+    "title": "VRTon 2023",
+    "description": "Overview of VRTon 2023, a charity event held in virtual reality with collaborating communities.",
+    "status": "published",
+    "updatedAt": "2026-08-14T00:00:00.000Z",
+    "kind": "event",
+    "seo": {}
+  },
+  "markdown": "",
+  "blocks": [
+    {
+      "type": "gallery",
+      "items": [
+        {
+          "src": "/Eventos/2023/event-2023-1.webp",
+          "alt": "VRTon 2023, photo 1"
+        },
+        {
+          "src": "/Eventos/2023/event-2023-2.webp",
+          "alt": "VRTon 2023, photo 2"
+        },
+        {
+          "src": "/Eventos/2023/event-2023-3.webp",
+          "alt": "VRTon 2023, photo 3"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Amount raised",
+      "items": [
+        {
+          "type": "markdown",
+          "markdown": "## U$D 474"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Collaborating communities",
+      "items": [
+        {
+          "type": "gallery",
+          "items": [
+            {
+              "src": "/Comunidades/Xtasis.webp",
+              "alt": "Xtasis logo",
+              "caption": "Xtasis"
+            },
+            {
+              "src": "/Comunidades/ElPecado.webp",
+              "alt": "El Pecado logo",
+              "caption": "El Pecado"
+            },
+            {
+              "src": "/Comunidades/CultOfSecrets.webp",
+              "alt": "Cult Of Secrets logo",
+              "caption": "Cult Of Secrets"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

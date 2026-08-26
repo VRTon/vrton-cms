@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import type { EventItem } from '../../types';
 import { withBasePath } from '../../utils/assetPath';
 import { useReduceMotion } from '../../hooks/useAccessibility.ts';
@@ -6,11 +7,13 @@ import { useReduceMotion } from '../../hooks/useAccessibility.ts';
 interface CarouselProps {
   events: EventItem[]
   year: string
+  href?: string
+  linkLabel?: string
 }
 
 const SLIDE_TRANSITION_MS = 1100;
 
-function Carousel({ events, year }: CarouselProps) {
+function Carousel({ events, year, href, linkLabel }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [previousSlide, setPreviousSlide] = useState<number | null>(null);
@@ -114,6 +117,14 @@ function Carousel({ events, year }: CarouselProps) {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {href ? (
+        <Link
+          className="event-card-link"
+          to={href}
+          aria-label={linkLabel || `VRTon ${year}`}
+        />
+      ) : null}
+
       <div className="carousel-inner">
         {events.map((event, index) => (
           <div
