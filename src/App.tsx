@@ -50,6 +50,7 @@ function App() {
     const firstSegment = location.pathname.split('/').filter(Boolean)[0];
     const supportedCodes = new Set(SUPPORTED_LANGUAGES.map((lang) => lang.code));
     const lang = supportedCodes.has(firstSegment) ? firstSegment : DEFAULT_LANGUAGE;
+    document.documentElement.lang = lang;
     if (i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
