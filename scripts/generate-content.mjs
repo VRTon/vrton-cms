@@ -11,7 +11,13 @@ const srcPagesOutDir = path.join(rootDir, 'src', 'generated', 'pages')
 
 const apiI18nOutDir = path.join(rootDir, 'public', 'api', 'i18n')
 const apiPagesOutDir = path.join(rootDir, 'public', 'api', 'pages')
+const publicRootDir = path.join(rootDir, 'public')
 const enabledLanguages = new Set(['en', 'es'])
+
+const defaultSiteUrl = 'https://vrton.github.io/vrton-cms/'
+const defaultLanguage = 'es'
+const eventRouteSegments = { es: 'eventos', en: 'events' }
+const redirectOnlySlugs = new Set(['legal-terms', 'legal-code-of-conduct', 'legal-volunteering'])
 
 const jsonBlockPattern = /```json\s*([\s\S]*?)```/i
 const blocksJsonPattern = /```json\s+blocks\s*([\s\S]*?)```/i
@@ -169,6 +175,7 @@ async function generatePages() {
 
   const pageFiles = await listMarkdownFilesRecursive(pagesContentDir)
   const pages = []
+  const routes = []
 
   for (const relativeFile of pageFiles) {
     const filePath = path.join(pagesContentDir, relativeFile)
@@ -204,6 +211,14 @@ async function generatePages() {
       updatedAt: parsed.meta.updatedAt,
       url: `/api/pages/${fileName}`,
     })
+
+    routes.push({
+      slug: parsed.slug,
+      lang: parsed.lang,
+      kind: parsed.meta.kind,
+      status: parsed.meta.status,
+      updatedAt: parsed.meta.updatedAt,
+    })
   }
 
   pages.sort((a, b) => `${a.slug}.${a.lang}`.localeCompare(`${b.slug}.${b.lang}`))
@@ -224,13 +239,88 @@ async function generatePages() {
   await fs.writeFile(path.join(srcPagesOutDir, 'index.json'), indexJson, 'utf8')
   await fs.writeFile(path.join(apiPagesOutDir, 'index.json'), indexJson, 'utf8')
 
-  return pages.length
+  return { pageCount: pages.length, routes }
+}
+
+function resolveSiteUrl() {
+  const configured = process.env.SITE_URL
+  if (configured) {
+    return configured.endsWith('/') ? configured : `${configured}/`
+  }
+
+  const repository = process.env.GITHUB_REPOSITORY
+  if (repository) {
+    const [owner, name] = repository.split('/')
+    if (owner && name) {
+      return `https://${owner.toLowerCase()}.github.io/${name}/`
+    }
+  }
+
+  return defaultSiteUrl
+}
+
+function buildRoutePath(slug, lang, kind) {
+  if (slug === 'home') {
+    return lang === defaultLanguage ? '' : lang
+  }
+
+  const prefix = lang === defaultLanguage ? '' : `${lang}/`
+
+  if (kind === 'event') {
+    return `${prefix}${eventRouteSegments[lang]}/${slug}`
+  }
+
+  return `${prefix}${slug}`
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
+function toSitemapDate(value) {
+  const parsed = new Date(value)
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString().slice(0, 10)
+}
+
+async function generateSitemap(routes) {
+  const siteUrl = resolveSiteUrl()
+
+  const entries = routes
+    .filter((route) => route.status === 'published')
+    .filter((route) => !redirectOnlySlugs.has(route.slug))
+    .map((route) => ({
+      loc: `${siteUrl}${buildRoutePath(route.slug, route.lang, route.kind)}`,
+      lastmod: toSitemapDate(route.updatedAt),
+    }))
+
+  entries.sort((a, b) => a.loc.localeCompare(b.loc))
+
+  const body = entries
+    .map((entry) => {
+      const lastmod = entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : ''
+      return `  <url>\n    <loc>${escapeXml(entry.loc)}</loc>${lastmod}\n  </url>`
+    })
+    .join('\n')
+
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`
+  await fs.writeFile(path.join(publicRootDir, 'sitemap.xml'), sitemapXml, 'utf8')
+
+  const robotsTxt = `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}sitemap.xml\n`
+  await fs.writeFile(path.join(publicRootDir, 'robots.txt'), robotsTxt, 'utf8')
+
+  return entries.length
 }
 
 async function generate() {
   const i18nCount = await generateI18n()
-  const pageCount = await generatePages()
-  console.log(`Generated ${i18nCount} i18n payloads and ${pageCount} page payloads`) 
+  const { pageCount, routes } = await generatePages()
+  const sitemapCount = await generateSitemap(routes)
+  console.log(`Generated ${i18nCount} i18n payloads, ${pageCount} page payloads and ${sitemapCount} sitemap entries`)
 }
 
 generate().catch((error) => {
