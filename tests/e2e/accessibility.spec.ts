@@ -1,6 +1,7 @@
 ﻿import { expect, test } from 'playwright/test';
 
 const STORAGE_KEY = 'vrton-accessibility';
+const THEME_KEY = 'vrton-theme';
 
 async function openPanel(page) {
   await page.getByRole('button', { name: 'Preferencias de accesibilidad' }).click();
@@ -222,6 +223,34 @@ test('la preferencia guardada del modo viejo se migra a las opciones nuevas', as
   await expect(page.locator('body')).toHaveClass(/a11y-high-contrast/);
   await expect(page.locator('body')).toHaveClass(/a11y-reduce-motion/);
   await expect(page.locator('body')).toHaveClass(/a11y-underline-links/);
+});
+
+test('el "off" del modo viejo no pisa el tema oscuro antes del primer pintado', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(([accessibilityKey, themeKey]) => {
+    window.localStorage.setItem(accessibilityKey, 'off');
+    window.localStorage.setItem(themeKey, 'dark');
+  }, [STORAGE_KEY, THEME_KEY]);
+
+  await page.route('**/main.tsx', (route) => route.abort());
+  await page.reload();
+
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator('html')).toHaveAttribute('data-a11y-text-size', 'normal');
+});
+
+test('un valor corrupto tampoco pisa el tema oscuro antes del primer pintado', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(([accessibilityKey, themeKey]) => {
+    window.localStorage.setItem(accessibilityKey, '{roto');
+    window.localStorage.setItem(themeKey, 'dark');
+  }, [STORAGE_KEY, THEME_KEY]);
+
+  await page.route('**/main.tsx', (route) => route.abort());
+  await page.reload();
+
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator('html')).toHaveAttribute('data-a11y-text-size', 'normal');
 });
 
 test('sin preferencias no hay regresion visual respecto al modo normal', async ({ page }) => {

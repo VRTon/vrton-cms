@@ -21,13 +21,17 @@
 
           var raw = window.localStorage.getItem('vrton-accessibility');
           var textSize = 'normal';
-          if (raw === 'on') {
-            textSize = 'large';
-          } else if (raw) {
-            var parsed = JSON.parse(raw);
-            if (parsed && (parsed.textSize === 'large' || parsed.textSize === 'xlarge')) {
-              textSize = parsed.textSize;
+          try {
+            if (raw === 'on') {
+              textSize = 'large';
+            } else if (raw && raw !== 'off') {
+              var parsed = JSON.parse(raw);
+              if (parsed && (parsed.textSize === 'large' || parsed.textSize === 'xlarge')) {
+                textSize = parsed.textSize;
+              }
             }
+          } catch (e) {
+            textSize = 'normal';
           }
           document.documentElement.setAttribute('data-a11y-text-size', textSize);
         } catch (e) {
