@@ -1,6 +1,4 @@
----
----
 User-agent: *
 Allow: /
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://vrton.github.io/vrton-cms/sitemap.xml
