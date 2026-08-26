@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { applyTransparentBackdrop } from './heroCanvasBackdrop.ts';
 
 interface HeartData {
   mesh: THREE.Mesh
@@ -40,7 +41,7 @@ function FlyingHeartsBackground() {
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setClearColor(0x000000, 0);
+    applyTransparentBackdrop(scene, renderer);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.premultipliedAlpha = true;
     container.appendChild(renderer.domElement);
