@@ -19,16 +19,6 @@
     <meta name="twitter:title" content="VRTon" />
     <meta name="twitter:description" content="Usando tecnologia para cambiar vidas a traves de la filantropia en realidad virtual." />
     <meta name="twitter:image" content="https://vrton.github.io/vrton-cms/android-chrome-512x512.png" />
-    <!--
-      Resuelve el tema antes del primer pintado para que no haya flash blanco
-      al cargar en modo oscuro. Tiene que ser inline y sincrono: si esperara al
-      bundle de React, la pagina ya se dibujo clara.
-
-      Duplica a proposito la logica de src/utils/theme.js (resolveTheme y
-      applyTheme). Son seis lineas y no hay forma de importar el modulo aca sin
-      volver a introducir el flash. Si cambia la clave o los colores, hay que
-      tocar los dos lados.
-    -->
     <script>
       (function () {
         try {
@@ -42,13 +32,21 @@
             meta.setAttribute('content', theme === 'dark' ? '#12100f' : '#ffffff');
           }
 
-          // Modo accesible, por el mismo motivo: sin esto la pagina se dibuja
-          // con la tipografia normal y salta al tamano grande recien cuando
-          // monta React. La clase del body la pone React, porque el <body>
-          // todavia no existe en este punto del <head>.
-          if (window.localStorage.getItem('vrton-accessibility') === 'on') {
-            document.documentElement.setAttribute('data-a11y', 'on');
+          var raw = window.localStorage.getItem('vrton-accessibility');
+          var textSize = 'normal';
+          try {
+            if (raw === 'on') {
+              textSize = 'large';
+            } else if (raw && raw !== 'off') {
+              var parsed = JSON.parse(raw);
+              if (parsed && (parsed.textSize === 'large' || parsed.textSize === 'xlarge')) {
+                textSize = parsed.textSize;
+              }
+            }
+          } catch (e) {
+            textSize = 'normal';
           }
+          document.documentElement.setAttribute('data-a11y-text-size', textSize);
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'light');
         }

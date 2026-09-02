@@ -1,9 +1,9 @@
 import { expect, test } from 'playwright/test';
 
 const editions = [
-  { year: '2023', amount: 'U$D 474', collaborators: 3 },
-  { year: '2024', amount: 'U$D 1458', collaborators: 8 },
-  { year: '2025', amount: 'U$D 3.255', collaborators: 12 },
+  { year: '2023', amount: 'USD 474', collaborators: 3 },
+  { year: '2024', amount: 'USD 1458', collaborators: 8 },
+  { year: '2025', amount: 'USD 3.255', collaborators: 12 },
 ];
 
 for (const edition of editions) {
@@ -78,6 +78,7 @@ test('works in dark and accessible modes', async ({ page }) => {
   await page.goto('/eventos/vrton-2025');
   await page.locator('.theme-toggle').click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-  await page.locator('.a11y-toggle').click();
-  await expect(page.locator('body')).toHaveClass(/accessibility-mode/);
+  await page.locator('.a11y-fab').click();
+  await page.getByRole('checkbox', { name: 'Alto contraste' }).check();
+  await expect(page.locator('body')).toHaveClass(/a11y-high-contrast/);
 });

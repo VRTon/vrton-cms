@@ -1,5 +1,5 @@
 import { arrayMove } from '@dnd-kit/sortable';
-import type { Block, Row, Column, Item, SectionBlock } from '../types.ts';
+import type { Block, Row, Column, Item, SectionBlock } from '../types/index.ts';
 import { normalizeSectionItems, createDefaultSectionColumn, createDefaultSectionRow, normalizeSectionRows } from '../components/page/utils.ts';
 import { parseColumnDropId, parseColumnDragId, parseColumnTargetId, parseAnyColumnTarget, parseRowDragId } from '../components/page/parsing.ts';
 import { isContainerBlock } from '../components/page/blocks.ts';

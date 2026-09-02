@@ -2,11 +2,13 @@ export const THEME_STORAGE_KEY = 'vrton-theme';
 
 export const LIGHT = 'light';
 export const DARK = 'dark';
+export const SYSTEM = 'system';
 
 export type Theme = typeof LIGHT | typeof DARK;
+export type ThemeChoice = Theme | typeof SYSTEM;
 
-// Color de la barra del navegador en cada tema. Alimenta <meta name="theme-color">,
-// que es lo que pinta la barra de direcciones en Android y en iOS instalado como PWA.
+export const THEME_CHOICES: readonly ThemeChoice[] = [SYSTEM, LIGHT, DARK];
+
 export const THEME_COLORS: Record<Theme, string> = {
   [LIGHT]: '#ffffff',
   [DARK]: '#12100f',
@@ -16,10 +18,6 @@ export function isValidTheme(value: unknown): value is Theme {
   return value === LIGHT || value === DARK;
 }
 
-/**
- * Decide el tema efectivo. Una eleccion guardada siempre le gana al sistema;
- * si no hay ninguna, manda prefers-color-scheme.
- */
 export function resolveTheme(storedTheme: unknown, systemPrefersDark: boolean): Theme {
   if (isValidTheme(storedTheme)) {
     return storedTheme;
@@ -47,14 +45,42 @@ export function writeStoredTheme(theme: Theme): void {
   try {
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
   } catch {
-    // Navegador en modo privado o storage lleno. El tema igual funciona en memoria.
+    return;
   }
 }
 
-/**
- * Escribe el tema en el DOM. Recibe el document en vez de asumirlo para poder
- * probarlo sin un navegador.
- */
+export function isValidThemeChoice(value: unknown): value is ThemeChoice {
+  return value === SYSTEM || isValidTheme(value);
+}
+
+export function readStoredThemeChoice(): ThemeChoice {
+  return readStoredTheme() || SYSTEM;
+}
+
+export function writeStoredThemeChoice(choice: ThemeChoice): void {
+  if (!isValidThemeChoice(choice)) {
+    return;
+  }
+
+  if (choice === SYSTEM) {
+    try {
+      window.localStorage.removeItem(THEME_STORAGE_KEY);
+    } catch {
+      return;
+    }
+    return;
+  }
+
+  writeStoredTheme(choice);
+}
+
+export function resolveThemeChoice(choice: unknown, systemPrefersDark: boolean): Theme {
+  if (isValidTheme(choice)) {
+    return choice;
+  }
+  return systemPrefersDark ? DARK : LIGHT;
+}
+
 export function applyTheme(theme: unknown, doc?: Document): void {
   const target = doc || (typeof document === 'undefined' ? null : document);
   if (!target || !isValidTheme(theme)) {

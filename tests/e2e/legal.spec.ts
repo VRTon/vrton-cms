@@ -104,7 +104,9 @@ test('restores the original legal cards in light, dark, and accessibility modes'
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await expect(firstCard).toBeVisible();
 
-  await page.getByRole('button', { name: /Activar modo accesibilidad/ }).click();
-  await expect(page.locator('body')).toHaveClass(/accessibility-mode/);
+  await page.locator('.a11y-fab').click();
+  await page.getByRole('checkbox', { name: 'Alto contraste' }).check();
+  await expect(page.locator('body')).toHaveClass(/a11y-high-contrast/);
+  await page.getByRole('button', { name: 'Cerrar' }).last().click();
   await expect(firstCard).toBeVisible();
 });
