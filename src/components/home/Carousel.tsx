@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import type { EventItem } from '../../types';
 import { withBasePath } from '../../utils/assetPath';
-import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
+import { useReduceMotion } from '../../hooks/useAccessibility.ts';
 
 interface CarouselProps {
   events: EventItem[]
@@ -22,7 +22,7 @@ function Carousel({ events, year, href, linkLabel }: CarouselProps) {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
   const totalSlides = events.length;
-  const reduceMotion = useAccessibilityMode();
+  const reduceMotion = useReduceMotion();
 
   const goToSlide = useCallback((index: number, direction: 'next' | 'prev') => {
     if (!totalSlides) {

@@ -3,8 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../common/LanguageSwitcher';
 import ThemeToggle from '../common/ThemeToggle';
-import AccessibilityToggle from '../common/AccessibilityToggle';
-import { useAccessibilityMode } from '../../hooks/useAccessibility.ts';
+import { useReduceMotion } from '../../hooks/useAccessibility.ts';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../i18n/languages';
 import { withBasePath } from '../../utils/assetPath';
 
@@ -13,7 +12,7 @@ const supportedCodes = new Set(SUPPORTED_LANGUAGES.map((lang) => lang.code));
 function NavBar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const reduceMotion = useAccessibilityMode();
+  const reduceMotion = useReduceMotion();
 
   const normalizedLanguage = i18n.language.split('-')[0];
   const activeLang = supportedCodes.has(normalizedLanguage) ? normalizedLanguage : DEFAULT_LANGUAGE;
@@ -107,9 +106,6 @@ function NavBar() {
           </li>
           <li className="nav-item nav-theme-item">
             <ThemeToggle />
-          </li>
-          <li className="nav-item nav-a11y-item">
-            <AccessibilityToggle />
           </li>
         </ul>
       </div>

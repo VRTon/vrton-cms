@@ -2,13 +2,13 @@ import { useCallback, useEffect, useState } from 'react';
 import {
   DARK,
   LIGHT,
+  SYSTEM,
   applyTheme,
-  readStoredTheme,
-  resolveTheme,
-  toggleTheme as flipTheme,
-  writeStoredTheme,
+  readStoredThemeChoice,
+  resolveThemeChoice,
+  writeStoredThemeChoice,
 } from '../utils/theme.ts';
-import type { Theme } from '../utils/theme.ts';
+import type { Theme, ThemeChoice } from '../utils/theme.ts';
 
 const DARK_QUERY = '(prefers-color-scheme: dark)';
 
@@ -19,49 +19,72 @@ function getSystemPrefersDark(): boolean {
   return window.matchMedia(DARK_QUERY).matches;
 }
 
+interface ThemeState {
+  choice: ThemeChoice
+  theme: Theme
+}
+
+function readInitial(): ThemeState {
+  if (typeof window === 'undefined') {
+    return { choice: SYSTEM, theme: LIGHT };
+  }
+  const choice = readStoredThemeChoice();
+  return { choice, theme: resolveThemeChoice(choice, getSystemPrefersDark()) };
+}
+
+let currentState: ThemeState = readInitial();
+const listeners = new Set<(_value: ThemeState) => void>();
+
+function notify(next: ThemeState): void {
+  currentState = next;
+  applyTheme(next.theme);
+  listeners.forEach((listener) => listener(next));
+}
+
+if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+  window.matchMedia(DARK_QUERY).addEventListener('change', (event) => {
+    if (currentState.choice !== SYSTEM) {
+      return;
+    }
+    notify({ choice: SYSTEM, theme: event.matches ? DARK : LIGHT });
+  });
+}
+
 export interface UseThemeResult {
+  choice: ThemeChoice
   theme: Theme
   isDark: boolean
+  setChoice: (_choice: ThemeChoice) => void
   toggle: () => void
 }
 
 export function useTheme(): UseThemeResult {
-  // El script inline de public/index.html ya dejo el data-theme correcto antes
-  // del primer pintado. Aca se recalcula lo mismo para que React arranque con
-  // el estado que ya esta en pantalla y no provoque un salto.
-  const [theme, setTheme] = useState<Theme>(() => resolveTheme(readStoredTheme(), getSystemPrefersDark()));
-  const [hasExplicitChoice, setHasExplicitChoice] = useState<boolean>(() => readStoredTheme() !== null);
+  const [state, setState] = useState<ThemeState>(currentState);
 
   useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  // Mientras el usuario no haya elegido, el sitio sigue al sistema en vivo:
-  // si cambia el tema del SO con la pestana abierta, la pagina acompana.
-  useEffect(() => {
-    if (hasExplicitChoice || typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
-      return undefined;
-    }
-
-    const query = window.matchMedia(DARK_QUERY);
-    const handleChange = (event: MediaQueryListEvent) => {
-      setTheme(event.matches ? DARK : LIGHT);
+    listeners.add(setState);
+    setState(currentState);
+    return () => {
+      listeners.delete(setState);
     };
-
-    query.addEventListener('change', handleChange);
-    return () => query.removeEventListener('change', handleChange);
-  }, [hasExplicitChoice]);
-
-  const toggle = useCallback(() => {
-    setTheme((current) => {
-      const next = flipTheme(current);
-      writeStoredTheme(next);
-      return next;
-    });
-    setHasExplicitChoice(true);
   }, []);
 
-  return { theme, isDark: theme === DARK, toggle };
+  const setChoice = useCallback((choice: ThemeChoice) => {
+    writeStoredThemeChoice(choice);
+    notify({ choice, theme: resolveThemeChoice(choice, getSystemPrefersDark()) });
+  }, []);
+
+  const toggle = useCallback(() => {
+    setChoice(currentState.theme === DARK ? LIGHT : DARK);
+  }, [setChoice]);
+
+  return {
+    choice: state.choice,
+    theme: state.theme,
+    isDark: state.theme === DARK,
+    setChoice,
+    toggle,
+  };
 }
 
 export default useTheme;

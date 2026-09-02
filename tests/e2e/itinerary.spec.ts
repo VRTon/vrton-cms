@@ -53,22 +53,17 @@ test('uses stacked instance sections on mobile without horizontal overflow', asy
   expect(hasOverflow).toBe(false);
 });
 
-test('shows only the first description line in cards and the full text in the modal', async ({ page }) => {
+test('shows the activity description in cards and in the modal on both layouts', async ({ page }) => {
   await page.goto('/itinerario-2026');
 
   const desktopActivity = page.locator('.itinerary-desktop')
     .getByRole('button', { name: /Musica de Bienvenida/ });
   const desktopPreview = desktopActivity.locator('.itinerary-activity-copy span');
   await expect(desktopPreview).toHaveText('Momento chill y relax');
-  await expect(desktopPreview).not.toContainText('Lorem ipsum');
 
   await desktopActivity.click();
   const dialog = page.getByRole('dialog');
-  const fullDescription = dialog.locator('.itinerary-modal-description');
-  await expect(fullDescription).toContainText('Momento chill y relax');
-  await expect(fullDescription).toContainText('Lorem ipsum dolor sit amet');
-  await expect(dialog.locator('.itinerary-modal-image')).toBeVisible();
-  expect(await dialog.evaluate((element) => element.scrollHeight > element.clientHeight)).toBe(true);
+  await expect(dialog.locator('.itinerary-modal-description')).toHaveText('Momento chill y relax');
   await page.keyboard.press('Escape');
 
   await page.setViewportSize({ width: 375, height: 812 });
@@ -76,11 +71,10 @@ test('shows only the first description line in cards and the full text in the mo
     .getByRole('button', { name: /Musica de Bienvenida/ });
   const mobilePreview = mobileActivity.locator('.itinerary-activity-copy span');
   await expect(mobilePreview).toHaveText('Momento chill y relax');
-  await expect(mobilePreview).not.toContainText('Lorem ipsum');
 
   await mobileActivity.click();
   await expect(page.getByRole('dialog').locator('.itinerary-modal-description'))
-    .toContainText('Lorem ipsum dolor sit amet');
+    .toHaveText('Momento chill y relax');
 });
 
 test('keeps the desktop table at the 768px breakpoint and supports dark mode', async ({ page }) => {

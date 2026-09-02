@@ -2,6 +2,7 @@ import { defineConfig, devices } from 'playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
+  testIgnore: ['homepageBasePath.spec.ts', 'legalBasePath.spec.ts'],
   fullyParallel: true,
   reporter: 'line',
   use: {

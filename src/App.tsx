@@ -2,14 +2,12 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PublicLayout from './components/layout/PublicLayout';
-import AdminShell from './components/layout/AdminShell';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import PageRenderer from './pages/PageRenderer';
 import EventPage from './pages/EventPage';
-import AdminPage from './pages/AdminPage';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './i18n/languages';
-import { useAccessibilityMode } from './hooks/useAccessibility.ts';
+import { useReduceMotion } from './hooks/useAccessibility.ts';
 
 type LegalSection = 'terms' | 'code-of-conduct' | 'volunteering';
 
@@ -39,17 +37,16 @@ function LegacyLegalRedirect({
   return <Navigate replace to={`${basePath}#${anchors[language][section]}`} />;
 }
 
-const IS_DEV = import.meta.env.DEV;
-
 function App() {
   const location = useLocation();
   const { i18n } = useTranslation();
-  const reduceMotion = useAccessibilityMode();
+  const reduceMotion = useReduceMotion();
 
   useEffect(() => {
     const firstSegment = location.pathname.split('/').filter(Boolean)[0];
     const supportedCodes = new Set(SUPPORTED_LANGUAGES.map((lang) => lang.code));
     const lang = supportedCodes.has(firstSegment) ? firstSegment : DEFAULT_LANGUAGE;
+    document.documentElement.lang = lang;
     if (i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
@@ -110,12 +107,6 @@ function App() {
 
   return (
     <Routes>
-      {IS_DEV && (
-        <Route element={<AdminShell />}>
-          <Route path="/admin" element={<AdminPage />} />
-        </Route>
-      )}
-
       <Route element={<PublicLayout />}>
         {legacyLegalRoutes.map((route) => (
           <Route

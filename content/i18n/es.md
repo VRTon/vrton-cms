@@ -43,8 +43,22 @@ updatedAt: "2026-05-21T03:25:31.942Z"
     "switch_to_light": "Cambiar a modo claro"
   },
   "a11y": {
-    "enable": "Activar modo accesibilidad: mas contraste, letra mas grande y menos animaciones",
-    "disable": "Desactivar modo accesibilidad"
+    "open": "Preferencias de accesibilidad",
+    "title": "Preferencias de accesibilidad",
+    "close": "Cerrar",
+    "master": "Activar todas las opciones",
+    "theme_label": "Tema de color",
+    "theme_system": "Usar ajuste del sistema",
+    "theme_light": "Claro",
+    "theme_dark": "Oscuro",
+    "text_size_label": "Tamaño del texto",
+    "text_normal": "Normal",
+    "text_large": "Grande",
+    "text_xlarge": "Muy grande",
+    "high_contrast": "Alto contraste",
+    "reduce_motion": "Reducir animaciones",
+    "underline_links": "Subrayar enlaces",
+    "reset": "Restablecer preferencias"
   },
   "itinerary": {
     "schedule": "Programación de actividades",

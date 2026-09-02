@@ -2,15 +2,29 @@ import test, { describe } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   ACCESSIBILITY_STORAGE_KEY,
-  ACCESSIBILITY_CLASS,
-  ACCESSIBILITY_ATTRIBUTE,
-  ON,
-  OFF,
-  isValidStoredValue,
-  readStoredAccessibility,
-  writeStoredAccessibility,
-  resolveAccessibility,
-  applyAccessibility,
+  ALL_ON_PREFERENCES,
+  DEFAULT_PREFERENCES,
+  HIGH_CONTRAST_CLASS,
+  LEGACY_ON_PREFERENCES,
+  REDUCE_MOTION_CLASS,
+  TEXT_SCALED_CLASS,
+  TEXT_SIZE_ATTRIBUTE,
+  TEXT_SIZE_LARGE,
+  TEXT_SIZE_NORMAL,
+  TEXT_SIZE_XLARGE,
+  UNDERLINE_LINKS_CLASS,
+  applyPreferences,
+  areAllPreferencesOn,
+  clearStoredPreferences,
+  isAnyPreferenceOn,
+  isDefaultPreferences,
+  isValidTextSize,
+  normalizePreferences,
+  parseStoredPreferences,
+  readStoredPreferences,
+  resolvePreferences,
+  withPreference,
+  writeStoredPreferences,
 } from './accessibility.ts';
 
 function withLocalStorage(initial, run) {
@@ -20,6 +34,7 @@ function withLocalStorage(initial, run) {
     localStorage: {
       getItem: (k) => (store.has(k) ? store.get(k) : null),
       setItem: (k, v) => store.set(k, String(v)),
+      removeItem: (k) => store.delete(k),
     },
   };
   try {
@@ -48,115 +63,227 @@ function fakeDoc() {
   return { documentElement: html, body, _html: html, _classes: classes };
 }
 
-describe('resolveAccessibility', () => {
-  test('sin preferencia guardada arranca apagado', () => {
-    assert.equal(resolveAccessibility(null), false);
+describe('isValidTextSize', () => {
+  test('acepta los tres tamanos', () => {
+    assert.equal(isValidTextSize(TEXT_SIZE_NORMAL), true);
+    assert.equal(isValidTextSize(TEXT_SIZE_LARGE), true);
+    assert.equal(isValidTextSize(TEXT_SIZE_XLARGE), true);
   });
 
-  test('respeta la eleccion guardada', () => {
-    assert.equal(resolveAccessibility(true), true);
-    assert.equal(resolveAccessibility(false), false);
-  });
-});
-
-describe('isValidStoredValue', () => {
-  test('acepta solo on y off', () => {
-    assert.equal(isValidStoredValue(ON), true);
-    assert.equal(isValidStoredValue(OFF), true);
-    assert.equal(isValidStoredValue('true'), false);
-    assert.equal(isValidStoredValue('ON'), false);
-    assert.equal(isValidStoredValue(null), false);
+  test('rechaza cualquier otra cosa', () => {
+    assert.equal(isValidTextSize('gigante'), false);
+    assert.equal(isValidTextSize(null), false);
+    assert.equal(isValidTextSize(2), false);
   });
 });
 
-describe('readStoredAccessibility', () => {
-  test('lee on como encendido', () => {
-    withLocalStorage({ [ACCESSIBILITY_STORAGE_KEY]: ON }, () => {
-      assert.equal(readStoredAccessibility(), true);
+describe('normalizePreferences', () => {
+  test('un objeto vacio cae en los valores por defecto', () => {
+    assert.deepEqual(normalizePreferences({}), DEFAULT_PREFERENCES);
+  });
+
+  test('lo que no es objeto tambien cae en los valores por defecto', () => {
+    assert.deepEqual(normalizePreferences(null), DEFAULT_PREFERENCES);
+    assert.deepEqual(normalizePreferences('grande'), DEFAULT_PREFERENCES);
+  });
+
+  test('descarta un tamano invalido y conserva el resto', () => {
+    assert.deepEqual(
+      normalizePreferences({ textSize: 'gigante', highContrast: true }),
+      { ...DEFAULT_PREFERENCES, highContrast: true },
+    );
+  });
+
+  test('solo el booleano true enciende una opcion', () => {
+    const parsed = normalizePreferences({
+      highContrast: 'si',
+      reduceMotion: 1,
+      underlineLinks: true,
+    });
+    assert.equal(parsed.highContrast, false);
+    assert.equal(parsed.reduceMotion, false);
+    assert.equal(parsed.underlineLinks, true);
+  });
+});
+
+describe('parseStoredPreferences', () => {
+  test('sin nada guardado devuelve null', () => {
+    assert.equal(parseStoredPreferences(null), null);
+  });
+
+  test('migra el "on" del modo viejo a todas las opciones encendidas', () => {
+    assert.deepEqual(parseStoredPreferences('on'), LEGACY_ON_PREFERENCES);
+  });
+
+  test('migra el "off" del modo viejo a los valores por defecto', () => {
+    assert.deepEqual(parseStoredPreferences('off'), DEFAULT_PREFERENCES);
+  });
+
+  test('lee el JSON nuevo', () => {
+    const stored = JSON.stringify({
+      textSize: TEXT_SIZE_XLARGE,
+      highContrast: true,
+      reduceMotion: false,
+      underlineLinks: true,
+    });
+    assert.deepEqual(parseStoredPreferences(stored), {
+      textSize: TEXT_SIZE_XLARGE,
+      highContrast: true,
+      reduceMotion: false,
+      underlineLinks: true,
     });
   });
 
-  test('lee off como apagado', () => {
-    withLocalStorage({ [ACCESSIBILITY_STORAGE_KEY]: OFF }, () => {
-      assert.equal(readStoredAccessibility(), false);
-    });
+  test('un JSON roto devuelve null y no revienta', () => {
+    assert.equal(parseStoredPreferences('{no es json'), null);
   });
+});
 
-  test('sin nada guardado devuelve null, que no es lo mismo que apagado', () => {
+describe('readStoredPreferences y writeStoredPreferences', () => {
+  test('lo escrito se vuelve a leer igual', () => {
     withLocalStorage({}, () => {
-      assert.equal(readStoredAccessibility(), null);
+      const preferences = {
+        textSize: TEXT_SIZE_LARGE,
+        highContrast: true,
+        reduceMotion: true,
+        underlineLinks: false,
+      };
+      writeStoredPreferences(preferences);
+      assert.deepEqual(readStoredPreferences(), preferences);
     });
   });
 
-  test('un valor corrupto se trata como ausencia de preferencia', () => {
-    withLocalStorage({ [ACCESSIBILITY_STORAGE_KEY]: 'quizas' }, () => {
-      assert.equal(readStoredAccessibility(), null);
-    });
-  });
-
-  test('no explota si localStorage tira una excepcion', () => {
-    const original = globalThis.window;
-    globalThis.window = {
-      localStorage: { getItem() { throw new Error('SecurityError'); } },
-    };
-    try {
-      assert.equal(readStoredAccessibility(), null);
-    } finally {
-      globalThis.window = original;
-    }
-  });
-});
-
-describe('writeStoredAccessibility', () => {
-  test('persiste con la clave que pide el issue', () => {
+  test('guarda bajo la clave que espera el script inline', () => {
     withLocalStorage({}, (store) => {
-      writeStoredAccessibility(true);
-      assert.equal(store.get(ACCESSIBILITY_STORAGE_KEY), ON);
-      writeStoredAccessibility(false);
-      assert.equal(store.get(ACCESSIBILITY_STORAGE_KEY), OFF);
+      writeStoredPreferences(DEFAULT_PREFERENCES);
+      assert.equal(store.has(ACCESSIBILITY_STORAGE_KEY), true);
     });
   });
 
-  test('no explota si localStorage tira una excepcion', () => {
-    const original = globalThis.window;
-    globalThis.window = {
-      localStorage: { setItem() { throw new Error('QuotaExceededError'); } },
-    };
-    try {
-      assert.doesNotThrow(() => writeStoredAccessibility(true));
-    } finally {
-      globalThis.window = original;
-    }
+  test('clearStoredPreferences borra la clave', () => {
+    withLocalStorage({ [ACCESSIBILITY_STORAGE_KEY]: 'on' }, (store) => {
+      clearStoredPreferences();
+      assert.equal(store.has(ACCESSIBILITY_STORAGE_KEY), false);
+      assert.equal(readStoredPreferences(), null);
+    });
   });
 });
 
-describe('applyAccessibility', () => {
-  test('CP2: al activar, el body recibe la clase accessibility-mode', () => {
-    const doc = fakeDoc();
-    applyAccessibility(true, doc);
-    assert.equal(doc._classes.has(ACCESSIBILITY_CLASS), true);
+describe('resolvePreferences', () => {
+  test('sin preferencia guardada arranca todo apagado', () => {
+    assert.deepEqual(resolvePreferences(null), DEFAULT_PREFERENCES);
   });
 
-  test('CP3: al desactivar, el body pierde la clase', () => {
-    const doc = fakeDoc();
-    applyAccessibility(true, doc);
-    applyAccessibility(false, doc);
-    assert.equal(doc._classes.has(ACCESSIBILITY_CLASS), false);
+  test('respeta lo guardado', () => {
+    const stored = { ...DEFAULT_PREFERENCES, reduceMotion: true };
+    assert.deepEqual(resolvePreferences(stored), stored);
+  });
+});
+
+describe('withPreference', () => {
+  test('cambia una sola opcion y deja el resto intacto', () => {
+    const base = { ...DEFAULT_PREFERENCES, highContrast: true };
+    const next = withPreference(base, 'underlineLinks', true);
+    assert.equal(next.highContrast, true);
+    assert.equal(next.underlineLinks, true);
+    assert.equal(next.reduceMotion, false);
+    assert.equal(next.textSize, TEXT_SIZE_NORMAL);
   });
 
-  test('el atributo espejo en html se pone y se quita', () => {
-    const doc = fakeDoc();
-    applyAccessibility(true, doc);
-    assert.equal(doc._html.attrs[ACCESSIBILITY_ATTRIBUTE], ON);
+  test('no muta el objeto original', () => {
+    const base = { ...DEFAULT_PREFERENCES };
+    withPreference(base, 'reduceMotion', true);
+    assert.equal(base.reduceMotion, false);
+  });
+});
 
-    applyAccessibility(false, doc);
-    assert.equal(doc._html.attrs[ACCESSIBILITY_ATTRIBUTE], undefined);
+describe('isDefaultPreferences', () => {
+  test('reconoce el estado por defecto', () => {
+    assert.equal(isDefaultPreferences(DEFAULT_PREFERENCES), true);
   });
 
-  test('no explota si todavia no hay body', () => {
+  test('cualquier opcion encendida ya no es el estado por defecto', () => {
+    assert.equal(isDefaultPreferences({ ...DEFAULT_PREFERENCES, reduceMotion: true }), false);
+    assert.equal(isDefaultPreferences({ ...DEFAULT_PREFERENCES, textSize: TEXT_SIZE_LARGE }), false);
+  });
+});
+
+describe('areAllPreferencesOn', () => {
+  test('reconoce el estado con todo encendido', () => {
+    assert.equal(areAllPreferencesOn(ALL_ON_PREFERENCES), true);
+  });
+
+  test('falta una sola opcion y ya no esta todo encendido', () => {
+    assert.equal(areAllPreferencesOn({ ...ALL_ON_PREFERENCES, underlineLinks: false }), false);
+    assert.equal(areAllPreferencesOn({ ...ALL_ON_PREFERENCES, textSize: TEXT_SIZE_NORMAL }), false);
+  });
+
+  test('el tamano muy grande tambien cuenta como encendido', () => {
+    assert.equal(areAllPreferencesOn({ ...ALL_ON_PREFERENCES, textSize: TEXT_SIZE_XLARGE }), true);
+  });
+
+  test('el estado por defecto no es todo encendido', () => {
+    assert.equal(areAllPreferencesOn(DEFAULT_PREFERENCES), false);
+  });
+});
+
+describe('isAnyPreferenceOn', () => {
+  test('el estado por defecto no tiene nada encendido', () => {
+    assert.equal(isAnyPreferenceOn(DEFAULT_PREFERENCES), false);
+  });
+
+  test('una sola opcion basta para que haya algo encendido', () => {
+    assert.equal(isAnyPreferenceOn({ ...DEFAULT_PREFERENCES, reduceMotion: true }), true);
+    assert.equal(isAnyPreferenceOn({ ...DEFAULT_PREFERENCES, textSize: TEXT_SIZE_LARGE }), true);
+  });
+
+  test('con todo encendido tambien hay algo encendido', () => {
+    assert.equal(isAnyPreferenceOn(ALL_ON_PREFERENCES), true);
+  });
+});
+
+describe('applyPreferences', () => {
+  test('en normal no deja ninguna clase puesta', () => {
     const doc = fakeDoc();
-    doc.body = null;
-    assert.doesNotThrow(() => applyAccessibility(true, doc));
-    assert.equal(doc._html.attrs[ACCESSIBILITY_ATTRIBUTE], ON);
+    applyPreferences(DEFAULT_PREFERENCES, doc);
+    assert.equal(doc._html.attrs[TEXT_SIZE_ATTRIBUTE], TEXT_SIZE_NORMAL);
+    assert.equal(doc._classes.size, 0);
+  });
+
+  test('cada opcion enciende solo su propia clase', () => {
+    const doc = fakeDoc();
+    applyPreferences({ ...DEFAULT_PREFERENCES, highContrast: true }, doc);
+    assert.equal(doc.body.classList.contains(HIGH_CONTRAST_CLASS), true);
+    assert.equal(doc.body.classList.contains(REDUCE_MOTION_CLASS), false);
+    assert.equal(doc.body.classList.contains(UNDERLINE_LINKS_CLASS), false);
+  });
+
+  test('un tamano distinto de normal agrega la clase de escala', () => {
+    const doc = fakeDoc();
+    applyPreferences({ ...DEFAULT_PREFERENCES, textSize: TEXT_SIZE_LARGE }, doc);
+    assert.equal(doc._html.attrs[TEXT_SIZE_ATTRIBUTE], TEXT_SIZE_LARGE);
+    assert.equal(doc.body.classList.contains(TEXT_SCALED_CLASS), true);
+  });
+
+  test('volver a normal saca la clase de escala', () => {
+    const doc = fakeDoc();
+    applyPreferences({ ...DEFAULT_PREFERENCES, textSize: TEXT_SIZE_XLARGE }, doc);
+    applyPreferences(DEFAULT_PREFERENCES, doc);
+    assert.equal(doc._html.attrs[TEXT_SIZE_ATTRIBUTE], TEXT_SIZE_NORMAL);
+    assert.equal(doc.body.classList.contains(TEXT_SCALED_CLASS), false);
+  });
+
+  test('las opciones son independientes entre si', () => {
+    const doc = fakeDoc();
+    applyPreferences({
+      textSize: TEXT_SIZE_NORMAL,
+      highContrast: false,
+      reduceMotion: true,
+      underlineLinks: true,
+    }, doc);
+    assert.equal(doc.body.classList.contains(HIGH_CONTRAST_CLASS), false);
+    assert.equal(doc.body.classList.contains(REDUCE_MOTION_CLASS), true);
+    assert.equal(doc.body.classList.contains(UNDERLINE_LINKS_CLASS), true);
+    assert.equal(doc.body.classList.contains(TEXT_SCALED_CLASS), false);
   });
 });

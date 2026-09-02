@@ -10,6 +10,7 @@ test-results
 public/src
 eslint-report.txt
 coverage/
+CLAUDE.md
 .vite/
 uploads/images/collaborators/
 uploads/images/events/

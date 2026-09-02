@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -1299,8 +1299,12 @@ body,
         --nav-height: 70px;
     }
 
-    :root[data-a11y="on"] {
+    :root[data-a11y-text-size="large"] {
         --nav-height: 88px;
+    }
+
+    :root[data-a11y-text-size="xlarge"] {
+        --nav-height: 100px;
     }
 
     .nav-container {
@@ -1818,29 +1822,88 @@ body,
 }
 
 /* ==========================================================================
-   Modo accesibilidad (Tarea 5)
-
-   Se activa con la clase .accessibility-mode en el <body>, que es lo que pide
-   el issue. El atributo data-a11y en <html> es un espejo de esa clase y existe
-   por una razon concreta: casi todos los tamanos de este archivo estan en rem,
-   y rem se calcula sobre el font-size de <html>, no del body. Sin el atributo
-   no habria forma de subir la tipografia base sin reescribir el archivo.
-
-   Es independiente del tema: funciona igual en claro y en oscuro, y los dos
-   pueden estar encendidos a la vez (CP12).
+   Accesibilidad (Tarea 5)
    ========================================================================== */
 
-/* Criterio 2: la base pasa de 16px a 20px. Como casi todo esta en rem, sube
-   texto y espaciado juntos, que es lo que espera alguien que agranda la letra. */
-:root[data-a11y="on"] {
+:root[data-a11y-text-size="large"] {
     font-size: 125%;
     --nav-height: 100px;
 }
 
-/* --------------------------------------------------------------------------
-   Criterio 3: contraste AAA 7:1. Valores calculados par por par, no estimados.
-   -------------------------------------------------------------------------- */
-body.accessibility-mode {
+:root[data-a11y-text-size="xlarge"] {
+    font-size: 150%;
+    --nav-height: 112px;
+}
+
+body.a11y-text-scaled {
+    line-height: 1.8;
+}
+
+body.a11y-text-scaled p,
+body.a11y-text-scaled li,
+body.a11y-text-scaled .faq-answer p,
+body.a11y-text-scaled .legal-section p,
+body.a11y-text-scaled .legal-section li,
+body.a11y-text-scaled .page-card p,
+body.a11y-text-scaled .page-card li,
+body.a11y-text-scaled .section-block-description,
+body.a11y-text-scaled .footer-text {
+    line-height: 1.8;
+}
+
+:root[data-a11y-text-size="xlarge"] body.a11y-text-scaled,
+:root[data-a11y-text-size="xlarge"] body.a11y-text-scaled p,
+:root[data-a11y-text-size="xlarge"] body.a11y-text-scaled li {
+    line-height: 1.9;
+}
+
+body.a11y-text-scaled p + p,
+body.a11y-text-scaled li + li {
+    margin-top: 0.8rem;
+}
+
+body.a11y-text-scaled .btn {
+    padding: 1.5rem 3.5rem;
+}
+
+:root[data-a11y-text-size="xlarge"] body.a11y-text-scaled .btn {
+    padding: 1.75rem 4rem;
+}
+
+body.a11y-text-scaled .nav-link {
+    padding: 0.9rem 1.4rem;
+}
+
+body.a11y-text-scaled .faq-question {
+    padding: 2rem 1.75rem;
+}
+
+body.a11y-text-scaled .footer-link {
+    padding: 0.35rem 0;
+}
+
+body.a11y-text-scaled .carousel-btn {
+    width: 56px;
+    height: 56px;
+}
+
+body.a11y-text-scaled .indicator {
+    width: 16px;
+    height: 16px;
+}
+
+body.a11y-text-scaled .theme-toggle {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+}
+
+body.a11y-text-scaled .social-icon {
+    width: 60px;
+    height: 60px;
+}
+
+body.a11y-high-contrast {
     --vrton-red: #a52b33;
     --vrton-red-rgb: 165, 43, 51;
     --accent-fill: #a52b33;
@@ -1870,7 +1933,7 @@ body.accessibility-mode {
     --hero-glow-stop: transparent;
 }
 
-:root[data-theme="dark"] body.accessibility-mode {
+:root[data-theme="dark"] body.a11y-high-contrast {
     --accent-text: #ff9ba3;
 
     --surface-page: #000000;
@@ -1891,15 +1954,10 @@ body.accessibility-mode {
     --gradient-hero: #000000;
 }
 
-/*
-   Los titulos usan background-clip: text con el relleno transparente, asi que
-   el color real sale de un degradado. Es el peor problema de contraste del
-   sitio y en modo accesible no puede quedarse: vuelven a color solido.
-*/
-body.accessibility-mode .hero-title,
-body.accessibility-mode .hero-subtitle,
-body.accessibility-mode .legal-page h1,
-body.accessibility-mode .error-code {
+body.a11y-high-contrast .hero-title,
+body.a11y-high-contrast .hero-subtitle,
+body.a11y-high-contrast .legal-page h1,
+body.a11y-high-contrast .error-code {
     background: none;
     -webkit-background-clip: border-box;
     background-clip: border-box;
@@ -1907,150 +1965,71 @@ body.accessibility-mode .error-code {
     color: var(--text-primary);
 }
 
-/* El navbar deja de ser translucido: el desenfoque sobre contenido en
-   movimiento arruina el contraste del texto que tiene encima. */
-body.accessibility-mode .navbar {
+body.a11y-high-contrast .navbar {
     backdrop-filter: none;
     border-bottom: 2px solid var(--border-strong);
 }
 
-/* --------------------------------------------------------------------------
-   Criterio 7: interlineado minimo 1.8
-   -------------------------------------------------------------------------- */
-body.accessibility-mode {
-    line-height: 1.8;
+body.a11y-high-contrast a:focus-visible,
+body.a11y-high-contrast button:focus-visible,
+body.a11y-high-contrast input:focus-visible,
+body.a11y-high-contrast select:focus-visible,
+body.a11y-high-contrast summary:focus-visible,
+body.a11y-high-contrast [role="button"]:focus-visible {
+    outline-width: 4px;
 }
 
-body.accessibility-mode p,
-body.accessibility-mode li,
-body.accessibility-mode .faq-answer p,
-body.accessibility-mode .legal-section p,
-body.accessibility-mode .legal-section li,
-body.accessibility-mode .page-card p,
-body.accessibility-mode .page-card li,
-body.accessibility-mode .section-block-description,
-body.accessibility-mode .footer-text {
-    line-height: 1.8;
-}
-
-body.accessibility-mode p + p,
-body.accessibility-mode li + li {
-    margin-top: 0.8rem;
-}
-
-/* --------------------------------------------------------------------------
-   Criterio 5: todos los enlaces subrayados, para no depender solo del color
-   -------------------------------------------------------------------------- */
-body.accessibility-mode a {
+body.a11y-underline-links a {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
 }
 
-/* El subrayado no aplica a los que son botones o iconos: ahi estorba y el
-   elemento ya se distingue por su forma. */
-body.accessibility-mode a.btn,
-body.accessibility-mode a.nav-btn,
-body.accessibility-mode a.social-icon,
-body.accessibility-mode a.footer-social-icon,
-body.accessibility-mode .nav-logo,
-body.accessibility-mode .collab-logo,
-body.accessibility-mode .event-collaborators a {
+body.a11y-underline-links a.btn,
+body.a11y-underline-links a.nav-btn,
+body.a11y-underline-links a.social-icon,
+body.a11y-underline-links a.footer-social-icon,
+body.a11y-underline-links .nav-logo,
+body.a11y-underline-links .collab-logo,
+body.a11y-underline-links .event-collaborators a {
     text-decoration: none;
 }
 
-/* --------------------------------------------------------------------------
-   Criterio 6: areas clickeables mas grandes
-   -------------------------------------------------------------------------- */
-body.accessibility-mode .btn {
-    padding: 1.5rem 3.5rem;
-}
-
-body.accessibility-mode .nav-link {
-    padding: 0.9rem 1.4rem;
-}
-
-body.accessibility-mode .faq-question {
-    padding: 2rem 1.75rem;
-}
-
-body.accessibility-mode .footer-link {
-    padding: 0.35rem 0;
-}
-
-body.accessibility-mode .carousel-btn {
-    width: 56px;
-    height: 56px;
-}
-
-body.accessibility-mode .indicator {
-    width: 16px;
-    height: 16px;
-}
-
-body.accessibility-mode .theme-toggle,
-body.accessibility-mode .a11y-toggle {
-    width: 48px;
-    height: 48px;
-    font-size: 1.2rem;
-}
-
-body.accessibility-mode .social-icon {
-    width: 60px;
-    height: 60px;
-}
-
-/* --------------------------------------------------------------------------
-   Criterio 4: animaciones reducidas
-
-   El CSS solo no alcanza. El ripple se inyecta por JS, el carrusel avanza con
-   un setInterval y los corazones son un loop de requestAnimationFrame sobre
-   Three.js, asi que esos cuatro van apagados desde los componentes.
-   -------------------------------------------------------------------------- */
-body.accessibility-mode *,
-body.accessibility-mode *::before,
-body.accessibility-mode *::after {
+body.a11y-reduce-motion *,
+body.a11y-reduce-motion *::before,
+body.a11y-reduce-motion *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
 }
 
-/* El hover no debe desplazar ni escalar: es el movimiento mas repetido del
-   sitio y aparece en casi todos los componentes. */
-body.accessibility-mode .btn:hover,
-body.accessibility-mode .nav-btn:hover,
-body.accessibility-mode .event-card:hover,
-body.accessibility-mode .social-icon:hover,
-body.accessibility-mode .footer-social-icon:hover,
-body.accessibility-mode .footer-link:hover,
-body.accessibility-mode .collab-logo:hover,
-body.accessibility-mode .page-card:hover,
-body.accessibility-mode .theme-toggle:hover,
-body.accessibility-mode .a11y-toggle:hover {
+body.a11y-reduce-motion .btn:hover,
+body.a11y-reduce-motion .nav-btn:hover,
+body.a11y-reduce-motion .event-card:hover,
+body.a11y-reduce-motion .social-icon:hover,
+body.a11y-reduce-motion .footer-social-icon:hover,
+body.a11y-reduce-motion .footer-link:hover,
+body.a11y-reduce-motion .collab-logo:hover,
+body.a11y-reduce-motion .page-card:hover,
+body.a11y-reduce-motion .theme-toggle:hover,
+body.a11y-reduce-motion .a11y-fab:hover {
     transform: none;
 }
 
-body.accessibility-mode .carousel-btn:hover {
+body.a11y-reduce-motion .carousel-btn:hover {
     transform: translateY(-50%);
 }
 
-/* El circulo que se expande dentro de los botones tambien es movimiento. */
-body.accessibility-mode .btn::before,
-body.accessibility-mode .btn:hover::before {
+body.a11y-reduce-motion .btn::before,
+body.a11y-reduce-motion .btn:hover::before {
     display: none;
 }
 
-body.accessibility-mode .logo {
+body.a11y-reduce-motion .logo {
     animation: none;
 }
 
-/*
-   Respetar prefers-reduced-motion siempre, este el modo encendido o no.
-   Aca si va un media query suelto y no rompe nada del admin: admin.css no
-   tiene un solo @keyframes, asi que lo unico que pasa es que sus transiciones
-   se vuelven instantaneas, que es exactamente lo que el usuario pidio.
-*/
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -2068,59 +2047,9 @@ body.accessibility-mode .logo {
     }
 }
 
-/* --------------------------------------------------------------------------
-   Boton de accesibilidad
-   -------------------------------------------------------------------------- */
-.nav-a11y-item {
-    display: flex;
-    align-items: center;
-}
-
-.a11y-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border-radius: 50%;
-    border: 2px solid var(--border-strong);
-    background: transparent;
-    color: var(--text-primary);
-    font-size: 1.15rem;
-    line-height: 1;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.a11y-toggle:hover {
-    color: var(--accent-text);
-    border-color: var(--vrton-red);
-    transform: translateY(-2px);
-}
-
-.a11y-toggle:active {
-    transform: translateY(0);
-}
-
-/* Encendido se nota sin depender solo del color. */
-.a11y-toggle-active {
-    background: var(--accent-fill);
-    color: var(--vrton-white);
-    border-color: var(--accent-fill);
-}
-
-.a11y-toggle-active:hover {
-    color: var(--vrton-white);
-}
-
-/*
-   Foco visible. El repositorio no tenia ni un :focus ni un outline en las dos
-   hojas de estilo, asi que navegar con teclado era adivinar donde estabas.
-   Va fuera del modo accesible a proposito: es el minimo para todo el mundo.
-*/
 a:focus-visible,
 button:focus-visible,
+input:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [role="button"]:focus-visible {
@@ -2129,27 +2058,257 @@ summary:focus-visible,
     border-radius: 4px;
 }
 
-body.accessibility-mode a:focus-visible,
-body.accessibility-mode button:focus-visible,
-body.accessibility-mode select:focus-visible,
-body.accessibility-mode summary:focus-visible,
-body.accessibility-mode [role="button"]:focus-visible {
-    outline-width: 4px;
+/* ==========================================================================
+   Panel de preferencias de accesibilidad
+   ========================================================================== */
+
+.a11y-fab {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    transition: all 0.3s ease;
+}
+
+.a11y-fab:hover {
+    color: var(--accent-text);
+    border-color: var(--vrton-red);
+    transform: translateY(-2px);
+}
+
+.a11y-fab:active {
+    transform: translateY(0);
+}
+
+.a11y-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.a11y-dialog {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 30rem;
+    max-height: 90vh;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.a11y-dialog-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 1.25rem 1.75rem 0;
+}
+
+.a11y-dialog-header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.75rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.a11y-dialog-title {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.a11y-dialog-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.a11y-dialog-close:hover {
+    border-color: var(--vrton-red);
+    color: var(--accent-text);
+}
+
+.a11y-field {
+    margin-bottom: 1.25rem;
+}
+
+.a11y-field-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.a11y-segmented {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.a11y-segment {
+    padding: 0.7rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.a11y-segment:hover {
+    border-color: var(--vrton-red);
+}
+
+.a11y-segment-active {
+    background: var(--surface-invert);
+    border-color: var(--surface-invert);
+    color: var(--text-on-invert);
+}
+
+.a11y-check {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.6rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.a11y-check:hover {
+    border-color: var(--vrton-red);
+}
+
+.a11y-check-master {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.1rem;
+    border: 0;
+    border-bottom: 1px solid var(--border-subtle);
+    border-radius: 0;
+    font-weight: 700;
+}
+
+.a11y-check-master:hover {
+    border-color: var(--border-subtle);
+    color: var(--accent-text);
+}
+
+.a11y-check input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-fill);
+    cursor: pointer;
+}
+
+.a11y-dialog-actions {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.25rem 1.75rem 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.a11y-dialog-reset,
+.a11y-dialog-done {
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.a11y-dialog-reset {
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.a11y-dialog-reset:hover {
+    border-color: var(--vrton-red);
+    color: var(--accent-text);
+}
+
+.a11y-dialog-done {
+    border: 1px solid var(--accent-fill);
+    background: var(--accent-fill);
+    color: #ffffff;
+}
+
+.a11y-dialog-done:hover {
+    filter: brightness(1.08);
 }
 
 @media (max-width: 768px) {
-    .a11y-toggle {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+    .a11y-fab {
+        right: 1rem;
+        bottom: 1rem;
+        width: 46px;
+        height: 46px;
+        font-size: 0.95rem;
     }
-}
 
-@media (max-width: 480px) {
-    .a11y-toggle {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-        border-width: 1px;
+    .a11y-dialog-header {
+        padding: 1.15rem 1.25rem 0.85rem;
+    }
+
+    .a11y-dialog-body {
+        padding: 1rem 1.25rem 0;
+    }
+
+    .a11y-dialog-actions {
+        padding: 1rem 1.25rem 1.15rem;
+    }
+
+    .a11y-segmented {
+        grid-auto-flow: row;
+    }
+
+    .a11y-dialog-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
     }
 }

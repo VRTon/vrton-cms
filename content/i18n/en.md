@@ -43,8 +43,22 @@ updatedAt: "2026-05-21T03:25:31.940Z"
     "switch_to_light": "Switch to light mode"
   },
   "a11y": {
-    "enable": "Enable accessibility mode: higher contrast, larger text and reduced motion",
-    "disable": "Disable accessibility mode"
+    "open": "Accessibility preferences",
+    "title": "Accessibility preferences",
+    "close": "Close",
+    "master": "Turn on every option",
+    "theme_label": "Color theme",
+    "theme_system": "Use system setting",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "text_size_label": "Text size",
+    "text_normal": "Normal",
+    "text_large": "Large",
+    "text_xlarge": "Extra large",
+    "high_contrast": "High contrast",
+    "reduce_motion": "Reduce motion",
+    "underline_links": "Underline links",
+    "reset": "Reset preferences"
   },
   "itinerary": {
     "schedule": "Activity schedule",
